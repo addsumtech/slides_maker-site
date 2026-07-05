@@ -204,9 +204,7 @@ footer .sp { flex:1; }
       <h2 id="vTitle"></h2>
       <p id="vLede"></p>
     </div>
-    <video controls preload="metadata" poster="docs/assets/intro-poster.jpg">
-      <source src="docs/assets/slide-maker-intro.mp4" type="video/mp4">
-    </video>
+    <video id="introVid" controls preload="metadata" playsinline></video>
   </div>
 </section>
 
@@ -257,7 +255,7 @@ const STR = {
     ctaFlip: 'Browse the decks ↓', ctaDl: '⬇ Grab the sample deck',
     ctaNote: 'The sample is the 15-page paper-talk deck. Open it in PowerPoint and click anything: the chart, the math, the speaker notes.',
     st1: 'complete decks', st2: 'languages × styles', st3: 'native editable PPTX', st4: 'free & open source',
-    vTitle: 'See it work · 2\u00bd min',
+    vTitle: 'See it work · 3 min',
     vLede: 'How one prompt becomes an editable deck: the interview, the build, and the self-review. English narration with captions.',
     galleryTitle: 'The gallery', hoverHint: 'Hover a cover to preview pages',
     pages: 'pages', flip: 'Flip online', dl: '.pptx',
@@ -280,8 +278,8 @@ const STR = {
     ctaFlip: '浏览全部 deck ↓', ctaDl: '⬇ 下载样例 .pptx',
     ctaNote: '样例是 15 页的论文精读 deck。在 PowerPoint 里打开随便点：图表、公式、讲稿备注，都是活的。',
     st1: '套完整 deck', st2: '两种语言 × 八种风格', st3: '原生可编辑 PPTX', st4: '免费开源',
-    vTitle: '2 分半，看它怎么干活',
-    vLede: '一条指令如何变成可编辑的 deck：访谈、构建、自检全流程。英文配音，带字幕。',
+    vTitle: '3 分钟，看它怎么干活',
+    vLede: '一条指令如何变成可编辑的 deck：访谈、构建、自检全流程。',
     galleryTitle: '模板画廊', hoverHint: '悬停封面可预览内页',
     pages: '页', flip: '在线翻页', dl: '.pptx',
     howTitle: '把任何一套当作你的模板',
@@ -349,6 +347,16 @@ function setLang(lang) {
   for (const k of ['byline','headline','lede','vTitle','vLede','st1','st2','st3','st4','galleryTitle','hoverHint','howTitle','hs1','hs2','hs3','howFoot','footText','footReadme','ctaNote']) {
     const el = document.getElementById(k);
     if (el) el.innerHTML = t[k];
+  }
+  const vid = document.getElementById('introVid');
+  if (vid) {
+    const cur = `docs/assets/slide-maker-intro-${lang}.mp4`;
+    if (!vid.src.endsWith(cur)) {
+      vid.pause();
+      vid.setAttribute('poster', `docs/assets/intro-poster-${lang}.jpg`);
+      vid.src = cur;
+      vid.load();
+    }
   }
   document.getElementById('ctaFlip').textContent = t.ctaFlip;
   document.getElementById('ctaDl').textContent = t.ctaDl;
