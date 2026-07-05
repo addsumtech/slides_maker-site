@@ -216,10 +216,6 @@ footer .sp { flex:1; }
 <main class="wrap" id="gallery">
   <div class="bar">
     <h2 id="galleryTitle"></h2>
-    <div class="toggle" role="tablist">
-      <button id="btn-en" onclick="setLang('en')">English decks</button>
-      <button id="btn-zh" onclick="setLang('zh')">中文 decks</button>
-    </div>
     <span class="hint" id="hoverHint"></span>
   </div>
   <div class="grid" id="grid"></div>
@@ -249,7 +245,7 @@ const STR = {
     st1: 'complete decks', st2: 'languages × styles', st3: 'native editable PPTX', st4: 'free & open source',
     vTitle: 'See it work · 3 min',
     vLede: 'How one prompt becomes an editable deck: the interview, the build, and the self-review. English narration with captions.',
-    galleryTitle: 'The gallery', hoverHint: 'Hover a cover to preview pages',
+    galleryTitle: 'The gallery', hoverHint: 'Hover a cover to flip through',
     pages: 'pages', flip: 'Flip online', dl: '.pptx',
     howTitle: 'Use any of these as your template',
     hs1: '<a href="https://github.com/addsumtech/slides_maker#quick-start">Install slide-maker</a> — clone the repo and run one install command. Every deck above ships inside it as template.pptx plus a style profile.',
@@ -298,7 +294,6 @@ function card(d, t) {
     <a class="cover" href="${view}">
       <img loading="lazy" src="${base}slide01.png" alt="${d.title} preview">
       <span class="dots"><i class="on"></i><i></i><i></i></span>
-      <span class="badge">${d.pages} ${t.pages}</span>
     </a>
     <div class="meta">
       <div class="name">${d.title}</div>
@@ -336,8 +331,6 @@ function setLang(lang) {
   if (history.replaceState) history.replaceState(null, '', lang === 'zh' ? '#zh' : '#en');
   const lb = document.getElementById('langBtn');
   if (lb) { lb.textContent = lang === 'zh' ? 'EN' : '中文'; lb.onclick = () => setLang(lang === 'zh' ? 'en' : 'zh'); }
-  document.getElementById('btn-en').classList.toggle('on', lang === 'en');
-  document.getElementById('btn-zh').classList.toggle('on', lang === 'zh');
   for (const k of ['byline','headline','lede','vTitle','vLede','st1','st2','st3','st4','galleryTitle','hoverHint','footText','footReadme','ctaNote']) {
     const el = document.getElementById(k);
     if (el) el.innerHTML = t[k];
