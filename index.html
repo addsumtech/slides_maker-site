@@ -219,19 +219,6 @@ footer .sp { flex:1; }
   </div>
   <div class="grid" id="grid"></div>
 
-  <section class="how">
-    <h3 id="howTitle"></h3>
-    <ol class="steps">
-      <li id="hs1"></li>
-      <li id="hs2"></li>
-      <li id="hs3"></li>
-    </ol>
-    <div class="codewrap">
-      <code id="howCode"></code>
-      <button id="howCopy"></button>
-    </div>
-    <p class="foot" id="howFoot"></p>
-  </section>
 </main>
 
 <footer>
@@ -344,7 +331,7 @@ function setLang(lang) {
   if (history.replaceState) history.replaceState(null, '', lang === 'zh' ? '#zh' : '#en');
   document.getElementById('btn-en').classList.toggle('on', lang === 'en');
   document.getElementById('btn-zh').classList.toggle('on', lang === 'zh');
-  for (const k of ['byline','headline','lede','vTitle','vLede','st1','st2','st3','st4','galleryTitle','hoverHint','howTitle','hs1','hs2','hs3','howFoot','footText','footReadme','ctaNote']) {
+  for (const k of ['byline','headline','lede','vTitle','vLede','st1','st2','st3','st4','galleryTitle','hoverHint','footText','footReadme','ctaNote']) {
     const el = document.getElementById(k);
     if (el) el.innerHTML = t[k];
   }
@@ -361,13 +348,6 @@ function setLang(lang) {
   document.getElementById('ctaFlip').textContent = t.ctaFlip;
   document.getElementById('ctaDl').textContent = t.ctaDl;
   document.getElementById('ctaDl').href = `templates/decks/${lang}/transformer-talk/template.pptx`;
-  document.getElementById('howCode').textContent = t.howCode;
-  const hc = document.getElementById('howCopy');
-  hc.textContent = t.howCopy;
-  hc.onclick = () => navigator.clipboard.writeText(t.howCode).then(() => {
-    hc.textContent = t.howCopied;
-    setTimeout(() => { hc.textContent = t.howCopy; }, 1600);
-  });
   document.title = t.title;
   document.documentElement.lang = (lang === 'zh') ? 'zh-CN' : 'en';
   document.getElementById('grid').innerHTML =
