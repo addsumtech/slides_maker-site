@@ -75,7 +75,11 @@ body::before { content:""; position:fixed; inset:0 0 auto 0; height:4px;
 .brand .name { font-weight:800; font-size:17px; letter-spacing:.01em; }
 .brand .by { color:var(--mute); font-size:12.5px; margin-left:2px; }
 .brand .by a { color:var(--mute); }
-.brand .gh { margin-left:auto; }
+.brand .langpill { margin-left:auto; border:1px solid var(--line); background:var(--card); border-radius:99px;
+  padding:7px 15px; font-size:13px; font-weight:700; color:var(--ink); cursor:pointer; letter-spacing:.02em;
+  transition:border-color .15s, color .15s; }
+.brand .langpill:hover { border-color:var(--accent); color:var(--accent); }
+.brand .gh { margin-left:0; }
 h1 { position:relative; font-size:clamp(30px, 4.6vw, 46px); line-height:1.14; margin:0 0 18px; max-width:820px;
   font-weight:800; letter-spacing:-0.015em; }
 h1 .hl { color:var(--accent); }
@@ -180,6 +184,7 @@ footer .sp { flex:1; }
       <img src="logo-160.png" alt="Addsum seal logo">
       <span class="name">slide-maker</span>
       <span class="by" id="byline"></span>
+      <button class="langpill" id="langBtn" aria-label="Switch language"></button>
       <a class="btn ghost gh" id="ghBtn" href="https://github.com/addsumtech/slides_maker">GitHub ★</a>
     </div>
     <h1 id="headline"></h1>
@@ -329,6 +334,8 @@ function armHoverPreview() {
 function setLang(lang) {
   const t = STR[lang];
   if (history.replaceState) history.replaceState(null, '', lang === 'zh' ? '#zh' : '#en');
+  const lb = document.getElementById('langBtn');
+  if (lb) { lb.textContent = lang === 'zh' ? 'EN' : '中文'; lb.onclick = () => setLang(lang === 'zh' ? 'en' : 'zh'); }
   document.getElementById('btn-en').classList.toggle('on', lang === 'en');
   document.getElementById('btn-zh').classList.toggle('on', lang === 'zh');
   for (const k of ['byline','headline','lede','vTitle','vLede','st1','st2','st3','st4','galleryTitle','hoverHint','footText','footReadme','ctaNote']) {
