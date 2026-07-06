@@ -150,8 +150,8 @@ if (!deck) {
   }
 
   const cmd = zh
-    ? `用 slide-maker，参考 templates/decks/${id}/template.pptx 的风格，按我的材料做一份 PPT。`
-    : `Use slide-maker. Follow the style of templates/decks/${id}/template.pptx and build from my material.`;
+    ? `用 slide-maker，参考 slides_maker-site/templates/decks/${id}/template.pptx 的风格，按我的材料做一份 PPT。`
+    : `Use slide-maker. Follow the style of slides_maker-site/templates/decks/${id}/template.pptx and build from my material.`;
   document.getElementById('useLbl').textContent = zh ? '当模板用：' : 'Use as a template:';
   document.getElementById('useCmd').textContent = cmd;
   const cp = document.getElementById('copyBtn');
