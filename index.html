@@ -322,7 +322,7 @@ function setLang(lang) {
   const t = STR[lang];
   if (history.replaceState) history.replaceState(null, '', lang === 'zh' ? '#zh' : '#en');
   const lb = document.getElementById('langBtn');
-  if (lb) { lb.textContent = lang === 'zh' ? 'EN' : '中文'; lb.onclick = () => setLang(lang === 'zh' ? 'en' : 'zh'); }
+  if (lb) { lb.textContent = lang === 'zh' ? 'EN' : '中文'; lb.onclick = () => { try { localStorage.setItem('addsum-lang', lang === 'zh' ? 'en' : 'zh'); } catch(e){} setLang(lang === 'zh' ? 'en' : 'zh'); }; }
   for (const k of ['byline','headline','lede','vTitle','vLede','st1','st2','st3','st4','galleryTitle','hoverHint','footText','footReadme','ctaNote']) {
     const el = document.getElementById(k);
     if (el) el.innerHTML = t[k];
@@ -344,7 +344,15 @@ function setLang(lang) {
     (window.DECKS || []).filter(d => d.lang === lang).map(d => card(d, t)).join('');
   armHoverPreview();
 }
-setLang(location.hash === '#zh' ? 'zh' : 'en');
+(function(){
+  var stored=null; try { stored=localStorage.getItem('addsum-lang'); } catch(e){}
+  var lang;
+  if (location.hash === '#zh') lang='zh';
+  else if (location.hash === '#en') lang='en';
+  else if (stored==='zh'||stored==='en') lang=stored;
+  else lang=/^zh/i.test((navigator.languages&&navigator.languages[0])||navigator.language||'') ? 'zh' : 'en';
+  setLang(lang);
+})();
 </script>
 </body>
 </html>
