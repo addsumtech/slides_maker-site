@@ -80,6 +80,8 @@ body::before { content:""; position:fixed; inset:0 0 auto 0; height:4px;
   transition:border-color .15s, color .15s; }
 .brand .langpill:hover { border-color:var(--accent); color:var(--accent); }
 .brand .gh { margin-left:0; }
+.brand .flip { padding:9px 18px; font-size:13.5px; }
+@media (max-width:760px) { .brand .flip { display:none; } }
 h1 { position:relative; font-size:clamp(30px, 4.6vw, 46px); line-height:1.14; margin:0 0 18px; max-width:820px;
   font-weight:800; letter-spacing:-0.015em; }
 h1 .hl { color:var(--accent); }
@@ -186,12 +188,10 @@ footer .sp { flex:1; }
       <span class="by" id="byline"></span>
       <button class="langpill" id="langBtn" aria-label="Switch language"></button>
       <a class="btn ghost gh" id="ghBtn" href="https://github.com/addsumtech/slides_maker">GitHub ★</a>
+      <a class="btn primary flip" id="ctaFlip" href="#gallery"></a>
     </div>
     <h1 id="headline"></h1>
     <p class="lede" id="lede"></p>
-    <div class="cta">
-      <a class="btn primary" id="ctaFlip" href="#gallery"></a>
-    </div>
   </div>
 </header>
 
