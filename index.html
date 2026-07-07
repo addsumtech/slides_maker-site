@@ -63,7 +63,7 @@ body::before { content:""; position:fixed; inset:0 0 auto 0; height:4px;
 .wrap { max-width:1180px; margin:0 auto; padding:0 26px; }
 
 /* ---------- hero ---------- */
-.hero { position:relative; padding:74px 0 44px; overflow:hidden; }
+.hero { position:relative; padding:74px 0 10px; overflow:hidden; }
 .hero .bgGrid { position:absolute; inset:0; pointer-events:none; opacity:.5;
   background-image:linear-gradient(var(--line) 1px, transparent 1px),
                    linear-gradient(90deg, var(--line) 1px, transparent 1px);
@@ -132,7 +132,7 @@ h1 .hl { color:var(--accent); }
 .meta .row a.dl:hover { border-color:var(--accent); color:var(--accent); }
 
 /* ---------- intro video ---------- */
-.vid { margin-top:34px; }
+.vid { margin-top:8px; }
 .vidcard { border:1px solid var(--line); background:var(--card); border-radius:16px; padding:24px 28px; }
 .vidhead { display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:14px; }
 .vidhead h2 { margin:0; font-size:20px; }
@@ -191,7 +191,6 @@ footer .sp { flex:1; }
     <p class="lede" id="lede"></p>
     <div class="cta">
       <a class="btn primary" id="ctaFlip" href="#gallery"></a>
-      <a class="btn ghost" id="ctaDl" href="templates/decks/en/transformer-talk/template.pptx" download></a>
     </div>
   </div>
 </header>
@@ -339,8 +338,6 @@ function setLang(lang) {
     }
   }
   document.getElementById('ctaFlip').textContent = t.ctaFlip;
-  document.getElementById('ctaDl').textContent = t.ctaDl;
-  document.getElementById('ctaDl').href = `templates/decks/${lang}/transformer-talk/template.pptx`;
   document.title = t.title;
   document.documentElement.lang = (lang === 'zh') ? 'zh-CN' : 'en';
   document.getElementById('grid').innerHTML =
