@@ -4,7 +4,7 @@ window.DECKS = [
     "lang": "en",
     "title": "Lab Meeting / Paper Talk",
     "use": "paper reading, lab meeting, method overview, experiment report",
-    "pages": 15
+    "pages": 16
   },
   {
     "id": "en/nvidia-overview",
@@ -18,7 +18,7 @@ window.DECKS = [
     "lang": "en",
     "title": "Data / Market Analysis",
     "use": "industry research, trend explanation, structured analysis",
-    "pages": 13
+    "pages": 14
   },
   {
     "id": "en/solo-company-talk",
@@ -32,21 +32,21 @@ window.DECKS = [
     "lang": "en",
     "title": "Teaching / Knowledge Sharing",
     "use": "class explanation, reading share, training material",
-    "pages": 16
+    "pages": 12
   },
   {
     "id": "en/chengdu",
     "lang": "en",
     "title": "Visual Storytelling / Culture",
     "use": "city, culture, event, brand story",
-    "pages": 12
+    "pages": 14
   },
   {
     "id": "en/standup-history",
     "lang": "en",
     "title": "History / Evolution Narrative",
     "use": "historical arc, industry evolution, timeline story",
-    "pages": 12
+    "pages": 13
   },
   {
     "id": "en/michael-jackson-king-of-pop",
@@ -88,21 +88,21 @@ window.DECKS = [
     "lang": "zh",
     "title": "课程 / 知识分享",
     "use": "课程讲解、读书分享、培训材料",
-    "pages": 16
+    "pages": 12
   },
   {
     "id": "zh/chengdu",
     "lang": "zh",
     "title": "视觉叙事 / 文化介绍",
     "use": "城市、文化、活动、品牌故事",
-    "pages": 12
+    "pages": 14
   },
   {
     "id": "zh/standup-history",
     "lang": "zh",
     "title": "历史 / 演变叙事",
     "use": "历史脉络、行业演进、时间线故事",
-    "pages": 12
+    "pages": 13
   },
   {
     "id": "zh/michael-jackson-king-of-pop",

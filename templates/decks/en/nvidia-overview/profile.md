@@ -1,54 +1,86 @@
-# Company Overview Template
+# NVIDIA — Company & Product Overview
+
+A flagship, presentation-grade example deck for the slide-maker public template gallery:
+a company & product overview built as a real, fact-checked deck rather than a lorem-ipsum
+mockup. It shows what a polished company-intro / product-matrix / customer-communication
+deck looks like — and doubles as a reusable **visual system** you can keep and pour your
+own company's content into.
 
 ## Template File
 
-`template.pptx`
+- `template.pptx` — the editable 16:9 deck (native text, shapes, and charts; fully editable
+  in PowerPoint / Keynote).
+- `render/slide01.png … slide16.png` — one PNG per slide (layout proof).
+- `build_nvidia.py` — the source-of-truth build script (re-run to regenerate the deck).
 
 ## Summary
 
-A 16-slide, 16:9 corporate company-overview deck, built around a single company's story (NVIDIA in the source). The visual system is confident and modern: a strong cover, an identity statement, an origin story, product pillars, a metrics page, and a forward-looking close. It is paced to introduce a company to investors, partners, recruits, or customers.
+**What it is.** A 16-slide English overview of NVIDIA — company profile, milestones, the
+full-stack platform, business model, revenue, a four-pillar product matrix (Data Center /
+Gaming / Pro Visualization / Automotive & Robotics), the CUDA software moat, competitive
+position, and a key-figures scoreboard. Every number is **web-verified against primary
+sources** (NVIDIA SEC filings and press releases, GTC 2025, Jon Peddie Research, market-cap
+trackers) as of July 2026; anything that could not be pinned to a clean source (e.g.
+AI-accelerator market share) is stated **qualitatively** rather than invented.
 
-Use this as a preset when the user wants a polished "who we are / what we build / why it matters" deck: a company overview, a pitch backbone, an investor intro, a product-portfolio tour, or a recruiting brand deck.
+**Where it fits.** Company introductions, investor/partner overviews, product-matrix
+briefings, and customer-communication decks for any technology company — especially ones
+that want a confident, engineering-flavoured dark look. It is deliberately a **self-read
+reference deck**: each slide is self-sufficient on screen or as a PNG.
 
-## Inspected Structure
+**How to reuse it.** Treat the *content* as a worked example and the *visual system* as the
+reusable asset. Keep the structure, chrome, semantic-colour contract, and component choices;
+swap NVIDIA's facts for your own. The palette, wordmark, "compute-grid" motif, and per-pillar
+colour coding are all defined once in `build_nvidia.py`, so re-skinning to another brand is a
+few edits — change the accent hue, the wordmark text, and the numbers, and the whole deck
+re-themes. The point of a real-content example is exactly this: a proven visual system you
+can trust, with content you replace.
 
-- Slide size: 10.00 x 5.62 in (16:9).
-- Slides: 16.
-- Layouts: 11.
-- Built-in layouts include `Title Slide`, `Title and Content`, `Section Header`, `Two Content`, `Comparison`, `Title Only`, `Blank`, `Content with Caption`, `Picture with Caption`, `Title and Vertical Text`, and `Vertical Title and Text`.
+## Structure
 
-## Existing Content Pattern
+1. **Cover** — "The accelerated computing company." + positioning line and as-of date.
+2. **Company at a glance** — identity facts (founding, founders, CEO, model) + a headline
+   figures panel (revenue, market cap, net income, R&D).
+3. **Full-stack platform** — the thesis: NVIDIA sells the whole stack (silicon → systems →
+   networking → software → ecosystem), as a layered diagram.
+4. **Milestones** — an alternating 1993–2025 timeline, plus a three-era summary band.
+5. **The AI inflection** — revenue trajectory column chart (FY2023–FY2026, total vs Data
+   Center) with a "$15B → $194B" takeaway rail. *(The money slide.)*
+6. **Business model** — a design→fabricate→integrate→software→deploy value chain, plus
+   "how it earns" and "why it holds" columns.
+7. **Revenue by segment** — an FY2025 donut + leaderboard showing Data Center dominance.
+8. **Product-line matrix** — the four hardware pillars as 2×2 cards over a spanning CUDA
+   software band.
+9. **Data Center & AI** — the architecture roadmap (Ampere → Rubin) + a GB200 NVL72 spec
+   panel and the full data-center stack.
+10. **Gaming** — GeForce RTX 50 (Blackwell) and DLSS 4 ("up to 8×").
+11. **Pro Visualization** — the Omniverse digital-twin loop (real → twin → simulate → deploy)
+    + RTX PRO and "why it matters".
+12. **Automotive & Robotics** — a three-tier "physical AI" stack (Isaac / Jetson Thor / DRIVE).
+13. **The moat** — CUDA: a "~6 million developers" hero + the software layers of lock-in.
+14. **Competitive position** — market-share meter bars + a challengers panel (AMD / Intel /
+    custom silicon).
+15. **Key figures** — a six-tile KPI scoreboard.
+16. **Close + sources** — "One platform, from graphics to the AI factory." + a sources strip.
 
-The source deck runs:
+## Fonts & Colors
 
-- `COMPANY OVERVIEW 2026`
-- `WHO WE ARE` / `OUR STORY` / `WHAT WE BUILD`
-- `BY THE NUMBERS`
-- `DATA CENTER · THE CORE`
-- `ANNUAL CADENCE` / `ADOPTION` / `THE MOAT` / `NETWORKING`
-- `GAMING · WHERE IT BEGAN` / `SIMULATION · DIGITAL TWINS` / `PHYSICAL AI`
-- `THE VALUE` / `TRAJECTORY` / `GET STARTED`
+**Fonts.** A deliberately portable, cross-platform pairing so the `.pptx` renders the same
+everywhere:
+- **Display & body:** Arial (bold for titles/heroes, regular for body) — lining figures keep
+  the many big numbers clean and baseline-aligned.
+- **Chrome / mono:** Consolas — the ">_" tracked eyebrows, footer tag, and page markers, for a
+  quiet "engineering terminal" voice. (Substitutes to a default monospace if Consolas is
+  absent; swap `deckkit.MONO` for a locally-installed mono to control it.)
 
-These are content examples only. Do not preserve NVIDIA facts unless the user's new deck is actually about NVIDIA.
+**Colours.** A near-black canvas with one signature brand hue and a strict semantic contract:
+- **Canvas:** `#0B0E10` near-black (base) and `#07120B` green-black (hero / cover / close).
+- **Panels & lines:** `#141A1E` panels, `#2A343B` hairlines; ink `#EDF2EE`; muted `#94A0A2`.
+- **NVIDIA green `#76B900`** (bright `#9BE01E` for small text) — *the* brand hue, bound to the
+  company, Data Center, and the growth story. It is the deck's one dominant accent.
+- **Pillar hues, used only for their pillar:** cyan `#2FB6E6` = Gaming · violet `#A585F5` =
+  Pro Visualization / Omniverse · amber `#F2A93B` = Automotive & Robotics · steel `#7C8A92` =
+  OEM / neutral / competitors.
 
-## Use It For
-
-- Company / startup overviews and corporate intros.
-- Investor and partner pitch backbones.
-- Product-portfolio and platform tours.
-- Recruiting and employer-brand decks.
-
-## Reuse Rules
-
-- Keep the arc: strong cover → identity → story → what you build → numbers → product pillars → value → trajectory → call to action.
-- Reuse the confident, modern visual feel and slide rhythm, not the original NVIDIA content.
-- Replace all company names, products, metrics, and claims with the user's actual material.
-- Works well for a mix of statement slides and metric slides; keep copy tight so each slide lands one idea.
-- For a deep technical review prefer an analytical preset (e.g. the MRI Reconstruction Trends template); for atmosphere-led storytelling prefer an editorial preset (e.g. the Chengdu template).
-
-## Agent Notes
-
-1. Run `scripts/inspect_template.py templates/decks/en/nvidia-overview/template.pptx` before building.
-2. Use `deckkit.open_template()` when building on this preset.
-3. Extract palette, fonts, and any recurring chrome from the source deck instead of hardcoding new colours.
-4. Treat the template as a visual system, not as source content.
+Colour carries meaning here: a hue always stands for the same thing across all 16 slides,
+which is what makes the deck read as one system rather than a set of styled pages.
