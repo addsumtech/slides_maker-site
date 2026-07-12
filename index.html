@@ -232,7 +232,7 @@ footer .sp { flex:1; }
 const REPO = 'https://github.com/addsumtech/slides_maker';
 const STR = {
   en: {
-    byline: 'by <a href="https://addsum.top/?lang=en">Addsum</a>',
+    byline: 'by <a href="https://addsum.top/">Addsum</a>',
     headline: 'Real decks. <span class="hl">Really editable.</span><br>Generated end-to-end by AI agents.',
     lede: 'A skill for Codex and Claude Code that turns papers, code, docs, or just a topic into a natively editable PPTX: real text boxes, native charts, editable math, speaker notes, click builds. Every deck below came out of it. Hover a card to flip through.',
     ctaFlip: 'Browse the decks', ctaDl: '⬇ Grab the sample deck',
@@ -325,7 +325,7 @@ function setLang(lang) {
   const t = STR[lang];
   if (history.replaceState) history.replaceState(null, '', lang === 'zh' ? '/cn/' : '/');
   var fh = document.getElementById('footHome');
-  if (fh) fh.href = lang === 'zh' ? 'https://addsum.top/cn/' : 'https://addsum.top/?lang=en';
+  if (fh) fh.href = lang === 'zh' ? 'https://addsum.top/cn/' : 'https://addsum.top/';
   const lb = document.getElementById('langBtn');
   if (lb) { lb.textContent = lang === 'zh' ? 'EN' : '中文'; lb.onclick = () => { try { localStorage.setItem('addsum-lang', lang === 'zh' ? 'en' : 'zh'); } catch(e){} setLang(lang === 'zh' ? 'en' : 'zh'); }; }
   for (const k of ['byline','headline','lede','vTitle','vLede','st1','st2','st3','st4','galleryTitle','hoverHint','footText','footReadme','ctaNote']) {
@@ -350,11 +350,29 @@ function setLang(lang) {
   armHoverPreview();
 }
 (function(){
+  function mark(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if(!a) return;
+    try{
+      var u = new URL(a.getAttribute('href'), location.href);
+      if(/\.addsum\.top$/.test(u.hostname) && u.hostname !== location.hostname){
+        var l = document.documentElement.getAttribute('lang') || 'en';
+        document.cookie = 'xlang=' + (l.indexOf('zh') === 0 ? 'zh' : 'en') + '; domain=.addsum.top; path=/; max-age=60';
+      }
+    }catch(err){}
+  }
+  document.addEventListener('mousedown', mark, true);
+  document.addEventListener('click', mark, true);
+})();
+(function(){
   var stored=null; try { stored=localStorage.getItem('addsum-lang'); } catch(e){}
   var lang;
   var q=null; try { q=new URLSearchParams(location.search).get('lang'); } catch(e){}
-  if (q === 'zh' || q === 'en') lang=q; /* 链接显式指定语言, 最高优先 */
+  var xl=(document.cookie.match(/(?:^|;\s*)xlang=(en|zh)/)||[])[1];
+  if (xl) { try { document.cookie='xlang=; domain=.addsum.top; path=/; max-age=0'; } catch(e){} }
+  if (q === 'zh' || q === 'en') lang=q; /* URL 参数最高优先 */
   else if (location.pathname.indexOf('/cn') === 0) lang='zh';
+  else if (xl === 'zh' || xl === 'en') lang=xl; /* 站间跳转语言意图走 cookie */
   else if (location.hash === '#zh') lang='zh';
   else if (location.hash === '#en') lang='en';
   else if (stored==='zh'||stored==='en') lang=stored;
