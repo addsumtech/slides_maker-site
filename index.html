@@ -222,7 +222,7 @@ footer .sp { flex:1; }
     <img src="/logo-160.png" alt="">
     <span id="footText"></span>
     <span class="sp"></span>
-    <a href="https://addsum.top/">addsum.top</a>
+    <a id="footHome" href="https://addsum.top/">addsum.top</a>
     <a href="https://github.com/addsumtech/slides_maker">GitHub</a>
     <a id="footReadme" href="https://github.com/addsumtech/slides_maker#quick-start"></a>
   </div>
@@ -232,7 +232,7 @@ footer .sp { flex:1; }
 const REPO = 'https://github.com/addsumtech/slides_maker';
 const STR = {
   en: {
-    byline: 'by <a href="https://addsum.top/en/">Addsum</a>',
+    byline: 'by <a href="https://addsum.top/?lang=en">Addsum</a>',
     headline: 'Real decks. <span class="hl">Really editable.</span><br>Generated end-to-end by AI agents.',
     lede: 'A skill for Codex and Claude Code that turns papers, code, docs, or just a topic into a natively editable PPTX: real text boxes, native charts, editable math, speaker notes, click builds. Every deck below came out of it. Hover a card to flip through.',
     ctaFlip: 'Browse the decks', ctaDl: '⬇ Grab the sample deck',
@@ -255,7 +255,7 @@ const STR = {
     title: 'slide-maker — flip through real generated decks',
   },
   zh: {
-    byline: '<a href="https://addsum.top/">增和科技 Addsum</a> 出品',
+    byline: '<a href="https://addsum.top/cn/">增和科技 Addsum</a> 出品',
     headline: '真实的 deck，<span class="hl">真的能编辑</span>。<br>由 AI agent 团队端到端生成。',
     lede: '一个给 Codex 和 Claude Code 用的 skill：把论文、代码、文档，甚至只是一个主题，变成原生可编辑的 PPTX。真文本框、原生图表、可编辑公式、逐页讲稿、点击渐显。下面每一套都是它生成的，悬停封面即可翻页预览。',
     ctaFlip: '浏览全部 deck', ctaDl: '⬇ 下载样例 .pptx',
@@ -324,6 +324,8 @@ function armHoverPreview() {
 function setLang(lang) {
   const t = STR[lang];
   if (history.replaceState) history.replaceState(null, '', lang === 'zh' ? '/cn/' : '/');
+  var fh = document.getElementById('footHome');
+  if (fh) fh.href = lang === 'zh' ? 'https://addsum.top/cn/' : 'https://addsum.top/?lang=en';
   const lb = document.getElementById('langBtn');
   if (lb) { lb.textContent = lang === 'zh' ? 'EN' : '中文'; lb.onclick = () => { try { localStorage.setItem('addsum-lang', lang === 'zh' ? 'en' : 'zh'); } catch(e){} setLang(lang === 'zh' ? 'en' : 'zh'); }; }
   for (const k of ['byline','headline','lede','vTitle','vLede','st1','st2','st3','st4','galleryTitle','hoverHint','footText','footReadme','ctaNote']) {
@@ -350,7 +352,9 @@ function setLang(lang) {
 (function(){
   var stored=null; try { stored=localStorage.getItem('addsum-lang'); } catch(e){}
   var lang;
-  if (location.pathname.indexOf('/cn') === 0) lang='zh';
+  var q=null; try { q=new URLSearchParams(location.search).get('lang'); } catch(e){}
+  if (q === 'zh' || q === 'en') lang=q; /* 链接显式指定语言, 最高优先 */
+  else if (location.pathname.indexOf('/cn') === 0) lang='zh';
   else if (location.hash === '#zh') lang='zh';
   else if (location.hash === '#en') lang='en';
   else if (stored==='zh'||stored==='en') lang=stored;
