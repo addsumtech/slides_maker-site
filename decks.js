@@ -14,10 +14,10 @@ window.DECKS = [
     "pages": 16
   },
 {
-    "id": "en/nl-job-market-2026",
+    "id": "en/chengdu",
     "lang": "en",
-    "title": "Data / Market Analysis",
-    "use": "industry research, trend explanation, structured analysis",
+    "title": "Visual Storytelling / Culture",
+    "use": "city, culture, event, brand story",
     "pages": 14
   },
 {
@@ -42,10 +42,10 @@ window.DECKS = [
     "pages": 14
   },
 {
-    "id": "en/chengdu",
+    "id": "en/nl-job-market-2026",
     "lang": "en",
-    "title": "Visual Storytelling / Culture",
-    "use": "city, culture, event, brand story",
+    "title": "Data / Market Analysis",
+    "use": "industry research, trend explanation, structured analysis",
     "pages": 14
   },
 {
@@ -70,10 +70,10 @@ window.DECKS = [
     "pages": 16
   },
 {
-    "id": "zh/nl-job-market-2026",
+    "id": "zh/chengdu",
     "lang": "zh",
-    "title": "数据 / 市场分析",
-    "use": "行业研究、趋势解读、结构化汇报",
+    "title": "视觉叙事 / 文化介绍",
+    "use": "城市、文化、活动、品牌故事",
     "pages": 14
   },
 {
@@ -98,10 +98,10 @@ window.DECKS = [
     "pages": 14
   },
 {
-    "id": "zh/chengdu",
+    "id": "zh/nl-job-market-2026",
     "lang": "zh",
-    "title": "视觉叙事 / 文化介绍",
-    "use": "城市、文化、活动、品牌故事",
+    "title": "数据 / 市场分析",
+    "use": "行业研究、趋势解读、结构化汇报",
     "pages": 14
   },
 {
