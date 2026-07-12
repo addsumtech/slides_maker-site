@@ -113,7 +113,9 @@ h1 .hl { color:var(--accent); }
 .toggle button { border:0; background:transparent; color:var(--mute); padding:8px 20px; font-size:13.5px; cursor:pointer; font-weight:700; }
 .toggle button.on { background:var(--ink); color:#f9f5ec; }
 .bar .hint { color:var(--mute); font-size:13px; margin-left:auto; }
-.grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(330px, 1fr)); gap:24px; padding-bottom:8px; }
+.grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:24px; padding-bottom:8px; }
+@media (min-width:1180px){ .grid { grid-template-columns:repeat(4, 1fr); } }
+@media (max-width:640px){ .grid { grid-template-columns:1fr; } }
 .card { background:var(--card); border:1px solid var(--line); border-radius:16px; overflow:hidden;
   box-shadow:0 3px 14px rgba(29,27,22,.05); display:flex; flex-direction:column;
   transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
@@ -224,7 +226,6 @@ footer .sp { flex:1; }
     <span class="sp"></span>
     <a id="footHome" href="https://addsum.top/">addsum.top</a>
     <a href="https://github.com/addsumtech/slides_maker">GitHub</a>
-    <a id="footReadme" href="https://github.com/addsumtech/slides_maker#quick-start"></a>
   </div>
 </footer>
 
@@ -232,7 +233,7 @@ footer .sp { flex:1; }
 const REPO = 'https://github.com/addsumtech/slides_maker';
 const STR = {
   en: {
-    byline: 'by <a href="https://addsum.top/">Addsum</a>',
+    byline: 'by <a href="https://addsum.top/?lang=en">Addsum</a>',
     headline: 'Real decks. <span class="hl">Really editable.</span><br>Generated end-to-end by AI agents.',
     lede: 'A skill for Codex and Claude Code that turns papers, code, docs, or just a topic into a natively editable PPTX: real text boxes, native charts, editable math, speaker notes, click builds. Every deck below came out of it. Hover a card to flip through.',
     ctaFlip: 'Browse the decks', ctaDl: '⬇ Grab the sample deck',
@@ -288,7 +289,7 @@ function card(d, t) {
   return `<div class="card" data-id="${d.id}" data-pages="${d.pages}">
     <a class="cover" href="${view}">
       <img loading="lazy" src="${base}slide01.png" alt="${d.title} preview">
-      <span class="dots"><i class="on"></i><i></i><i></i></span>
+      <span class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></span>
     </a>
     <div class="meta">
       <div class="name">${d.title}</div>
@@ -303,7 +304,7 @@ function armHoverPreview() {
     const img = c.querySelector('.cover img');
     const dots = c.querySelectorAll('.dots i');
     const id = c.dataset.id, pages = +c.dataset.pages;
-    const frames = [1, 2, 3].filter(n => n <= pages);
+    const frames = [1, 2, 3, 4, 5].filter(n => n <= pages);
     let idx = 0, timer = null;
     c.addEventListener('mouseenter', () => {
       frames.forEach(n => { const p = new Image(); p.src = `/templates/decks/${id}/render/slide${pad(n)}.png`; });
@@ -325,7 +326,7 @@ function setLang(lang) {
   const t = STR[lang];
   if (history.replaceState) history.replaceState(null, '', lang === 'zh' ? '/cn/' : '/');
   var fh = document.getElementById('footHome');
-  if (fh) fh.href = lang === 'zh' ? 'https://addsum.top/cn/' : 'https://addsum.top/';
+  if (fh) fh.href = lang === 'zh' ? 'https://addsum.top/cn/' : 'https://addsum.top/?lang=en';
   const lb = document.getElementById('langBtn');
   if (lb) { lb.textContent = lang === 'zh' ? 'EN' : '中文'; lb.onclick = () => { try { localStorage.setItem('addsum-lang', lang === 'zh' ? 'en' : 'zh'); } catch(e){} setLang(lang === 'zh' ? 'en' : 'zh'); }; }
   for (const k of ['byline','headline','lede','vTitle','vLede','st1','st2','st3','st4','galleryTitle','hoverHint','footText','footReadme','ctaNote']) {
