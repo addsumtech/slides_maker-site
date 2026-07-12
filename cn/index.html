@@ -282,9 +282,9 @@ const STR = {
 function pad(n) { return String(n).padStart(2, '0'); }
 
 function card(d, t) {
-  const base = `templates/decks/${d.id}/render/`;
-  const view = `viewer.html?deck=${encodeURIComponent(d.id)}`;
-  const dl = `templates/decks/${d.id}/template.pptx`;
+  const base = `/templates/decks/${d.id}/render/`;
+  const view = `/viewer.html?deck=${encodeURIComponent(d.id)}`;
+  const dl = `/templates/decks/${d.id}/template.pptx`;
   return `<div class="card" data-id="${d.id}" data-pages="${d.pages}">
     <a class="cover" href="${view}">
       <img loading="lazy" src="${base}slide01.png" alt="${d.title} preview">
@@ -306,16 +306,16 @@ function armHoverPreview() {
     const frames = [1, 2, 3].filter(n => n <= pages);
     let idx = 0, timer = null;
     c.addEventListener('mouseenter', () => {
-      frames.forEach(n => { const p = new Image(); p.src = `templates/decks/${id}/render/slide${pad(n)}.png`; });
+      frames.forEach(n => { const p = new Image(); p.src = `/templates/decks/${id}/render/slide${pad(n)}.png`; });
       timer = setInterval(() => {
         idx = (idx + 1) % frames.length;
-        img.src = `templates/decks/${id}/render/slide${pad(frames[idx])}.png`;
+        img.src = `/templates/decks/${id}/render/slide${pad(frames[idx])}.png`;
         dots.forEach((dd, k) => dd.classList.toggle('on', k === idx));
       }, 1100);
     });
     c.addEventListener('mouseleave', () => {
       clearInterval(timer); idx = 0;
-      img.src = `templates/decks/${id}/render/slide01.png`;
+      img.src = `/templates/decks/${id}/render/slide01.png`;
       dots.forEach((dd, k) => dd.classList.toggle('on', k === 0));
     });
   });
@@ -334,10 +334,10 @@ function setLang(lang) {
   }
   const vid = document.getElementById('introVid');
   if (vid) {
-    const cur = `docs/assets/slide-maker-intro-${lang}.mp4`;
+    const cur = `/docs/assets/slide-maker-intro-${lang}.mp4`;
     if (!vid.src.endsWith(cur)) {
       vid.pause();
-      vid.setAttribute('poster', `docs/assets/intro-poster-${lang}.jpg`);
+      vid.setAttribute('poster', `/docs/assets/intro-poster-${lang}.jpg`);
       vid.src = cur;
       vid.load();
     }
