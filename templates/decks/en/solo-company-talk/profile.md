@@ -63,3 +63,5 @@ the system, and the deck stays coherent.
 Each hue means one thing deck-wide: ember never labels a tool, teal never labels the human.
 The signature motif (ember core, teal rings) encodes the whole thesis — one operator, a
 fleet of AI — and recurs as the deck's identity mark.
+
+> **Fonts:** This deck uses macOS system fonts (Hiragino Sans GB / PingFang SC / Songti SC for Chinese; Helvetica Neue / Avenir Next / Georgia for Latin). On Windows or other systems, install **Noto Sans CJK SC / Source Han Sans** (and swap Latin display fonts) to reproduce the exact look; otherwise your app will substitute a system font. The online preview is a pixel-accurate render, so it always looks correct regardless of your fonts.

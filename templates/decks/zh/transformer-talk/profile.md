@@ -42,3 +42,5 @@
 - **靛青 `#16656B` = 旧范式（RNN/CNN）/ 对照基线 / 顺序计算**。
 - 藏蓝 `#2A3F57` = 结构中性（前馈网络、结构块）· 赭黄 `#B0873E` = 第三类别点缀。
 - 所有正文文字对底色对比度 ≥ 4.5:1；朱橙作为小字亦满足 ≥4.5:1。
+
+> **字体说明：** 本模板用了 macOS 系统字体（中文 Hiragino Sans GB / PingFang SC / Songti SC，拉丁 Helvetica Neue / Avenir Next / Georgia）。在 Windows 等系统上，装 **Noto Sans CJK SC / 思源黑体** 即可还原原貌，否则打开时会自动替换为系统字体。在线预览是像素级渲染图，无论你本机装没装字体都显示正确。

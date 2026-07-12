@@ -42,3 +42,5 @@ Good fit for: paper walkthroughs, method explainers, courses/teaching, research 
 - **Indigo-teal `#16656B` = the old paradigm (RNN/CNN) / contrast baselines / sequential computation**.
 - Navy `#2A3F57` = structural neutral (feed-forward, structural blocks) · ochre `#B0873E` = a third-category accent.
 - All body text clears ≥ 4.5:1 contrast on its ground; vermilion-orange also meets ≥ 4.5:1 as small text.
+
+> **Fonts:** This deck uses macOS system fonts (Hiragino Sans GB / PingFang SC / Songti SC for Chinese; Helvetica Neue / Avenir Next / Georgia for Latin). On Windows or other systems, install **Noto Sans CJK SC / Source Han Sans** (and swap Latin display fonts) to reproduce the exact look; otherwise your app will substitute a system font. The online preview is a pixel-accurate render, so it always looks correct regardless of your fonts.

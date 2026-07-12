@@ -45,3 +45,5 @@ A warm, picture-book classroom template for explaining things to young children.
 - **Purple `#9B7EDE` = you · the kid · the one who decides**.
 - Cards are white with a soft shadow; each semantic colour has a very light tint used for bubbles / panels; body text contrast ≥ 4.5:1.
 - Signature motif: the hand-drawn robot mascot "little AI" (varied expressions/poses, acting as a guide rather than a repeated stamp) + crayon-doodle accents (stars · clouds · sun · hearts · dotted trail).
+
+> **Fonts:** This deck uses macOS system fonts (Hiragino Sans GB / PingFang SC / Songti SC for Chinese; Helvetica Neue / Avenir Next / Georgia for Latin). On Windows or other systems, install **Noto Sans CJK SC / Source Han Sans** (and swap Latin display fonts) to reproduce the exact look; otherwise your app will substitute a system font. The online preview is a pixel-accurate render, so it always looks correct regardless of your fonts.

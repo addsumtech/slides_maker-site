@@ -60,3 +60,5 @@
 每种色在全 deck 只表达一件事：琥珀色从不标注工具，青色从不标注人。标志性母题
 （琥珀色核、青色环）编码了整个论点 —— 一个操盘手，一支 AI 舰队 —— 并作为整份 deck
 的身份标记反复出现。
+
+> **字体说明：** 本模板用了 macOS 系统字体（中文 Hiragino Sans GB / PingFang SC / Songti SC，拉丁 Helvetica Neue / Avenir Next / Georgia）。在 Windows 等系统上，装 **Noto Sans CJK SC / 思源黑体** 即可还原原貌，否则打开时会自动替换为系统字体。在线预览是像素级渲染图，无论你本机装没装字体都显示正确。

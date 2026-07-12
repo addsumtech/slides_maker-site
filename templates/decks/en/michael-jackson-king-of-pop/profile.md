@@ -68,3 +68,5 @@ cinematic stage.
 - **The one deliberate deviation:** on the controversy slide (12) the gold is **withdrawn to ash /
   graphite** (`#8E8A96`). Celebration has a color; the contested chapter does not — the palette
   itself signals the change in register.
+
+> **Fonts:** This deck uses macOS system fonts (Hiragino Sans GB / PingFang SC / Songti SC for Chinese; Helvetica Neue / Avenir Next / Georgia for Latin). On Windows or other systems, install **Noto Sans CJK SC / Source Han Sans** (and swap Latin display fonts) to reproduce the exact look; otherwise your app will substitute a system font. The online preview is a pixel-accurate render, so it always looks correct regardless of your fonts.

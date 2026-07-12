@@ -65,3 +65,5 @@
 
 **署名母题**：金沙「太阳神鸟」十二道旋转光芒日纹（PIL 纯几何生成，无文字），
 作为城徽 / 品牌标记贯穿每页角标，封面与结语放大呈现，与一方「蓉」朱印共同构成视觉签名。
+
+> **Fonts:** This deck uses macOS system fonts (Hiragino Sans GB / PingFang SC / Songti SC for Chinese; Helvetica Neue / Avenir Next / Georgia for Latin). On Windows or other systems, install **Noto Sans CJK SC / Source Han Sans** (and swap Latin display fonts) to reproduce the exact look; otherwise your app will substitute a system font. The online preview is a pixel-accurate render, so it always looks correct regardless of your fonts.

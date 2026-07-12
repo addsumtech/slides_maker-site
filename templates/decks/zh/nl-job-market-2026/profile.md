@@ -53,3 +53,5 @@ Helvetica Neue 是 macOS 系统字体——在 Windows 上请在 `build_nl.py` �
   沿一条奶油色梯度逐级下沉——面板 `#FBF8F2`、内凹牛皮纸 `#ECE4D6`、封面底带 `#EAE1D2`——在不使用
   任何深色底的情况下带来重量与层次。
 - 正文 `#4A4E56`，说明 `#8A8478`，细线 `#DED7C8`。所有文字均满足 4.5:1 对比度下限。
+
+> **字体说明：** 本模板用了 macOS 系统字体（中文 Hiragino Sans GB / PingFang SC / Songti SC，拉丁 Helvetica Neue / Avenir Next / Georgia）。在 Windows 等系统上，装 **Noto Sans CJK SC / 思源黑体** 即可还原原貌，否则打开时会自动替换为系统字体。在线预览是像素级渲染图，无论你本机装没装字体都显示正确。

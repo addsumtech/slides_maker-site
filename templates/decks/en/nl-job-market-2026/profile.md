@@ -60,3 +60,5 @@ Neue is a macOS system font — on Windows substitute Arial (also lining-figure)
   outlook · takeaways) and their emphasis cards step down a tonal cream ladder — panel `#FBF8F2`,
   recessed kraft `#ECE4D6`, cover band `#EAE1D2` — for weight and layering without any dark field.
 - Body `#4A4E56`, captions `#8A8478`, hairlines `#DED7C8`. All text clears the 4.5:1 contrast floor.
+
+> **Fonts:** This deck uses macOS system fonts (Hiragino Sans GB / PingFang SC / Songti SC for Chinese; Helvetica Neue / Avenir Next / Georgia for Latin). On Windows or other systems, install **Noto Sans CJK SC / Source Han Sans** (and swap Latin display fonts) to reproduce the exact look; otherwise your app will substitute a system font. The online preview is a pixel-accurate render, so it always looks correct regardless of your fonts.

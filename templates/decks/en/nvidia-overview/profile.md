@@ -84,3 +84,5 @@ everywhere:
 
 Colour carries meaning here: a hue always stands for the same thing across all 16 slides,
 which is what makes the deck read as one system rather than a set of styled pages.
+
+> **Fonts:** This deck uses macOS system fonts (Hiragino Sans GB / PingFang SC / Songti SC for Chinese; Helvetica Neue / Avenir Next / Georgia for Latin). On Windows or other systems, install **Noto Sans CJK SC / Source Han Sans** (and swap Latin display fonts) to reproduce the exact look; otherwise your app will substitute a system font. The online preview is a pixel-accurate render, so it always looks correct regardless of your fonts.

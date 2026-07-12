@@ -39,3 +39,5 @@ It is designed for **cultural explainers and light talks** — any subject you w
 - **Brass** `#A9792E` = *chronology* — timeline dots, year badges, era markers, kickers on time-based slides.
 - **Hairline** `#D8CFB8` for rules and card borders.
 - **Harmonized category hues** (brass / teal `#2E6E64` / plum `#7A4A66` / olive `#4E6B34` / slate `#3B5C7A`) colour-code the branch and region entries without breaking the two-accent discipline — earth tones that sit quietly on paper, deliberately excluding the reserved vermilion.
+
+> **Fonts:** This deck uses macOS system fonts (Hiragino Sans GB / PingFang SC / Songti SC for Chinese; Helvetica Neue / Avenir Next / Georgia for Latin). On Windows or other systems, install **Noto Sans CJK SC / Source Han Sans** (and swap Latin display fonts) to reproduce the exact look; otherwise your app will substitute a system font. The online preview is a pixel-accurate render, so it always looks correct regardless of your fonts.

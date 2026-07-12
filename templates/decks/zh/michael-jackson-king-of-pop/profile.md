@@ -63,3 +63,5 @@
 - 文字：象牙白 `#F3EFE6`（主）· 石板灰 `#CBC5D2`（次）· 静音灰 `#958EA0`（说明 / chrome）。
 - **唯一一处刻意的偏离：** 在争议页（第 12 页）金色被**撤为灰烬 / 石墨色**（`#8E8A96`）。
   庆祝有颜色，争议的一章没有 —— 由配色本身标记语气的转变。
+
+> **字体说明：** 本模板用了 macOS 系统字体（中文 Hiragino Sans GB / PingFang SC / Songti SC，拉丁 Helvetica Neue / Avenir Next / Georgia）。在 Windows 等系统上，装 **Noto Sans CJK SC / 思源黑体** 即可还原原貌，否则打开时会自动替换为系统字体。在线预览是像素级渲染图，无论你本机装没装字体都显示正确。

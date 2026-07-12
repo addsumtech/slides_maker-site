@@ -81,3 +81,5 @@ chrome、语义配色契约与组件选择，用你自己的事实替换掉 NVID
 
 配色在这里承载语义：同一种色在全部 16 页里始终代表同一件事——这正是让整份 deck 读起来
 像「一套系统」而非「一堆风格各异的页面」的原因。
+
+> **字体说明：** 本模板用了 macOS 系统字体（中文 Hiragino Sans GB / PingFang SC / Songti SC，拉丁 Helvetica Neue / Avenir Next / Georgia）。在 Windows 等系统上，装 **Noto Sans CJK SC / 思源黑体** 即可还原原貌，否则打开时会自动替换为系统字体。在线预览是像素级渲染图，无论你本机装没装字体都显示正确。
