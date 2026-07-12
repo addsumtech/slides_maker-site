@@ -1,9 +1,23 @@
-# Michael Jackson — The King of Pop (Career Retrospective)
+# Michael Jackson — The King of Pop (Career Retrospective) · Atmospheric-Image Version
 
 A 14-slide figure-profile / tribute deck built as a public gallery example for slide-maker.
-Dark "stage / spotlight" editorial system, 16:9, English. Every visual is native — no
-AI-generated imagery and no real-person portraits — so the template renders identically
-anywhere and carries none of the fidelity risk of generated faces.
+Dark "stage / spotlight" editorial system, 16:9, English.
+
+**This is the atmospheric-image version.** It keeps the native black-gold system, all content,
+structure, and page count identical to the base deck, but weaves in three **text-free, person-free
+mood photos** (`moodimg/`) behind dark scrims for stage drama: the cover, the moonwalk divider, and
+the closing. The photos are pure atmosphere — they carry no text, numbers, or people — and every
+piece of copy, every stat, and every chrome element is still native, editable PowerPoint. All other
+eleven pages remain fully native (no imagery). See the base version for the zero-photo build.
+
+- **Slide 1 (Cover):** `moodimg/mj_cover.png` — an empty stage with a golden spotlight beam — as a
+  full-bleed background under a graduated scrim; the native "Michael Jackson / The King of Pop"
+  wordmark stays crisp on top.
+- **Slide 6 (The moonwalk):** `moodimg/mj_spotlight.png` — a lone vintage gold microphone under a
+  spotlight — as a right half-frame that blends into the stage black, with the native title +
+  copy set as a left column.
+- **Slide 14 (Closing):** `moodimg/mj_stage.png` — abstract gold stage lights / bokeh on black —
+  as a full-bleed background under a scrim, the native tribute line and sources centered over it.
 
 ## Template File
 
@@ -33,12 +47,12 @@ cinematic stage.
 
 ## Structure
 
-1. **Cover** — "Michael Jackson · The King of Pop, 1958–2009"; spotlight beam, example-deck marker.
+1. **Cover** — "Michael Jackson · The King of Pop, 1958–2009"; full-bleed spotlight-stage photo under a scrim, example-deck marker.
 2. **Orientation** — the thesis ("one life, measured in firsts") beside three anchor stats: 400M+ records, 13 solo #1s, 67M Thriller.
 3. **The Jackson 5** — Motown 1968; the four consecutive #1 singles shown as an ascending staircase.
 4. **Off the Wall (1979)** — the solo pivot with Quincy Jones; native vinyl-record motif + spec table.
 5. **Thriller (1982)** — the record-breaker (money slide): hero "67M" + tiles for 8 Grammys, 7 top-10 singles, 30× platinum.
-6. **The moonwalk** — Motown 25 (aired May 16 1983); a quiet spotlight moment with one line of copy.
+6. **The moonwalk** — Motown 25 (aired May 16 1983); a quiet divider — native title + copy in a left column beside a full-height vintage-microphone photo.
 7. **The short film** — Thriller reinvented the music video; native film-strip motif + facts (John Landis, 14 min, National Film Registry).
 8. **The solo catalog** — six studio albums 1979–2001 on a horizontal timeline, Bad highlighted (first album with five #1s).
 9. **The stage** — Super Bowl XXVII (1993): 133.4M viewers, the first halftime to raise the ratings; lighting-truss motif.
@@ -46,7 +60,7 @@ cinematic stage.
 11. **Recognition** — an honor roll: 8 Grammys (1984), Grammy Legend (1993), Rock Hall (1997 & 2001), 13/17 #1s.
 12. **The contested record** — controversy, strictly neutral and factual (1994 civil settlement · 2005 acquittal · 2019 Leaving Neverland); the accent gold is deliberately withdrawn to ash here.
 13. **Legacy** — "the template for the modern pop star"; a large serif statement with the vinyl motif returning as a callback.
-14. **Closing** — bookend of the cover ("Long live the King of Pop"), the reusable-system line, and the sources list.
+14. **Closing** — bookend of the cover ("Long live the King of Pop") over a full-bleed stage-lights photo, the reusable-system line, and the sources list.
 
 ## Fonts & Colors
 
@@ -69,4 +83,4 @@ cinematic stage.
   graphite** (`#8E8A96`). Celebration has a color; the contested chapter does not — the palette
   itself signals the change in register.
 
-> **Fonts:** This deck uses macOS system fonts (Hiragino Sans GB / PingFang SC / Songti SC for Chinese; Helvetica Neue / Avenir Next / Georgia for Latin). On Windows or other systems, install **Noto Sans CJK SC / Source Han Sans** (and swap Latin display fonts) to reproduce the exact look; otherwise your app will substitute a system font. The online preview is a pixel-accurate render, so it always looks correct regardless of your fonts.
+> **Fonts:** This deck uses macOS system fonts. On Windows, install Noto Sans CJK SC / Source Han Sans to reproduce the exact look; otherwise your app substitutes a system font. The online preview is a pixel-accurate render, always correct.

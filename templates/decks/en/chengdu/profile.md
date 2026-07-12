@@ -1,69 +1,93 @@
-# 锦城 · 城市推介模板（成都示例）
+# Jincheng · City Guide Template (Chengdu example, **with mood photography**)
 
-一套面向**城市推介 / 旅行分享 / 目的地介绍**的编辑式中文 deck 模板。以成都为真实内容示例，
-呈现一整套「可直接复用的视觉系统」——替换文字与数据，即可套用到任何城市或地区的介绍场景。
+An editorial deck template for **city promotion / travel features / destination guides**, in English.
+Chengdu is the real-content example; what it really ships is a **reusable visual system** — swap the
+words and data and the same design applies to any city or region. **This is the "with-images" edition:**
+three full-bleed, text-free mood photographs (cover skyline, teahouse, panda-in-bamboo) carry the
+atmosphere, while every fact, number and label lives in native type and graphics laid over them.
 
 ## Template File
 
-- `template.pptx` — 成品 deck（14 页，16:9，中文）。
-- `build_chengdu.py` — **源真相**：可重跑复现整份 deck（含自制城徽、图标预取、逐页构建）。
-- `render/slide01.png … slide14.png` — 逐页渲染图。
-- `assets/` — 构建期生成的资源（`gen/` 太阳神鸟城徽 PNG、`icons/` Phosphor 图标）。
+- `template.pptx` — the finished deck (14 pages, 16:9, English).
+- `build_chengdu.py` — **source of truth**: re-run it to reproduce the whole deck (self-made emblem,
+  icon pre-fetch, page-by-page build). English edition — same design and same photography as the
+  Chinese original; only the language changes.
+- `render/slide01.png … slide14.png` — per-page renders.
+- `moodimg/` — the three text-free mood photographs (`cd_cover`, `cd_teahouse`, `cd_panda`).
+- `assets/` — build-time assets (`gen/` Sun-Bird emblem PNGs, `icons/` Phosphor icons).
 
 ## Summary
 
-**这是什么**：一份「编辑杂志感」的城市介绍模板。设计语言取名「锦城」——暖米纸底 +
-宋/楷体标题的书卷气 + 黑体正文，配一套**语义化配色**与一枚**自制的金沙「太阳神鸟」城徽**
-作为贯穿全篇的品牌标记，辅以一方「蓉」朱印，开合成书。7 / 11 / 14 页用深色版面做「明暗事件」，
-让 14 页有起伏节奏。
+**What it is**: an "editorial magazine" city-introduction template. The design language, "Jincheng"
+(Brocade City), pairs a warm rice-paper ground + a bookish serif (`Songti SC`) display face + a clean
+sans body, with a **semantic colour system** and a **self-made Jinsha "Sun Bird" emblem** as the
+through-line brand mark, sealed with a red "蓉" (Róng) chop that bookends cover and colophon. Pages
+7 / 11 / 14 go dark for "light-and-shade" beats, giving the 14 pages a rhythm.
 
-**适合什么场景**：城市 / 城市群推介，文旅目的地介绍，招商与城市名片，旅行攻略分享，
-区域文化专题；任何「用一套克制而有作者气质的视觉，讲清一个地方」的表达。
+**What it's for**: city / city-cluster promotion, tourism-destination guides, investment and city
+identity decks, travel itineraries, regional culture features — any case that needs "one restrained,
+authored visual system to explain a place clearly."
 
-**为什么可复用**：内容与视觉是**解耦**的。示例里的每一个事实、数字都经过公开资料核实
-（见 `运行记录.md`），但真正沉淀下来、可迁移的是这套**视觉系统**：配色的语义约定、
-版式家族（大数字名片 / 时间轴 / 特征卡 / 深色高光页 / 三日行程）、字体搭配、以及城徽 + 朱印的
-署名母题。**换城市时只需替换文字与数据，保留视觉系统**——把「成都」的常住人口、美食、熊猫、
-产业，换成任意城市的对应内容，模板依旧成立。图片不承载任何文字数据，全部为原生图形与图标，
-因此高度可移植、可重排、可再生成。
+**Why it's reusable**: content and visuals are **decoupled**. Every fact and figure in the example is
+checked against public sources (see `运行记录.md`), but what carries over is the **visual system**: the
+colour-as-meaning convention, the layout family (big-number card / timeline / feature card / dark
+highlight page / three-day itinerary), the type pairing, and the emblem + chop signature. **To change
+cities, swap only the words and data and keep the system.** The three mood photographs sit purely as
+atmosphere and hold **no** text or data — every number and label is native type over them — so pages
+stay legible, re-typesettable and portable even if the photos are swapped for another city's.
 
-## Structure（逐页）
+## Structure (page by page)
 
-1. 封面 —「成都 / 天府之国·锦官城」，超大书法体主标 + 金沙太阳神鸟城徽 + 蓉印。
-2. 城市名片 · 数字看成都 — 常住人口 / GDP / 面积 / 城镇化率 四个大数 + 别称身份条。
-3. 城市名片 · 一方水土 — 区位速览卡（方位/海拔/水系）+ 气候·水系·物候三条图标特征。
-4. 历史与文化 · 三千年文脉 — 金沙→都江堰→秦定名→世界遗产 横向时间轴。
-5. 历史与文化 · 三国与诗圣 — 武侯祠 / 杜甫草堂 双特征卡 + 杜甫诗句引文。
-6. 历史与文化 · 蜀风雅韵 — 蜀锦蜀绣 / 川剧变脸 / 宽窄巷子 三色非遗卡。
-7. 美食 · 世界美食之都（深色）— 2010 大字定位 + 招牌川菜 chip 阵列。
-8. 大熊猫 · 熊猫之乡 — 260 只大数 + 占全球圈养种群占比条 + 保护叙事。
-9. 生活节奏 · 慢生活 — 盖碗茶书法引句 + 茶馆/掏耳朵/夜生活 三条特征。
-10. 生活节奏 · 雪山下的公园城市 — 公园城市首提地等三支柱。
-11. 科技产业 · 硬核成都（深色）— 电子信息产业规模柱图 + 四张 KPI 卡。
-12. 旅行建议 · 成都怎么玩 — 何时来 / 看什么 / 怎么走 三栏清单。
-13. 旅行建议 · 三日锦城 — Day1/2/3 经典动线三日卡。
-14. 结语（深色）—「来了，就不想走」书法收束 + 城徽 + 数据来源脚注，与封面呼应。
+1. Cover — "Chengdu / Land of Abundance · The Brocade City", oversized display title over the
+   morning-mist skyline photo, Sun-Bird emblem + Róng chop.
+2. City Profile · Chengdu by the numbers — residents / GDP / area / urbanization as four big figures
+   + an alias identity bar (Hibiscus City / Brocade City / Land of Abundance).
+3. City Profile · Land & Climate — a "location at a glance" card (position / elevation / rivers) +
+   three icon facts on climate, water and flora.
+4. History & Culture · 3,000 unbroken years — Jinsha → Dujiangyan → named under Qin → World Heritage,
+   as a horizontal timeline.
+5. History & Culture · Three Kingdoms & the poet-sage — Wuhou Shrine / Du Fu Cottage feature cards +
+   a Du Fu pull quote.
+6. History & Culture · The grace of Shu — brocade & embroidery / opera & face-changing / old alleys,
+   three colour-coded intangible-heritage cards.
+7. Cuisine · City of Gastronomy (dark) — the big "2010" anchor + a chip grid of signature dishes.
+8. Giant Pandas · Panda homeland — a "260" big-number card + a share-of-global-population meter +
+   a conservation narrative, beside the panda mood photo.
+9. Way of Life · Slow living — a covered-bowl-tea pull quote + teahouse / ear-cleaning / nightlife
+   facts, beside the teahouse mood photo.
+10. Way of Life · A park city below snow peaks — three pillars (birthplace of the idea, etc.).
+11. Industry & Tech · The hard core (dark) — an electronics/IT column chart + four KPI cards.
+12. Travel Guide · How to do Chengdu — when to go / what to see / getting around, three checklists.
+13. Travel Guide · Three days in Chengdu — Day 1/2/3 classic-route cards.
+14. Colophon (dark) — "Easy to arrive, hard to leave" sign-off + emblem + source footnote, echoing
+    the cover.
 
 ## Fonts & Colors
 
-**字体（角色化搭配）**
-- 标题 / 大字：宋·楷体（`Songti SC`，macOS 上渲染为书法体衬线，承载书卷气与作者感）。
-- 正文 / 说明：黑体（`Hiragino Sans GB`，清晰、可读、可移植）。
-- 数字 / 拉丁 / 眉标：`Helvetica Neue`（等高数字，大数字干净利落）。
-- 章节序号用大写中文数字（壹·贰·叁…）而非「01/02」，是让中文 deck 摆脱「翻译腔模板」的关键一笔。
-- 便携性提示：宋/楷体依赖系统字库；换机若无 `Songti SC`，标题会回退，可替换为
-  `STSong` / `KaiTi` / 思源宋体等 CJK 衬线体（`.pptx` 已按名嵌入字体标签）。
+**Fonts (role-based pairing)**
+- Display / big type: a serif (`Songti SC`; on macOS it renders as a calligraphic serif, carrying the
+  bookish, authored feel). Latin glyphs render in the same family for continuity.
+- Body / captions: a clean sans (`Hiragino Sans GB`) — legible and portable.
+- Numbers / Latin / kickers: `Helvetica Neue` (lining figures; big numbers stay crisp).
+- Section numbers use Roman numerals (I · II · III …) rather than "01/02" — the small move that keeps
+  the deck editorial rather than template-stock.
+- Portability note: the display face relies on the system font library; on a machine without
+  `Songti SC` the titles fall back — substitute another CJK/serif such as `STSong` / a Song/serif
+  face (the `.pptx` embeds font tags by name).
 
-**配色（语义约定 · 一色一义，全篇一致）**
-- 米纸底 `#F5EFE2` / 卡片 `#FBF7EC` / 墨字 `#25201A` / 正文暖灰 `#4A4034` / 注释 `#8B8271`。
-- 锦朱红 `#BE3A2C` — 强调、章节壹/叁/柒、朱印、收束。
-- 蜀金 `#B9863A` — 历史与匠艺（章节贰）、城徽金。
-- 竹青绿 `#3E6B52` — 自然 / 大熊猫 / 公园城市（章节肆·伍）。
-- 黛蓝 `#2E5A69` — 科技产业（章节陆）。
-- 深色事件底：美食 `#2A1C18`、科技 `#14303A`、结语 `#22211C`。
-- 章节眉标序号与主标下的短色条，颜色随章节语义固定，形成「颜色即含义」的可信度锚点。
+**Colour (semantic convention · one colour, one meaning, deck-wide)**
+- Rice-paper ground `#F5EFE2` / card `#FBF7EC` / ink `#25201A` / warm-grey body `#4A4034` /
+  caption `#8B8271`.
+- Brocade red `#BE3A2C` — emphasis, sections I/III/VII, the chop, the sign-off.
+- Shu gold `#B9863A` — history & craft (section II), emblem gold.
+- Bamboo green `#3E6B52` — nature / pandas / park city (sections IV·V).
+- Slate blue `#2E5A69` — industry & tech (section VI).
+- Dark event grounds: cuisine `#2A1C18`, tech `#14303A`, colophon `#22211C`.
+- The kicker numeral and the short bar under each title take the section's fixed semantic colour, so
+  "colour = meaning" acts as a credibility anchor.
 
-**署名母题**：金沙「太阳神鸟」十二道旋转光芒日纹（PIL 纯几何生成，无文字），
-作为城徽 / 品牌标记贯穿每页角标，封面与结语放大呈现，与一方「蓉」朱印共同构成视觉签名。
+**Signature motif**: the Jinsha "Sun Bird" — a twelve-ray rotating sun disc (generated purely
+geometrically in PIL, no text) — runs as the emblem / brand mark in every corner, enlarged on the
+cover and colophon, and together with the red "蓉" (Róng) chop forms the visual signature.
 
-> **Fonts:** This deck uses macOS system fonts (Hiragino Sans GB / PingFang SC / Songti SC for Chinese; Helvetica Neue / Avenir Next / Georgia for Latin). On Windows or other systems, install **Noto Sans CJK SC / Source Han Sans** (and swap Latin display fonts) to reproduce the exact look; otherwise your app will substitute a system font. The online preview is a pixel-accurate render, so it always looks correct regardless of your fonts.
+> **Fonts:** This deck uses macOS system fonts. On Windows, install Noto Sans CJK SC / Source Han Sans to reproduce the exact look; otherwise your app substitutes a system font. The online preview is a pixel-accurate render, always correct.

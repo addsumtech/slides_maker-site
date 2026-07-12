@@ -66,4 +66,4 @@
 **署名母题**：金沙「太阳神鸟」十二道旋转光芒日纹（PIL 纯几何生成，无文字），
 作为城徽 / 品牌标记贯穿每页角标，封面与结语放大呈现，与一方「蓉」朱印共同构成视觉签名。
 
-> **字体说明：** 本模板用了 macOS 系统字体（中文 Hiragino Sans GB / PingFang SC / Songti SC，拉丁 Helvetica Neue / Avenir Next / Georgia）。在 Windows 等系统上，装 **Noto Sans CJK SC / 思源黑体** 即可还原原貌，否则打开时会自动替换为系统字体。在线预览是像素级渲染图，无论你本机装没装字体都显示正确。
+> **字体说明：** 本模板用了 macOS 系统字体。在 Windows 上装 Noto Sans CJK SC / 思源黑体即可还原，否则打开时会自动替换。在线预览是像素级渲染图，始终显示正确。
