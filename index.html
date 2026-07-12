@@ -233,7 +233,7 @@ footer .sp { flex:1; }
 const REPO = 'https://github.com/addsumtech/slides_maker';
 const STR = {
   en: {
-    byline: 'by <a href="https://addsum.top/">Addsum</a>',
+    byline: 'by <a href="https://addsum.top/?lang=en">Addsum</a>',
     headline: 'Real decks. <span class="hl">Really editable.</span><br>Generated end-to-end by AI agents.',
     lede: 'A skill for Codex and Claude Code that turns papers, code, docs, or just a topic into a natively editable PPTX: real text boxes, native charts, editable math, speaker notes, click builds. Every deck below came out of it. Hover a card to flip through.',
     ctaFlip: 'Browse the decks', ctaDl: '⬇ Grab the sample deck',
@@ -326,7 +326,7 @@ function setLang(lang) {
   const t = STR[lang];
   if (history.replaceState) history.replaceState(null, '', lang === 'zh' ? '/cn/' : '/');
   var fh = document.getElementById('footHome');
-  if (fh) fh.href = lang === 'zh' ? 'https://addsum.top/cn/' : 'https://addsum.top/';
+  if (fh) fh.href = lang === 'zh' ? 'https://addsum.top/cn/' : 'https://addsum.top/?lang=en';
   const lb = document.getElementById('langBtn');
   if (lb) { lb.textContent = lang === 'zh' ? 'EN' : '中文'; lb.onclick = () => { try { localStorage.setItem('addsum-lang', lang === 'zh' ? 'en' : 'zh'); } catch(e){} setLang(lang === 'zh' ? 'en' : 'zh'); }; }
   for (const k of ['byline','headline','lede','vTitle','vLede','st1','st2','st3','st4','galleryTitle','hoverHint','footText','footReadme','ctaNote']) {
