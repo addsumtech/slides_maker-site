@@ -26,19 +26,19 @@ chrome, and **swap in your own verified content** — the deck was designed so t
 outlive this particular dataset.
 
 ## Structure
-1. **Cover** — dark statement; title + thesis line + "as of" date and source list.
+1. **Cover** — light statement; title + thesis line + "as of" date and source list.
 2. **Executive summary** — the story in four stat tiles (unemployment · tension · wages · female employment).
 3. **Macro employment** — unemployment line 2023→2027f (zero-based, honest) + a "floor is holding" rail vs the EU average.
 4. **Labour-market tightness** *(money slide)* — column chart 32 → 142 → 91 vacancies/100, "91" hero, "so what" insight banner.
-5. **Structural traits** — split light/dark panels: near-EU-ceiling participation (meters) vs Europe's part-time capital.
+5. **Structural traits** — split panels (near-white vs recessed kraft): near-EU-ceiling participation (meters) vs Europe's part-time capital.
 6. **Shortage sectors** — five colour-coded icon rows (care · ICT · trades · education · logistics).
 7. **Pay & wages** — grouped column (nominal vs real CAO wage growth) + minimum-wage stat.
 8. **Salary levels** — indicative sector meters with the CBS national average as the amber reference.
 9. **International talent** — four kennismigrant salary-threshold cards (30+, <30, graduate, researcher).
 10. **Policy shift** — vertical timeline of the 30%→27% ruling + a permits-decline column chart.
 11. **Regional differences** — provincial tension meters + a "13 of 35 regions" callout box.
-12. **Outlook 2026–27** — dark statement; three directional forecast cards.
-13. **Five things to remember** — dark numbered editorial takeaways.
+12. **Outlook 2026–27** — light statement; three directional forecast cards.
+13. **Five things to remember** — light numbered editorial takeaways.
 14. **Sources** — two-column mono citation list + reuse note.
 
 ## Fonts & Colors
@@ -56,6 +56,7 @@ Neue is a macOS system font — on Windows substitute Arial (also lining-figure)
 - **Gold `#C08A2E`**, **green `#3E6B57`**, **rust `#9C4722`** = the extra category hues (e.g. the
   five shortage sectors), used only where a set genuinely needs distinct labels — never a neutral
   grey as a live category.
-- **Ink `#20242A`** on **warm paper `#F4EFE6`** for content slides; **deep petrol `#16223A` / `#0F1A2E`**
-  for the dark statement slides (cover · outlook · takeaways) that bookend and pace the deck.
+- **Ink `#20242A`** on **warm paper `#F4EFE6`** across the whole deck; the statement slides (cover ·
+  outlook · takeaways) and their emphasis cards step down a tonal cream ladder — panel `#FBF8F2`,
+  recessed kraft `#ECE4D6`, cover band `#EAE1D2` — for weight and layering without any dark field.
 - Body `#4A4E56`, captions `#8A8478`, hairlines `#DED7C8`. All text clears the 4.5:1 contrast floor.

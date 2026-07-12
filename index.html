@@ -288,7 +288,7 @@ function card(d, t) {
   return `<div class="card" data-id="${d.id}" data-pages="${d.pages}">
     <a class="cover" href="${view}">
       <img loading="lazy" src="${base}slide01.png" alt="${d.title} preview">
-      <span class="dots"><i class="on"></i><i></i><i></i></span>
+      <span class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></span>
     </a>
     <div class="meta">
       <div class="name">${d.title}</div>
@@ -303,7 +303,7 @@ function armHoverPreview() {
     const img = c.querySelector('.cover img');
     const dots = c.querySelectorAll('.dots i');
     const id = c.dataset.id, pages = +c.dataset.pages;
-    const frames = [1, 2, 3].filter(n => n <= pages);
+    const frames = [1, 2, 3, 4, 5].filter(n => n <= pages);
     let idx = 0, timer = null;
     c.addEventListener('mouseenter', () => {
       frames.forEach(n => { const p = new Image(); p.src = `/templates/decks/${id}/render/slide${pad(n)}.png`; });

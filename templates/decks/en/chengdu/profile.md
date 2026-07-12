@@ -1,73 +1,67 @@
-# Chengdu — City Introduction Deck ("Tianfu Editorial")
+# 锦城 · 城市推介模板（成都示例）
 
-A 14-slide, 16:9 example deck introducing Chengdu, China — a reference piece for the
-slide-maker public template gallery. Built entirely with `deckkit` (native shapes, text
-and open-licensed icons; no photos), so it renders identically everywhere and is fully
-reproducible from its build script.
+一套面向**城市推介 / 旅行分享 / 目的地介绍**的编辑式中文 deck 模板。以成都为真实内容示例，
+呈现一整套「可直接复用的视觉系统」——替换文字与数据，即可套用到任何城市或地区的介绍场景。
 
 ## Template File
 
-- `template.pptx` — the deck (14 slides, 16:9, fully editable native objects).
-- `build_chengdu.py` — the build script and source of truth; re-run to regenerate the deck.
-- `render/slide01.png … slide14.png` — one PNG per slide.
-- `assets/icons/` — the recolored Phosphor (duotone) icon family + faint "ghost" plate variants.
+- `template.pptx` — 成品 deck（14 页，16:9，中文）。
+- `build_chengdu.py` — **源真相**：可重跑复现整份 deck（含自制城徽、图标预取、逐页构建）。
+- `render/slide01.png … slide14.png` — 逐页渲染图。
+- `assets/` — 构建期生成的资源（`gen/` 太阳神鸟城徽 PNG、`icons/` Phosphor 图标）。
 
 ## Summary
 
-**What it is.** A city-promotion / travel-talk template shown with *real, verified content*
-(Chengdu) rather than lorem-ipsum placeholders — so a reader can see exactly how the layout
-system carries facts, numbers, quotes and imagery. It suits city or destination
-introductions, travel and culture talks, "place profiles" for tourism boards, relocation or
-investment briefings, and any inform-and-inspire deck that mixes hard numbers with warmth.
+**这是什么**：一份「编辑杂志感」的城市介绍模板。设计语言取名「锦城」——暖米纸底 +
+宋/楷体标题的书卷气 + 黑体正文，配一套**语义化配色**与一枚**自制的金沙「太阳神鸟」城徽**
+作为贯穿全篇的品牌标记，辅以一方「蓉」朱印，开合成书。7 / 11 / 14 页用深色版面做「明暗事件」，
+让 14 页有起伏节奏。
 
-**How to reuse it.** Treat the *visual system* as the deliverable and swap the *content*:
-the palette, type pairing, seal motif, chrome, and the component vocabulary (statement
-cover, KPI scorecards, editorial timeline, icon-card grids, change-stat hero, quote + ritual
-panel, two-panel reference lists, dark bookends) transfer directly to any subject. Replace
-the copy and the icon choices, keep the grid and the semantic colours, and the deck stays
-coherent. Every fact here is web-verified as of July 2026; when adapting, re-verify or
-soften any figure you can't confirm — the design never depends on a specific number.
+**适合什么场景**：城市 / 城市群推介，文旅目的地介绍，招商与城市名片，旅行攻略分享，
+区域文化专题；任何「用一套克制而有作者气质的视觉，讲清一个地方」的表达。
 
-**Note on imagery.** The brief allowed AI-generated text-free mood images, but the image
-tool was unavailable at build time, so the deck falls back (by design) to a native
-icon-and-graphic system: oversized faint duotone icons act as mood plates and a recurring
-vermilion 蓉 seal is the brand mark. This keeps the deck 100% portable and reproducible; the
-same layouts accept full-bleed photos on the cover / dividers / closing if a photo library
-is available.
+**为什么可复用**：内容与视觉是**解耦**的。示例里的每一个事实、数字都经过公开资料核实
+（见 `运行记录.md`），但真正沉淀下来、可迁移的是这套**视觉系统**：配色的语义约定、
+版式家族（大数字名片 / 时间轴 / 特征卡 / 深色高光页 / 三日行程）、字体搭配、以及城徽 + 朱印的
+署名母题。**换城市时只需替换文字与数据，保留视觉系统**——把「成都」的常住人口、美食、熊猫、
+产业，换成任意城市的对应内容，模板依旧成立。图片不承载任何文字数据，全部为原生图形与图标，
+因此高度可移植、可重排、可再生成。
 
-## Structure
+## Structure（逐页）
 
-1. **Cover** — dark statement: "Chengdu / 成都 · Land of Abundance" hero, seal, hibiscus plate.
-2. **Snapshot** — four KPI scorecards (21M+ people · ¥2tn+ GDP · 315+ Fortune 500 · 2,300 years) + a "Land of Abundance" context bar.
-3. **Orientation** — where Chengdu sits: fact list + a jade feature panel (ridge + pinned plain).
-4. **History** — alternating editorial timeline: Shu kingdom → Dujiangyan (256 BC) → Brocade City → paper money → today.
-5. **Culture** — four icon cards: opera face-changing, Shu brocade, teahouse life, Hibiscus City.
-6. **Food (statement)** — dark pivot: "Asia's first UNESCO City of Gastronomy (2010)" + stats.
-7. **Food (detail)** — four dish cards under the *málà* flavour idea: hotpot, mapo tofu, dandan, smoked duck.
-8. **Pandas (hero)** — change-stat 6 → 244 at the Chengdu Research Base + jade paw feature panel.
-9. **Conservation** — stat row (~1,900 wild · IUCN Vulnerable · 6 ranges) + reasons panel + habitat plate.
-10. **Pace of life** — pull quote + "30,000+ teahouses" + a "how Chengdu relaxes" panel + the 巴适 / bāshì bar.
-11. **Tech** — stat row (¥2tn+ · 315+ · 260M+ players) + three cards: games, electronics, global business.
-12. **Getting there** — three transport cards (two airports, HSR, metro) + a 240-hour visa-free transit note.
-13. **Travel tips** — two reference panels, SEE (sights + day trips) and KNOW (seasons, spice, cashless, layers).
-14. **Closing** — dark bookend: "Come for the pandas, stay for the tea." + Chengdu's own slogan.
+1. 封面 —「成都 / 天府之国·锦官城」，超大书法体主标 + 金沙太阳神鸟城徽 + 蓉印。
+2. 城市名片 · 数字看成都 — 常住人口 / GDP / 面积 / 城镇化率 四个大数 + 别称身份条。
+3. 城市名片 · 一方水土 — 区位速览卡（方位/海拔/水系）+ 气候·水系·物候三条图标特征。
+4. 历史与文化 · 三千年文脉 — 金沙→都江堰→秦定名→世界遗产 横向时间轴。
+5. 历史与文化 · 三国与诗圣 — 武侯祠 / 杜甫草堂 双特征卡 + 杜甫诗句引文。
+6. 历史与文化 · 蜀风雅韵 — 蜀锦蜀绣 / 川剧变脸 / 宽窄巷子 三色非遗卡。
+7. 美食 · 世界美食之都（深色）— 2010 大字定位 + 招牌川菜 chip 阵列。
+8. 大熊猫 · 熊猫之乡 — 260 只大数 + 占全球圈养种群占比条 + 保护叙事。
+9. 生活节奏 · 慢生活 — 盖碗茶书法引句 + 茶馆/掏耳朵/夜生活 三条特征。
+10. 生活节奏 · 雪山下的公园城市 — 公园城市首提地等三支柱。
+11. 科技产业 · 硬核成都（深色）— 电子信息产业规模柱图 + 四张 KPI 卡。
+12. 旅行建议 · 成都怎么玩 — 何时来 / 看什么 / 怎么走 三栏清单。
+13. 旅行建议 · 三日锦城 — Day1/2/3 经典动线三日卡。
+14. 结语（深色）—「来了，就不想走」书法收束 + 城徽 + 数据来源脚注，与封面呼应。
 
 ## Fonts & Colors
 
-**Fonts (portable; substitute-safe).**
-- Display / headings: **Georgia** (serif) — an editorial, travel-magazine voice.
-- Body / numerals: **Helvetica Neue** (Arial on Windows) — clean, lining figures for big numbers.
-- Chrome / eyebrows / page markers: **Menlo** (Consolas on Windows) — tracked mono labels.
-- CJK accents: **Kaiti SC** (brush display, e.g. the 蓉 seal and 成都) + **Hiragino Sans GB** for body CJK.
-  Non-macOS machines substitute the CJK faces; the deck is >99% English, so the impact is cosmetic.
+**字体（角色化搭配）**
+- 标题 / 大字：宋·楷体（`Songti SC`，macOS 上渲染为书法体衬线，承载书卷气与作者感）。
+- 正文 / 说明：黑体（`Hiragino Sans GB`，清晰、可读、可移植）。
+- 数字 / 拉丁 / 眉标：`Helvetica Neue`（等高数字，大数字干净利落）。
+- 章节序号用大写中文数字（壹·贰·叁…）而非「01/02」，是让中文 deck 摆脱「翻译腔模板」的关键一笔。
+- 便携性提示：宋/楷体依赖系统字库；换机若无 `Songti SC`，标题会回退，可替换为
+  `STSong` / `KaiTi` / 思源宋体等 CJK 衬线体（`.pptx` 已按名嵌入字体标签）。
 
-**Colors — "Tianfu Editorial" (semantic).**
-- Paper `#F5EEE1` (cream) · Ink `#211C18` (warm near-black text + dark statement backgrounds).
-- **Lacquer red `#C4442B`** — the primary brand accent (city identity / heat / hibiscus): chrome
-  rules, kickers, the recurring 蓉 seal, and the red spine on the dark slides.
-- **Bamboo jade `#3F6B54`** — nature / pandas / tea / leisure.
-- **Amber gold `#C98A2B`** — heritage / craft / prosperity (and the food-section accent).
-- Warm body grey `#55493F`; muted chrome `#7E7365`. Darker hues are used for small-caps labels so
-  every text run clears the 4.5:1 contrast floor.
-- Rhythm: three dark statement slides (cover · gastronomy · closing) bookend and pivot the warm
-  cream interior; each category owns one hue deck-wide (a semantic colour contract).
+**配色（语义约定 · 一色一义，全篇一致）**
+- 米纸底 `#F5EFE2` / 卡片 `#FBF7EC` / 墨字 `#25201A` / 正文暖灰 `#4A4034` / 注释 `#8B8271`。
+- 锦朱红 `#BE3A2C` — 强调、章节壹/叁/柒、朱印、收束。
+- 蜀金 `#B9863A` — 历史与匠艺（章节贰）、城徽金。
+- 竹青绿 `#3E6B52` — 自然 / 大熊猫 / 公园城市（章节肆·伍）。
+- 黛蓝 `#2E5A69` — 科技产业（章节陆）。
+- 深色事件底：美食 `#2A1C18`、科技 `#14303A`、结语 `#22211C`。
+- 章节眉标序号与主标下的短色条，颜色随章节语义固定，形成「颜色即含义」的可信度锚点。
+
+**署名母题**：金沙「太阳神鸟」十二道旋转光芒日纹（PIL 纯几何生成，无文字），
+作为城徽 / 品牌标记贯穿每页角标，封面与结语放大呈现，与一方「蓉」朱印共同构成视觉签名。

@@ -4,7 +4,7 @@ window.DECKS = [
     "lang": "en",
     "title": "Lab Meeting / Paper Talk",
     "use": "paper reading, lab meeting, method overview, experiment report",
-    "pages": 16
+    "pages": 15
   },
   {
     "id": "en/nvidia-overview",
@@ -74,7 +74,7 @@ window.DECKS = [
     "lang": "zh",
     "title": "数据 / 市场分析",
     "use": "行业研究、趋势解读、结构化汇报",
-    "pages": 13
+    "pages": 14
   },
   {
     "id": "zh/solo-company-talk",
