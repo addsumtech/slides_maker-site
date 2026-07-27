@@ -9,12 +9,12 @@
     "format": "16:9",
     "slides": 14,
     "best_for": [
-      "quarterly review",
-      "business update",
-      "metrics dashboard",
-      "exec readout",
-      "data-heavy report",
-      "board update"
+      "季度复盘",
+      "经营汇报",
+      "数据看板",
+      "高管汇报",
+      "数据密集型报告",
+      "董事会汇报"
     ]
   },
   {
@@ -27,11 +27,11 @@
     "format": "16:9",
     "slides": 12,
     "best_for": [
-      "travel",
-      "city guide",
-      "culture",
-      "tourism",
-      "lifestyle explainer"
+      "旅行",
+      "城市指南",
+      "文化",
+      "旅游",
+      "生活方式讲解"
     ]
   },
   {
@@ -44,12 +44,12 @@
     "format": "16:9",
     "slides": 15,
     "best_for": [
-      "research review",
-      "lab meeting",
-      "paper walkthrough",
-      "methods overview",
-      "technical explainer",
-      "literature survey"
+      "研究综述",
+      "实验室会议",
+      "论文精读",
+      "方法概览",
+      "技术讲解",
+      "文献综述"
     ]
   },
   {
@@ -62,11 +62,11 @@
     "format": "16:9",
     "slides": 13,
     "best_for": [
-      "product launch",
-      "keynote",
-      "product reveal",
-      "spec walkthrough",
-      "launch event"
+      "产品发布",
+      "主题演讲",
+      "产品揭晓",
+      "规格介绍",
+      "发布活动"
     ]
   },
   {
@@ -79,12 +79,12 @@
     "format": "16:9",
     "slides": 16,
     "best_for": [
-      "company overview",
-      "investor pitch",
-      "product portfolio",
-      "recruiting deck",
-      "corporate intro",
-      "startup pitch"
+      "公司概览",
+      "投资人路演",
+      "产品矩阵",
+      "招聘宣讲",
+      "企业介绍",
+      "创业路演"
     ]
   },
   {
@@ -97,11 +97,11 @@
     "format": "16:9",
     "slides": 12,
     "best_for": [
-      "history explainer",
-      "timeline narrative",
-      "evolution of a topic",
-      "cultural topic",
-      "industry evolution"
+      "历史讲解",
+      "时间线叙事",
+      "主题演变",
+      "文化话题",
+      "行业演进"
     ]
   },
   {
@@ -114,11 +114,11 @@
     "format": "16:9",
     "slides": 14,
     "best_for": [
-      "seed pitch",
-      "investor deck",
-      "fundraising",
-      "startup pitch",
-      "demo day"
+      "种子轮路演",
+      "投资人演示",
+      "融资",
+      "创业路演",
+      "路演日"
     ]
   },
   {
@@ -131,12 +131,12 @@
     "format": "16:9",
     "slides": 14,
     "best_for": [
-      "biography",
-      "tribute",
-      "person profile",
-      "brand profile",
-      "cultural retrospective",
-      "life timeline"
+      "人物传记",
+      "致敬",
+      "人物简介",
+      "品牌简介",
+      "文化回顾",
+      "生平时间线"
     ]
   },
   {
@@ -149,10 +149,10 @@
     "format": "16:9",
     "slides": 13,
     "best_for": [
-      "market analysis",
-      "career advice",
-      "policy explainer",
-      "business explainer"
+      "市场分析",
+      "职业建议",
+      "政策解读",
+      "商业讲解"
     ]
   },
   {
@@ -165,11 +165,11 @@
     "format": "16:9",
     "slides": 16,
     "best_for": [
-      "corporate training",
-      "workshop",
-      "skills enablement",
-      "facilitation",
-      "exercise-driven teaching"
+      "企业培训",
+      "工作坊",
+      "技能赋能",
+      "引导式教学",
+      "练习驱动教学"
     ]
   },
   {
@@ -182,12 +182,12 @@
     "format": "16:9",
     "slides": 12,
     "best_for": [
-      "keynote",
-      "talk",
-      "pitch opener",
-      "opinion piece",
-      "build in public",
-      "indie hacker"
+      "主题演讲",
+      "演讲",
+      "路演开场",
+      "观点分享",
+      "公开构建",
+      "独立开发者"
     ]
   },
   {
@@ -200,11 +200,11 @@
     "format": "16:9",
     "slides": 16,
     "best_for": [
-      "kids explainer",
-      "science popularization",
-      "teaching",
-      "concept explainer",
-      "general audience"
+      "少儿讲解",
+      "科普",
+      "教学",
+      "概念讲解",
+      "大众科普"
     ]
   },
   {
