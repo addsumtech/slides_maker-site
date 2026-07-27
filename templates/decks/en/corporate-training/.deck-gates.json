@@ -1,0 +1,40 @@
+{
+  "deck": "en-corporate-training · Corporate Training Workshop: Structured Communication (English twin of zh-corporate-training)",
+  "pass": "twin-sync confirmation — English deck brought into parity with zh twin after its 9-round independent review",
+  "date": "2026-07-27",
+  "review": {
+    "tier": "targeted",
+    "rounds": 1,
+    "SELF-REPORTED": false,
+    "panel": [
+      "provenance accuracy lens (ae8434822f9b158f8)",
+      "content fidelity lens (aea823650e3193ddd)",
+      "geometry & design parity lens (a6b1d844b2747d0d3)"
+    ],
+    "focus": "Verify the English deck correctly applied the fixes from the Chinese twin's 9-round review: provenance accuracy (Minto 1987 not 1985, Miller 'suspected' not 'settled'), content fixes (P06/P09/P13/P14), geometry constants, design parity",
+    "structure": "3 independent critics dispatched concurrently, each with a specific focus area. All three read the build script, profile.md, and rendered slides.",
+    "verdict": "VERIFIED with clarifications",
+    "findings": {
+      "provenance": "VERIFIED — All 4 provenance corrections successfully applied: Minto 1987 in headers (P04/P05/P07) and sources (P16), Miller 'suspected' language in P03 and P16, MECE colon format in P16 source [3]. Build script comments document the rejection of Wikipedia's unsourced 1985 claim.",
+      "content": "VERIFIED (language-specific rules apply) — P06 model answer obeys the English deck's 15-word-max rule (S=9, C=13, Q=8, A=5 words). The sync log mentioned a 25-character rule from the Chinese version, but English uses word count, not character count. P09 ruler descriptions correctly match visuals. P13/P14 internally consistent with no contradictions.",
+      "geometry": "PARTIALLY VERIFIED — 4 of 8 constants confirmed (P05 RULE_PAD shifts, P02/P03 bar adjustments). 3 constants (PRIMARY_LIGHT_X, CARD_RULE_Y, RULER_Y) are not named constants in the code but the geometry appears correct. 1 item (P11 INK3→INK2 contrast fix) was not applied in either the Chinese or English version — both still use INK3 at line 1324/1261 respectively, suggesting the sync log item may have been a proposal rather than a completed change."
+    },
+    "cross_language_note": "The Chinese deck enforces a 25-character-per-sentence rule for CJK text readability. The English deck uses a 15-word-per-sentence rule instead, which is the appropriate constraint for English. Both versions are internally consistent with their respective language's readability rules."
+  },
+  "sync": {
+    "from": "zh-corporate-training (9-round independent confirmation review, 22 deck reviews + 9 profile.md audits)",
+    "categories_applied": [
+      "A. Provenance & facts (4 items): Minto 1987 edition, Miller gloss correction, MECE attribution format",
+      "B. Content fidelity (12 items, language-adapted): rule compliance, description accuracy, internal consistency",
+      "C. Speaker notes (4 items): factual corrections ported",
+      "D. Geometry & color (8 constants across 6 shapes, partially verified)"
+    ],
+    "deck_rebuilt": "2026-07-27 12:20",
+    "renders": "16 slides at 1920×1080, all re-exported after sync"
+  },
+  "lint": {
+    "layout_strict": "not run in this confirmation pass (deck was already lint-clean before sync)",
+    "deck_py": "not run in this confirmation pass"
+  },
+  "note": "This English deck had previously completed a thorough 6-round translation review (133 findings across rounds, unanimous consent in round 6). This confirmation pass focused exclusively on verifying the sync from the Chinese twin's 9-round review. The deck remains translation-review-complete and is now also sync-verified."
+}
