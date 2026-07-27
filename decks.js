@@ -110,5 +110,61 @@ window.DECKS = [
     "title": "AI 趋势 / 个人演讲",
     "use": "趋势解读、个人表达、创业分享",
     "pages": 12
+  },
+{
+    "id": "en/quarterly-review",
+    "lang": "en",
+    "title": "Quarterly Review / Business Update",
+    "use": "quarterly review, business update, metrics dashboard, exec readout",
+    "pages": 14
+  },
+{
+    "id": "en/product-launch",
+    "lang": "en",
+    "title": "Product Launch / Keynote",
+    "use": "launch keynote, product reveal, spec walkthrough",
+    "pages": 13
+  },
+{
+    "id": "zh/quarterly-review",
+    "lang": "zh",
+    "title": "季度复盘 / 经营汇报",
+    "use": "季度复盘、经营汇报、数据看板、管理层沟通",
+    "pages": 14
+  },
+{
+    "id": "zh/product-launch",
+    "lang": "zh",
+    "title": "新品发布 / 产品上线",
+    "use": "发布会、新品介绍、产品上线沟通",
+    "pages": 13
+  },
+{
+    "id": "en/startup-pitch",
+    "lang": "en",
+    "title": "Startup Pitch / Fundraising",
+    "use": "seed pitch, investor meeting, fundraising deck, demo day",
+    "pages": 14
+  },
+{
+    "id": "en/corporate-training",
+    "lang": "en",
+    "title": "Corporate Training / Workshop",
+    "use": "training deck, workshop, skills enablement, exercises",
+    "pages": 16
+  },
+{
+    "id": "zh/startup-pitch",
+    "lang": "zh",
+    "title": "融资路演 / BP",
+    "use": "种子轮路演、投资人沟通、创业 BP",
+    "pages": 14
+  },
+{
+    "id": "zh/corporate-training",
+    "lang": "zh",
+    "title": "企业内训 / 工作坊",
+    "use": "内训课件、工作坊、技能培训、练习引导",
+    "pages": 16
   }
 ];

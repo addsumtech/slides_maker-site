@@ -276,5 +276,143 @@
       "cultural retrospective",
       "life timeline"
     ]
+  },
+  {
+    "id": "quarterly-review",
+    "lang": "zh",
+    "name": "季度经营复盘",
+    "path": "templates/decks/zh/quarterly-review/template.pptx",
+    "profile": "templates/decks/zh/quarterly-review/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 14,
+    "best_for": [
+      "quarterly review",
+      "business update",
+      "metrics dashboard",
+      "exec readout",
+      "data-heavy report",
+      "board update"
+    ]
+  },
+  {
+    "id": "product-launch",
+    "lang": "zh",
+    "name": "新品发布会",
+    "path": "templates/decks/zh/product-launch/template.pptx",
+    "profile": "templates/decks/zh/product-launch/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 13,
+    "best_for": [
+      "product launch",
+      "keynote",
+      "product reveal",
+      "spec walkthrough",
+      "launch event"
+    ]
+  },
+  {
+    "id": "quarterly-review",
+    "lang": "en",
+    "name": "Quarterly Business Review",
+    "path": "templates/decks/en/quarterly-review/template.pptx",
+    "profile": "templates/decks/en/quarterly-review/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 14,
+    "best_for": [
+      "quarterly review",
+      "business update",
+      "metrics dashboard",
+      "exec readout",
+      "data-heavy report",
+      "board update"
+    ]
+  },
+  {
+    "id": "product-launch",
+    "lang": "en",
+    "name": "Product Launch Keynote",
+    "path": "templates/decks/en/product-launch/template.pptx",
+    "profile": "templates/decks/en/product-launch/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 13,
+    "best_for": [
+      "product launch",
+      "keynote",
+      "product reveal",
+      "spec walkthrough",
+      "launch event"
+    ]
+  },
+  {
+    "id": "startup-pitch",
+    "lang": "zh",
+    "name": "融资路演 BP",
+    "path": "templates/decks/zh/startup-pitch/template.pptx",
+    "profile": "templates/decks/zh/startup-pitch/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 14,
+    "best_for": [
+      "seed pitch",
+      "investor deck",
+      "fundraising",
+      "startup pitch",
+      "demo day"
+    ]
+  },
+  {
+    "id": "corporate-training",
+    "lang": "zh",
+    "name": "企业内训课件",
+    "path": "templates/decks/zh/corporate-training/template.pptx",
+    "profile": "templates/decks/zh/corporate-training/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 16,
+    "best_for": [
+      "corporate training",
+      "workshop",
+      "skills enablement",
+      "facilitation",
+      "exercise-driven teaching"
+    ]
+  },
+  {
+    "id": "startup-pitch",
+    "lang": "en",
+    "name": "Seed Pitch Deck",
+    "path": "templates/decks/en/startup-pitch/template.pptx",
+    "profile": "templates/decks/en/startup-pitch/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 14,
+    "best_for": [
+      "seed pitch",
+      "investor deck",
+      "fundraising",
+      "startup pitch",
+      "demo day"
+    ]
+  },
+  {
+    "id": "corporate-training",
+    "lang": "en",
+    "name": "Corporate Training Workshop",
+    "path": "templates/decks/en/corporate-training/template.pptx",
+    "profile": "templates/decks/en/corporate-training/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 16,
+    "best_for": [
+      "corporate training",
+      "workshop",
+      "skills enablement",
+      "facilitation",
+      "exercise-driven teaching"
+    ]
   }
 ]
