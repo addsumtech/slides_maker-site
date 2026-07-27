@@ -1,5 +1,23 @@
 [
   {
+    "id": "quarterly-review",
+    "lang": "zh",
+    "name": "季度经营复盘",
+    "path": "templates/decks/zh/quarterly-review/template.pptx",
+    "profile": "templates/decks/zh/quarterly-review/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 14,
+    "best_for": [
+      "quarterly review",
+      "business update",
+      "metrics dashboard",
+      "exec readout",
+      "data-heavy report",
+      "board update"
+    ]
+  },
+  {
     "id": "chengdu",
     "lang": "zh",
     "name": "成都旅行指南",
@@ -14,22 +32,6 @@
       "culture",
       "tourism",
       "lifestyle explainer"
-    ]
-  },
-  {
-    "id": "nl-job-market-2026",
-    "lang": "zh",
-    "name": "荷兰就业市场 2026",
-    "path": "templates/decks/zh/nl-job-market-2026/template.pptx",
-    "profile": "templates/decks/zh/nl-job-market-2026/profile.md",
-    "kind": "deck",
-    "format": "16:9",
-    "slides": 13,
-    "best_for": [
-      "market analysis",
-      "career advice",
-      "policy explainer",
-      "business explainer"
     ]
   },
   {
@@ -51,6 +53,23 @@
     ]
   },
   {
+    "id": "product-launch",
+    "lang": "zh",
+    "name": "新品发布会",
+    "path": "templates/decks/zh/product-launch/template.pptx",
+    "profile": "templates/decks/zh/product-launch/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 13,
+    "best_for": [
+      "product launch",
+      "keynote",
+      "product reveal",
+      "spec walkthrough",
+      "launch event"
+    ]
+  },
+  {
     "id": "nvidia-overview",
     "lang": "zh",
     "name": "公司概览",
@@ -69,41 +88,6 @@
     ]
   },
   {
-    "id": "kids-ai-explainer",
-    "lang": "zh",
-    "name": "少儿 AI 小课堂",
-    "path": "templates/decks/zh/kids-ai-explainer/template.pptx",
-    "profile": "templates/decks/zh/kids-ai-explainer/profile.md",
-    "kind": "deck",
-    "format": "16:9",
-    "slides": 16,
-    "best_for": [
-      "kids explainer",
-      "science popularization",
-      "teaching",
-      "concept explainer",
-      "general audience"
-    ]
-  },
-  {
-    "id": "solo-company-talk",
-    "lang": "zh",
-    "name": "一人公司演讲",
-    "path": "templates/decks/zh/solo-company-talk/template.pptx",
-    "profile": "templates/decks/zh/solo-company-talk/profile.md",
-    "kind": "deck",
-    "format": "16:9",
-    "slides": 12,
-    "best_for": [
-      "keynote",
-      "talk",
-      "pitch opener",
-      "opinion piece",
-      "build in public",
-      "indie hacker"
-    ]
-  },
-  {
     "id": "standup-history",
     "lang": "zh",
     "name": "脱口秀简史",
@@ -118,6 +102,23 @@
       "evolution of a topic",
       "cultural topic",
       "industry evolution"
+    ]
+  },
+  {
+    "id": "startup-pitch",
+    "lang": "zh",
+    "name": "融资路演 BP",
+    "path": "templates/decks/zh/startup-pitch/template.pptx",
+    "profile": "templates/decks/zh/startup-pitch/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 14,
+    "best_for": [
+      "seed pitch",
+      "investor deck",
+      "fundraising",
+      "startup pitch",
+      "demo day"
     ]
   },
   {
@@ -139,28 +140,11 @@
     ]
   },
   {
-    "id": "chengdu",
-    "lang": "en",
-    "name": "Chengdu Traveller Guide",
-    "path": "templates/decks/en/chengdu/template.pptx",
-    "profile": "templates/decks/en/chengdu/profile.md",
-    "kind": "deck",
-    "format": "16:9",
-    "slides": 12,
-    "best_for": [
-      "travel",
-      "city guide",
-      "culture",
-      "tourism",
-      "lifestyle explainer"
-    ]
-  },
-  {
     "id": "nl-job-market-2026",
-    "lang": "en",
-    "name": "Netherlands Job Market 2026",
-    "path": "templates/decks/en/nl-job-market-2026/template.pptx",
-    "profile": "templates/decks/en/nl-job-market-2026/profile.md",
+    "lang": "zh",
+    "name": "荷兰就业市场 2026",
+    "path": "templates/decks/zh/nl-job-market-2026/template.pptx",
+    "profile": "templates/decks/zh/nl-job-market-2026/profile.md",
     "kind": "deck",
     "format": "16:9",
     "slides": 13,
@@ -172,64 +156,28 @@
     ]
   },
   {
-    "id": "transformer-talk",
-    "lang": "en",
-    "name": "Attention Is All You Need Paper Talk",
-    "path": "templates/decks/en/transformer-talk/template.pptx",
-    "profile": "templates/decks/en/transformer-talk/profile.md",
-    "kind": "deck",
-    "format": "16:9",
-    "slides": 15,
-    "best_for": [
-      "research review",
-      "lab meeting",
-      "paper walkthrough",
-      "methods overview",
-      "technical explainer",
-      "literature survey"
-    ]
-  },
-  {
-    "id": "nvidia-overview",
-    "lang": "en",
-    "name": "Company Overview",
-    "path": "templates/decks/en/nvidia-overview/template.pptx",
-    "profile": "templates/decks/en/nvidia-overview/profile.md",
+    "id": "corporate-training",
+    "lang": "zh",
+    "name": "企业内训课件",
+    "path": "templates/decks/zh/corporate-training/template.pptx",
+    "profile": "templates/decks/zh/corporate-training/profile.md",
     "kind": "deck",
     "format": "16:9",
     "slides": 16,
     "best_for": [
-      "company overview",
-      "investor pitch",
-      "product portfolio",
-      "recruiting deck",
-      "corporate intro",
-      "startup pitch"
-    ]
-  },
-  {
-    "id": "kids-ai-explainer",
-    "lang": "en",
-    "name": "AI for Kids",
-    "path": "templates/decks/en/kids-ai-explainer/template.pptx",
-    "profile": "templates/decks/en/kids-ai-explainer/profile.md",
-    "kind": "deck",
-    "format": "16:9",
-    "slides": 16,
-    "best_for": [
-      "kids explainer",
-      "science popularization",
-      "teaching",
-      "concept explainer",
-      "general audience"
+      "corporate training",
+      "workshop",
+      "skills enablement",
+      "facilitation",
+      "exercise-driven teaching"
     ]
   },
   {
     "id": "solo-company-talk",
-    "lang": "en",
-    "name": "Solo Company Talk",
-    "path": "templates/decks/en/solo-company-talk/template.pptx",
-    "profile": "templates/decks/en/solo-company-talk/profile.md",
+    "lang": "zh",
+    "name": "一人公司演讲",
+    "path": "templates/decks/zh/solo-company-talk/template.pptx",
+    "profile": "templates/decks/zh/solo-company-talk/profile.md",
     "kind": "deck",
     "format": "16:9",
     "slides": 12,
@@ -243,73 +191,20 @@
     ]
   },
   {
-    "id": "standup-history",
-    "lang": "en",
-    "name": "A Brief History of Stand-Up",
-    "path": "templates/decks/en/standup-history/template.pptx",
-    "profile": "templates/decks/en/standup-history/profile.md",
-    "kind": "deck",
-    "format": "16:9",
-    "slides": 12,
-    "best_for": [
-      "history explainer",
-      "timeline narrative",
-      "evolution of a topic",
-      "cultural topic",
-      "industry evolution"
-    ]
-  },
-  {
-    "id": "michael-jackson-king-of-pop",
-    "lang": "en",
-    "name": "The King of Pop",
-    "path": "templates/decks/en/michael-jackson-king-of-pop/template.pptx",
-    "profile": "templates/decks/en/michael-jackson-king-of-pop/profile.md",
-    "kind": "deck",
-    "format": "16:9",
-    "slides": 14,
-    "best_for": [
-      "biography",
-      "tribute",
-      "person profile",
-      "brand profile",
-      "cultural retrospective",
-      "life timeline"
-    ]
-  },
-  {
-    "id": "quarterly-review",
+    "id": "kids-ai-explainer",
     "lang": "zh",
-    "name": "季度经营复盘",
-    "path": "templates/decks/zh/quarterly-review/template.pptx",
-    "profile": "templates/decks/zh/quarterly-review/profile.md",
+    "name": "少儿 AI 小课堂",
+    "path": "templates/decks/zh/kids-ai-explainer/template.pptx",
+    "profile": "templates/decks/zh/kids-ai-explainer/profile.md",
     "kind": "deck",
     "format": "16:9",
-    "slides": 14,
+    "slides": 16,
     "best_for": [
-      "quarterly review",
-      "business update",
-      "metrics dashboard",
-      "exec readout",
-      "data-heavy report",
-      "board update"
-    ]
-  },
-  {
-    "id": "product-launch",
-    "lang": "zh",
-    "name": "新品发布会",
-    "path": "templates/decks/zh/product-launch/template.pptx",
-    "profile": "templates/decks/zh/product-launch/profile.md",
-    "kind": "deck",
-    "format": "16:9",
-    "slides": 13,
-    "best_for": [
-      "product launch",
-      "keynote",
-      "product reveal",
-      "spec walkthrough",
-      "launch event"
+      "kids explainer",
+      "science popularization",
+      "teaching",
+      "concept explainer",
+      "general audience"
     ]
   },
   {
@@ -331,6 +226,41 @@
     ]
   },
   {
+    "id": "chengdu",
+    "lang": "en",
+    "name": "Chengdu Traveller Guide",
+    "path": "templates/decks/en/chengdu/template.pptx",
+    "profile": "templates/decks/en/chengdu/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 12,
+    "best_for": [
+      "travel",
+      "city guide",
+      "culture",
+      "tourism",
+      "lifestyle explainer"
+    ]
+  },
+  {
+    "id": "transformer-talk",
+    "lang": "en",
+    "name": "Attention Is All You Need Paper Talk",
+    "path": "templates/decks/en/transformer-talk/template.pptx",
+    "profile": "templates/decks/en/transformer-talk/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 15,
+    "best_for": [
+      "research review",
+      "lab meeting",
+      "paper walkthrough",
+      "methods overview",
+      "technical explainer",
+      "literature survey"
+    ]
+  },
+  {
     "id": "product-launch",
     "lang": "en",
     "name": "Product Launch Keynote",
@@ -348,37 +278,38 @@
     ]
   },
   {
-    "id": "startup-pitch",
-    "lang": "zh",
-    "name": "融资路演 BP",
-    "path": "templates/decks/zh/startup-pitch/template.pptx",
-    "profile": "templates/decks/zh/startup-pitch/profile.md",
-    "kind": "deck",
-    "format": "16:9",
-    "slides": 14,
-    "best_for": [
-      "seed pitch",
-      "investor deck",
-      "fundraising",
-      "startup pitch",
-      "demo day"
-    ]
-  },
-  {
-    "id": "corporate-training",
-    "lang": "zh",
-    "name": "企业内训课件",
-    "path": "templates/decks/zh/corporate-training/template.pptx",
-    "profile": "templates/decks/zh/corporate-training/profile.md",
+    "id": "nvidia-overview",
+    "lang": "en",
+    "name": "Company Overview",
+    "path": "templates/decks/en/nvidia-overview/template.pptx",
+    "profile": "templates/decks/en/nvidia-overview/profile.md",
     "kind": "deck",
     "format": "16:9",
     "slides": 16,
     "best_for": [
-      "corporate training",
-      "workshop",
-      "skills enablement",
-      "facilitation",
-      "exercise-driven teaching"
+      "company overview",
+      "investor pitch",
+      "product portfolio",
+      "recruiting deck",
+      "corporate intro",
+      "startup pitch"
+    ]
+  },
+  {
+    "id": "standup-history",
+    "lang": "en",
+    "name": "A Brief History of Stand-Up",
+    "path": "templates/decks/en/standup-history/template.pptx",
+    "profile": "templates/decks/en/standup-history/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 12,
+    "best_for": [
+      "history explainer",
+      "timeline narrative",
+      "evolution of a topic",
+      "cultural topic",
+      "industry evolution"
     ]
   },
   {
@@ -399,6 +330,40 @@
     ]
   },
   {
+    "id": "michael-jackson-king-of-pop",
+    "lang": "en",
+    "name": "The King of Pop",
+    "path": "templates/decks/en/michael-jackson-king-of-pop/template.pptx",
+    "profile": "templates/decks/en/michael-jackson-king-of-pop/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 14,
+    "best_for": [
+      "biography",
+      "tribute",
+      "person profile",
+      "brand profile",
+      "cultural retrospective",
+      "life timeline"
+    ]
+  },
+  {
+    "id": "nl-job-market-2026",
+    "lang": "en",
+    "name": "Netherlands Job Market 2026",
+    "path": "templates/decks/en/nl-job-market-2026/template.pptx",
+    "profile": "templates/decks/en/nl-job-market-2026/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 13,
+    "best_for": [
+      "market analysis",
+      "career advice",
+      "policy explainer",
+      "business explainer"
+    ]
+  },
+  {
     "id": "corporate-training",
     "lang": "en",
     "name": "Corporate Training Workshop",
@@ -413,6 +378,41 @@
       "skills enablement",
       "facilitation",
       "exercise-driven teaching"
+    ]
+  },
+  {
+    "id": "solo-company-talk",
+    "lang": "en",
+    "name": "Solo Company Talk",
+    "path": "templates/decks/en/solo-company-talk/template.pptx",
+    "profile": "templates/decks/en/solo-company-talk/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 12,
+    "best_for": [
+      "keynote",
+      "talk",
+      "pitch opener",
+      "opinion piece",
+      "build in public",
+      "indie hacker"
+    ]
+  },
+  {
+    "id": "kids-ai-explainer",
+    "lang": "en",
+    "name": "AI for Kids",
+    "path": "templates/decks/en/kids-ai-explainer/template.pptx",
+    "profile": "templates/decks/en/kids-ai-explainer/profile.md",
+    "kind": "deck",
+    "format": "16:9",
+    "slides": 16,
+    "best_for": [
+      "kids explainer",
+      "science popularization",
+      "teaching",
+      "concept explainer",
+      "general audience"
     ]
   }
 ]
