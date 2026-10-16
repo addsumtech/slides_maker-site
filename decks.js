@@ -28,18 +28,19 @@ window.DECKS = [
     "pages": 13
   },
   {
-    "id": "zh/nvidia-overview",
+    "id": "zh/biology-lesson",
     "lang": "zh",
-    "title": "公司概览",
-    "use": "公司概览, 投资人路演, 产品矩阵, 招聘宣讲, 企业介绍, 创业路演",
-    "pages": 16
+    "title": "光合作用课件",
+    "use": "教学课件, 课堂讲解, 知识点梳理, 随堂练习, 黑板报风格",
+    "pages": 15
   },
   {
-    "id": "zh/standup-history",
+    "id": "zh/pour-over-coffee",
     "lang": "zh",
-    "title": "脱口秀简史",
-    "use": "历史讲解, 时间线叙事, 主题演变, 文化话题, 行业演进",
-    "pages": 12
+    "title": "小红书图文：手冲咖啡入门",
+    "use": "小红书图文, 竖版轮播, 教程笔记, 生活方式, 3:4",
+    "pages": 10,
+    "aspect": "3:4"
   },
   {
     "id": "zh/startup-pitch",
@@ -112,18 +113,19 @@ window.DECKS = [
     "pages": 13
   },
   {
-    "id": "en/nvidia-overview",
+    "id": "en/biology-lesson",
     "lang": "en",
-    "title": "Company Overview",
-    "use": "company overview, investor pitch, product portfolio, recruiting deck, corporate intro, startup pitch",
-    "pages": 16
+    "title": "Photosynthesis Lesson",
+    "use": "lesson slides, classroom teaching, explainer, in-class quiz, chalkboard look",
+    "pages": 15
   },
   {
-    "id": "en/standup-history",
+    "id": "en/pour-over-coffee",
     "lang": "en",
-    "title": "A Brief History of Stand-Up",
-    "use": "history explainer, timeline narrative, evolution of a topic, cultural topic, industry evolution",
-    "pages": 12
+    "title": "Social Carousel: Pour-Over Coffee",
+    "use": "social carousel, RedNote post, how-to guide, lifestyle, 3:4 portrait",
+    "pages": 10,
+    "aspect": "3:4"
   },
   {
     "id": "en/startup-pitch",

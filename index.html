@@ -49,7 +49,7 @@
   ]
 }
 </script>
-<script src="/decks.js?v=20260727"></script>
+<script src="/decks.js?v=20261017"></script>
 <style>
 :root {
   --ink:#1d1b16; --paper:#f6f2ea; --mute:#7a7263; --accent:#b13a24; --accent-deep:#93301e;
@@ -123,8 +123,10 @@ h1 .hl { color:var(--accent); }
 .card:hover { transform:translateY(-4px); box-shadow:0 14px 34px rgba(29,27,22,.13); border-color:#cfc6b4; }
 .cover { position:relative; display:block; line-height:0; overflow:hidden; }
 .cover img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; transition:opacity .25s ease; }
+/* 竖版（3:4 小红书等）：整页放进 16:9 卡片，不裁切 */
+.card.portrait .cover img { object-fit:contain; background:#e9e3d6; }
 .cover .badge { position:absolute; right:10px; bottom:10px; background:rgba(29,27,22,.82); color:#f9f5ec;
-  font-size:11px; font-weight:700; padding:4px 9px; border-radius:99px; letter-spacing:.03em; backdrop-filter:blur(4px); }
+  font-size:11px; line-height:1.4; font-weight:700; padding:3px 9px; border-radius:99px; letter-spacing:.03em; backdrop-filter:blur(4px); }
 .cover .dots { position:absolute; left:12px; bottom:13px; display:flex; gap:5px; opacity:0; transition:opacity .2s; }
 .card:hover .dots { opacity:1; }
 .cover .dots i { width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.45); }
@@ -243,7 +245,7 @@ const STR = {
     vTitle: 'See it work · 3 min',
     vLede: 'How one prompt becomes an editable deck: the interview, the build, and the self-review. English narration with captions.',
     galleryTitle: 'The gallery', hoverHint: 'Hover a cover to flip through',
-    pages: 'pages', flip: 'Flip online', dl: '.pptx',
+    pages: 'pages', flip: 'Flip online', dl: '.pptx', portrait: '3:4 portrait',
     howTitle: 'Use any of these as your template',
     hs1: '<a href="https://github.com/addsumtech/slides_maker#quick-start">Install slide-maker</a> — clone the repo and run one install command. Every deck above ships inside it as template.pptx plus a style profile.',
     hs2: 'Pick a deck you like. Its exact command is on the flip-through page, one Copy click away.',
@@ -266,7 +268,7 @@ const STR = {
     vTitle: '3 分钟，看它怎么干活',
     vLede: '一条指令如何变成可编辑的 deck：访谈、构建、自检全流程。',
     galleryTitle: '模板画廊', hoverHint: '悬停封面可预览内页',
-    pages: '页', flip: '在线翻页', dl: '.pptx',
+    pages: '页', flip: '在线翻页', dl: '.pptx', portrait: '3:4 竖版',
     howTitle: '把任何一套当作你的模板',
     hs1: '<a href="https://github.com/addsumtech/slides_maker/blob/main/README_CN.md#快速开始">装好 slide-maker</a>：clone 仓库跑一条安装命令。上面每套 deck 都以 template.pptx 加风格档案的形式装在里面。',
     hs2: '挑一套喜欢的。它的专属命令就在翻页页面上，点一下复制。',
@@ -287,9 +289,11 @@ function card(d, t) {
   const base = `/templates/decks/${d.id}/render/`;
   const view = `/viewer.html?deck=${encodeURIComponent(d.id)}`;
   const dl = `/templates/decks/${d.id}/template.pptx`;
-  return `<div class="card" data-id="${d.id}" data-pages="${d.pages}">
+  const tall = d.aspect === '3:4';
+  return `<div class="card${tall ? ' portrait' : ''}" data-id="${d.id}" data-pages="${d.pages}">
     <a class="cover" href="${view}">
       <img loading="lazy" src="${base}slide01.png" alt="${d.title} preview">
+      ${tall ? `<span class="badge">${t.portrait}</span>` : ''}
       <span class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></span>
     </a>
     <div class="meta">

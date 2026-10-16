@@ -70,38 +70,37 @@
     ]
   },
   {
-    "id": "nvidia-overview",
+    "id": "biology-lesson",
     "lang": "zh",
-    "name": "公司概览",
-    "path": "templates/decks/zh/nvidia-overview/template.pptx",
-    "profile": "templates/decks/zh/nvidia-overview/profile.md",
+    "name": "光合作用课件",
+    "path": "templates/decks/zh/biology-lesson/template.pptx",
+    "profile": "templates/decks/zh/biology-lesson/profile.md",
     "kind": "deck",
     "format": "16:9",
-    "slides": 16,
+    "slides": 15,
     "best_for": [
-      "公司概览",
-      "投资人路演",
-      "产品矩阵",
-      "招聘宣讲",
-      "企业介绍",
-      "创业路演"
+      "lesson",
+      "classroom teaching",
+      "courseware",
+      "explainer",
+      "training"
     ]
   },
   {
-    "id": "standup-history",
+    "id": "pour-over-coffee",
     "lang": "zh",
-    "name": "脱口秀简史",
-    "path": "templates/decks/zh/standup-history/template.pptx",
-    "profile": "templates/decks/zh/standup-history/profile.md",
+    "name": "手冲咖啡入门",
+    "path": "templates/decks/zh/pour-over-coffee/template.pptx",
+    "profile": "templates/decks/zh/pour-over-coffee/profile.md",
     "kind": "deck",
-    "format": "16:9",
-    "slides": 12,
+    "format": "3:4",
+    "slides": 10,
     "best_for": [
-      "历史讲解",
-      "时间线叙事",
-      "主题演变",
-      "文化话题",
-      "行业演进"
+      "xiaohongshu carousel",
+      "social post",
+      "how-to guide",
+      "lifestyle",
+      "3:4 portrait"
     ]
   },
   {
@@ -278,38 +277,37 @@
     ]
   },
   {
-    "id": "nvidia-overview",
+    "id": "biology-lesson",
     "lang": "en",
-    "name": "Company Overview",
-    "path": "templates/decks/en/nvidia-overview/template.pptx",
-    "profile": "templates/decks/en/nvidia-overview/profile.md",
+    "name": "Photosynthesis Lesson",
+    "path": "templates/decks/en/biology-lesson/template.pptx",
+    "profile": "templates/decks/en/biology-lesson/profile.md",
     "kind": "deck",
     "format": "16:9",
-    "slides": 16,
+    "slides": 15,
     "best_for": [
-      "company overview",
-      "investor pitch",
-      "product portfolio",
-      "recruiting deck",
-      "corporate intro",
-      "startup pitch"
+      "lesson",
+      "classroom teaching",
+      "courseware",
+      "explainer",
+      "training"
     ]
   },
   {
-    "id": "standup-history",
+    "id": "pour-over-coffee",
     "lang": "en",
-    "name": "A Brief History of Stand-Up",
-    "path": "templates/decks/en/standup-history/template.pptx",
-    "profile": "templates/decks/en/standup-history/profile.md",
+    "name": "Pour-Over Coffee Basics",
+    "path": "templates/decks/en/pour-over-coffee/template.pptx",
+    "profile": "templates/decks/en/pour-over-coffee/profile.md",
     "kind": "deck",
-    "format": "16:9",
-    "slides": 12,
+    "format": "3:4",
+    "slides": 10,
     "best_for": [
-      "history explainer",
-      "timeline narrative",
-      "evolution of a topic",
-      "cultural topic",
-      "industry evolution"
+      "xiaohongshu carousel",
+      "social post",
+      "how-to guide",
+      "lifestyle",
+      "3:4 portrait"
     ]
   },
   {

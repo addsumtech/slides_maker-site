@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>slide-maker — deck viewer</title>
 <link rel="icon" type="image/png" href="favicon.png">
-<script src="decks.js"></script>
+<script src="decks.js?v=20261017"></script>
 <style>
 :root { --ink:#1f2430; --paper:#fbfaf7; --mute:#8a8f9a; --accent:#c2410c; --accent-deep:#9a3410;
   --line:#e3e0d8; --tint:#faece3; }
@@ -29,6 +29,8 @@ header a.dl:hover { background:var(--accent); }
 
 main { flex:1; display:flex; align-items:center; justify-content:center; padding:22px 64px; position:relative; }
 .stage { position:relative; max-width:1080px; width:100%; }
+/* 竖版：按视口高度限宽，整页一屏看完 */
+.stage.portrait { max-width:min(600px, calc((100vh - 230px) * 0.75)); }
 .stage img { width:100%; display:block; border:1px solid var(--line); border-radius:12px;
   background:#fff; box-shadow:0 14px 44px rgba(31,36,48,.12); }
 .hot { position:absolute; top:0; bottom:0; width:50%; cursor:pointer; }
@@ -129,6 +131,7 @@ if (!deck) {
   document.querySelector('.usebar').style.display = 'none';
 } else {
   const zh = deck.lang === 'zh';
+  if (deck.aspect === '3:4') document.getElementById('stage').classList.add('portrait');
   document.getElementById('deckTitle').textContent = `${deck.title}（${zh ? '中文' : 'English'}）`;
   document.title = `${deck.title} — slide-maker`;
   document.documentElement.lang = zh ? 'zh-CN' : 'en';
