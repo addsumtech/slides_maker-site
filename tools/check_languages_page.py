@@ -125,12 +125,21 @@ HARNESS = r"""<!doctype html><html><head><meta charset="utf-8"><style>body{margi
         const src = (dlg.querySelector('.pages img') || {}).getAttribute ? dlg.querySelector('.pages img').getAttribute('src') : '';
         if (want && src !== ink.grounds[1].pages.cover) fail('the dialog ground switch left the cover at ' + src); }
       if (dlg.scrollWidth > dlg.clientWidth + 1) fail('the dialog scrolls sideways (' + dlg.scrollWidth + ' > ' + dlg.clientWidth + ')');
+      const code = dlg.querySelector('.copyrow code');
+      if (!code) fail('the dialog has no python usage line');
+      else if (code.textContent.includes('\n') && !/^(pre|pre-wrap|pre-line|break-spaces)$/.test(w.getComputedStyle(code).whiteSpace))
+        fail('the python usage shows its lines run together (white-space: ' + w.getComputedStyle(code).whiteSpace + ')');
       d.getElementById('closeBtn').click(); await sleep(80);
       if (dlg.open) fail('the close button left the dialog open');
       if (w.location.hash) fail('closing left the hash ' + w.location.hash);
     }
     w.location.hash = 'nosuch'; await sleep(150);
     if (dlg.open) fail('#nosuch opened the dialog');
+    for (const bad of ['%%', '%%E0%%A4%%A']) {   // a malformed escape is ignored like any unknown id (doubled: Python fills this template)
+      w.location.hash = bad; await sleep(150);
+      if (dlg.open) fail('#' + bad + ' opened the dialog');
+      if (d.querySelector('.status')) fail('#' + bad + ' put an error on the page: ' + d.querySelector('.status').textContent);
+    }
     w.location.hash = ''; await sleep(50);
     // 中文
     const first = lib.languages[0];

@@ -357,7 +357,8 @@
 
   function showDetail() {
     var d = $('detail');
-    var id = decodeURIComponent(location.hash.replace(/^#/, ''));
+    var raw = location.hash.replace(/^#/, ''), id;
+    try { id = decodeURIComponent(raw); } catch (e) { id = ''; }   // a malformed escape (#%) names no language
     var x = id ? find(id) : null;
     if (!x) { if (d.open) d.close(); return; }
     renderDetail(x);
