@@ -1,0 +1,2700 @@
+{
+ "schema": 1,
+ "generated": "2026-10-17",
+ "baseline": "2026-10-17",
+ "skill_version": "5.9.0",
+ "stats": {
+  "languages": 15,
+  "grounds": 30,
+  "page_types": 7,
+  "components": 38
+ },
+ "page_types": [
+  {
+   "id": "cover",
+   "name": {
+    "en": "Cover",
+    "zh": "封面"
+   }
+  },
+  {
+   "id": "section",
+   "name": {
+    "en": "Section",
+    "zh": "章节页"
+   }
+  },
+  {
+   "id": "image_text",
+   "name": {
+    "en": "Image & text",
+    "zh": "图文页"
+   }
+  },
+  {
+   "id": "points",
+   "name": {
+    "en": "Points",
+    "zh": "要点页"
+   }
+  },
+  {
+   "id": "quote",
+   "name": {
+    "en": "Quote",
+    "zh": "引语页"
+   }
+  },
+  {
+   "id": "data",
+   "name": {
+    "en": "Data",
+    "zh": "数据页"
+   }
+  },
+  {
+   "id": "closing",
+   "name": {
+    "en": "Closing",
+    "zh": "结尾页"
+   }
+  }
+ ],
+ "languages": [
+  {
+   "id": "editorial",
+   "order": 1,
+   "kind": "image-led",
+   "added_at": "2026-10-17",
+   "name": {
+    "en": "Editorial magazine",
+    "zh": "杂志"
+   },
+   "blurb": {
+    "en": "Quiet and photo-led: big bleed photographs, a serif display voice and pull quotes, like a magazine feature. Built around your own photos.",
+    "zh": "安静的杂志感：大幅出血照片、衬线标题和引语，围绕你自己的照片排版。"
+   },
+   "best_for": {
+    "en": [
+     "photos"
+    ],
+    "zh": [
+     "照片"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "paper",
+      "zh": "纸面版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "F4EFE6",
+      "ink": "1C1A17",
+      "mute": "6B655C",
+      "panel": "EAE3D6",
+      "accents": [
+       "B23A28",
+       "1F4E79"
+      ],
+      "text_accents": [
+       "9E2F20",
+       "1F4E79"
+      ],
+      "series": [
+       "B23A28",
+       "1F4E79",
+       "8A6516",
+       "2E6B50"
+      ]
+     },
+     "sample": "media/editorial/sample-light.jpg",
+     "pages": {
+      "cover": "media/editorial/light/cover.jpg",
+      "section": "media/editorial/light/section.jpg",
+      "image_text": "media/editorial/light/image_text.jpg",
+      "points": "media/editorial/light/points.jpg",
+      "quote": "media/editorial/light/quote.jpg",
+      "data": "media/editorial/light/data.jpg",
+      "closing": "media/editorial/light/closing.jpg"
+     },
+     "render_fp": "c50e270902b78100d089986ebc5377494d02ecf2008e47ea015ba5a7399d1ca9",
+     "python": "k = vl.use(\"editorial\", prs)",
+     "prompt": {
+      "en": "Use the editorial (Editorial magazine) visual language for this deck.",
+      "zh": "用 editorial（杂志）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "ink",
+     "label": {
+      "en": "ink",
+      "zh": "墨黑版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "1B1A17",
+      "ink": "F3EEE5",
+      "mute": "B8B0A3",
+      "panel": "27251F",
+      "accents": [
+       "D9553C",
+       "5C8FC4"
+      ],
+      "text_accents": [
+       "EE7A62",
+       "8DB4DD"
+      ],
+      "series": [
+       "D9553C",
+       "5C8FC4",
+       "D9A441",
+       "6FB08A"
+      ]
+     },
+     "sample": "media/editorial/sample-ink.jpg",
+     "pages": {
+      "cover": "media/editorial/ink/cover.jpg",
+      "section": "media/editorial/ink/section.jpg",
+      "image_text": "media/editorial/ink/image_text.jpg",
+      "points": "media/editorial/ink/points.jpg",
+      "quote": "media/editorial/ink/quote.jpg",
+      "data": "media/editorial/ink/data.jpg",
+      "closing": "media/editorial/ink/closing.jpg"
+     },
+     "render_fp": "728621dc8efb3ed6f0b9b20ccd7c79b5c68716ccc322a290c160def3f9347cfd",
+     "python": "k = vl.use(\"editorial\", prs, ground=\"ink\")",
+     "prompt": {
+      "en": "Use the editorial (Editorial magazine) visual language, on its ink ground, for this deck.",
+      "zh": "用 editorial（杂志）视觉语言的墨黑版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Georgia",
+     "body": "Arial",
+     "numeral": "Arial Black"
+    },
+    "mac": {
+     "display": "Didot",
+     "body": "Helvetica Neue",
+     "numeral": "Helvetica Neue"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "cover",
+    "section",
+    "image_text",
+    "points",
+    "quote",
+    "data",
+    "closing"
+   ],
+   "extras": [],
+   "derived": [
+    {
+     "id": "quote_mark",
+     "what": "the opening quote mark on quote pages"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the editorial (Editorial magazine) visual language for this deck.",
+     "zh": "用 editorial（杂志）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"editorial\", prs)"
+   }
+  },
+  {
+   "id": "soft",
+   "order": 2,
+   "kind": "image-led",
+   "added_at": "2026-10-17",
+   "name": {
+    "en": "Soft organic",
+    "zh": "柔和"
+   },
+   "blurb": {
+    "en": "Warm and photo-led: photos in arch and blob frames on a pastel ground, with rounded cards. Built around your own photos.",
+    "zh": "温暖柔和：照片放进拱形和圆润的有机形相框，粉彩底色配圆角卡片，围绕你自己的照片排版。"
+   },
+   "best_for": {
+    "en": [
+     "photos"
+    ],
+    "zh": [
+     "照片"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "cream",
+      "zh": "奶油版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "F7EFE6",
+      "ink": "2E2A27",
+      "mute": "6E625A",
+      "panel": "F0E2D6",
+      "accents": [
+       "E8A88F",
+       "9DB8A0",
+       "B9A6D3"
+      ],
+      "text_accents": [
+       "8E4430",
+       "3F5E45",
+       "5A4780"
+      ],
+      "series": [
+       "8E4430",
+       "3F5E45",
+       "5A4780",
+       "2F6E78"
+      ]
+     },
+     "sample": "media/soft/sample-light.jpg",
+     "pages": {
+      "cover": "media/soft/light/cover.jpg",
+      "section": "media/soft/light/section.jpg",
+      "image_text": "media/soft/light/image_text.jpg",
+      "points": "media/soft/light/points.jpg",
+      "quote": "media/soft/light/quote.jpg",
+      "data": "media/soft/light/data.jpg",
+      "closing": "media/soft/light/closing.jpg"
+     },
+     "render_fp": "110e7db31a346d3016d68932ed07fbded8939ea835302f1e877c0a6754c7fff1",
+     "python": "k = vl.use(\"soft\", prs)",
+     "prompt": {
+      "en": "Use the soft (Soft organic) visual language for this deck.",
+      "zh": "用 soft（柔和）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "dusk",
+     "label": {
+      "en": "dusk",
+      "zh": "暮色版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "2E2940",
+      "ink": "F6EEE6",
+      "mute": "CFC5D6",
+      "panel": "3A3450",
+      "accents": [
+       "E8A88F",
+       "9DB8A0",
+       "B9A6D3"
+      ],
+      "text_accents": [
+       "F2B49B",
+       "A8CFB1",
+       "CBB8EA"
+      ],
+      "series": [
+       "E8A88F",
+       "9DB8A0",
+       "B9A6D3",
+       "E8D08F"
+      ]
+     },
+     "sample": "media/soft/sample-dusk.jpg",
+     "pages": {
+      "cover": "media/soft/dusk/cover.jpg",
+      "section": "media/soft/dusk/section.jpg",
+      "image_text": "media/soft/dusk/image_text.jpg",
+      "points": "media/soft/dusk/points.jpg",
+      "quote": "media/soft/dusk/quote.jpg",
+      "data": "media/soft/dusk/data.jpg",
+      "closing": "media/soft/dusk/closing.jpg"
+     },
+     "render_fp": "7bc3426771acca463d283bee17250815ccf92ca3f6452d62cd9f869b8cf2dc38",
+     "python": "k = vl.use(\"soft\", prs, ground=\"dusk\")",
+     "prompt": {
+      "en": "Use the soft (Soft organic) visual language, on its dusk ground, for this deck.",
+      "zh": "用 soft（柔和）视觉语言的暮色版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Trebuchet MS",
+     "body": "Trebuchet MS",
+     "numeral": "Trebuchet MS"
+    },
+    "mac": {
+     "display": "Arial Rounded MT Bold",
+     "body": "Avenir Next",
+     "numeral": "Arial Rounded MT Bold"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "cover",
+    "section",
+    "image_text",
+    "points",
+    "quote",
+    "data",
+    "closing"
+   ],
+   "extras": [],
+   "derived": [
+    {
+     "id": "quote_mark",
+     "what": "the opening quote mark on quote pages"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the soft (Soft organic) visual language for this deck.",
+     "zh": "用 soft（柔和）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"soft\", prs)"
+   }
+  },
+  {
+   "id": "collage",
+   "order": 3,
+   "kind": "image-led",
+   "added_at": "2026-10-17",
+   "name": {
+    "en": "Collage scrapbook",
+    "zh": "拼贴"
+   },
+   "blurb": {
+    "en": "Loud and photo-led: tilted prints held on with tape, heavy headlines, highlighter and squiggles, like a scrapbook. Built around your own photos.",
+    "zh": "热闹的剪贴簿：胶带贴着的斜放照片、粗重标题、荧光笔和手绘曲线，围绕你自己的照片排版。"
+   },
+   "best_for": {
+    "en": [
+     "photos"
+    ],
+    "zh": [
+     "照片"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "kraft",
+      "zh": "牛皮纸版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "EFE6D2",
+      "ink": "1E1B18",
+      "mute": "5F574C",
+      "panel": "FFFFFF",
+      "accents": [
+       "F2C230",
+       "E4572E",
+       "2E86AB"
+      ],
+      "text_accents": [
+       "7A5A00",
+       "A83A14",
+       "1D5A75"
+      ],
+      "series": [
+       "2E86AB",
+       "7A5A00",
+       "A83A14",
+       "5E7A2A"
+      ]
+     },
+     "sample": "media/collage/sample-light.jpg",
+     "pages": {
+      "cover": "media/collage/light/cover.jpg",
+      "section": "media/collage/light/section.jpg",
+      "image_text": "media/collage/light/image_text.jpg",
+      "points": "media/collage/light/points.jpg",
+      "quote": "media/collage/light/quote.jpg",
+      "data": "media/collage/light/data.jpg",
+      "closing": "media/collage/light/closing.jpg"
+     },
+     "render_fp": "81bbd986d1a277ad3c3e4dd03283256fde8351206a355ef8cac9b15700a6e349",
+     "python": "k = vl.use(\"collage\", prs)",
+     "prompt": {
+      "en": "Use the collage (Collage scrapbook) visual language for this deck.",
+      "zh": "用 collage（拼贴）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "slate",
+     "label": {
+      "en": "slate",
+      "zh": "深灰纸版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "2B2A27",
+      "ink": "F4EEE2",
+      "mute": "C2B9AA",
+      "panel": "3B3934",
+      "accents": [
+       "F2C230",
+       "E4572E",
+       "2E86AB"
+      ],
+      "text_accents": [
+       "F2C230",
+       "F08A64",
+       "7CC3E3"
+      ],
+      "series": [
+       "F2C230",
+       "E4572E",
+       "F08A64",
+       "7CC3E3"
+      ]
+     },
+     "sample": "media/collage/sample-slate.jpg",
+     "pages": {
+      "cover": "media/collage/slate/cover.jpg",
+      "section": "media/collage/slate/section.jpg",
+      "image_text": "media/collage/slate/image_text.jpg",
+      "points": "media/collage/slate/points.jpg",
+      "quote": "media/collage/slate/quote.jpg",
+      "data": "media/collage/slate/data.jpg",
+      "closing": "media/collage/slate/closing.jpg"
+     },
+     "render_fp": "fe841251486be8bf2aca89d3b646f197bae6304e5ac37950b37af00505dc0f23",
+     "python": "k = vl.use(\"collage\", prs, ground=\"slate\")",
+     "prompt": {
+      "en": "Use the collage (Collage scrapbook) visual language, on its slate ground, for this deck.",
+      "zh": "用 collage（拼贴）视觉语言的深灰纸版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Impact",
+     "body": "Arial",
+     "numeral": "Impact"
+    },
+    "mac": {
+     "display": "Impact",
+     "body": "Avenir Next",
+     "numeral": "Impact",
+     "hand": "Bradley Hand"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "cover",
+    "section",
+    "image_text",
+    "points",
+    "quote",
+    "data",
+    "closing"
+   ],
+   "extras": [],
+   "derived": [
+    {
+     "id": "quote_mark",
+     "what": "the opening quote mark on quote pages"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the collage (Collage scrapbook) visual language for this deck.",
+     "zh": "用 collage（拼贴）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"collage\", prs)"
+   }
+  },
+  {
+   "id": "storybook",
+   "order": 4,
+   "kind": "image-led",
+   "added_at": "2026-10-17",
+   "name": {
+    "en": "Watercolour storybook",
+    "zh": "绘本"
+   },
+   "blurb": {
+    "en": "Illustration-led: a watercolour series that melts into the paper, set in serif type, like a picture book. Built around your own illustrations.",
+    "zh": "绘本风：水彩插画融进纸面，配衬线字体，围绕你自己的插画排版。"
+   },
+   "best_for": {
+    "en": [
+     "illustrations"
+    ],
+    "zh": [
+     "插画"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "paper",
+      "zh": "纸面版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "F6F1E3",
+      "ink": "2F3A2A",
+      "mute": "5E6352",
+      "panel": "EFE7D2",
+      "accents": [
+       "E2734B",
+       "7FA35B",
+       "F2C14E"
+      ],
+      "text_accents": [
+       "9A3F1E",
+       "46612F",
+       "7A5C0E"
+      ],
+      "series": [
+       "9A3F1E",
+       "46612F",
+       "7A5C0E",
+       "2E6A86"
+      ]
+     },
+     "sample": "media/storybook/sample-light.jpg",
+     "pages": {
+      "cover": "media/storybook/light/cover.jpg",
+      "section": "media/storybook/light/section.jpg",
+      "image_text": "media/storybook/light/image_text.jpg",
+      "points": "media/storybook/light/points.jpg",
+      "quote": "media/storybook/light/quote.jpg",
+      "data": "media/storybook/light/data.jpg",
+      "closing": "media/storybook/light/closing.jpg"
+     },
+     "render_fp": "d74a4a91c007078980d90c141e342f7679a12f418b2c168a49491bf2e94ccb08",
+     "python": "k = vl.use(\"storybook\", prs)",
+     "prompt": {
+      "en": "Use the storybook (Watercolour storybook) visual language for this deck.",
+      "zh": "用 storybook（绘本）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "meadow",
+     "label": {
+      "en": "meadow",
+      "zh": "草地纸版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "C3D1B5",
+      "ink": "222E1F",
+      "mute": "3F4B36",
+      "panel": "D3DECA",
+      "accents": [
+       "E2734B",
+       "7FA35B",
+       "F2C14E"
+      ],
+      "text_accents": [
+       "772C11",
+       "314526",
+       "584108"
+      ],
+      "series": [
+       "772C11",
+       "314526",
+       "584108",
+       "2A4A66"
+      ]
+     },
+     "sample": "media/storybook/sample-meadow.jpg",
+     "pages": {
+      "cover": "media/storybook/meadow/cover.jpg",
+      "section": "media/storybook/meadow/section.jpg",
+      "image_text": "media/storybook/meadow/image_text.jpg",
+      "points": "media/storybook/meadow/points.jpg",
+      "quote": "media/storybook/meadow/quote.jpg",
+      "data": "media/storybook/meadow/data.jpg",
+      "closing": "media/storybook/meadow/closing.jpg"
+     },
+     "render_fp": "2da650143c9b86dedd2baf1e56c26438652d3d66ebf56d8aeaec5bd36b53f0cd",
+     "python": "k = vl.use(\"storybook\", prs, ground=\"meadow\")",
+     "prompt": {
+      "en": "Use the storybook (Watercolour storybook) visual language, on its meadow ground, for this deck.",
+      "zh": "用 storybook（绘本）视觉语言的草地纸版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Georgia",
+     "body": "Georgia",
+     "numeral": "Times New Roman"
+    },
+    "mac": {
+     "display": "Baskerville",
+     "body": "Georgia",
+     "numeral": "Times New Roman"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     },
+     "body": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     }
+    }
+   },
+   "image_pages": [
+    "cover",
+    "section",
+    "image_text",
+    "points",
+    "quote",
+    "data",
+    "closing"
+   ],
+   "extras": [],
+   "derived": [
+    {
+     "id": "quote_mark",
+     "what": "the opening quote mark on quote pages"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the storybook (Watercolour storybook) visual language for this deck.",
+     "zh": "用 storybook（绘本）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"storybook\", prs)"
+   }
+  },
+  {
+   "id": "ink",
+   "order": 5,
+   "kind": "drawn",
+   "added_at": "2026-10-17",
+   "name": {
+    "en": "Ink wash",
+    "zh": "水墨"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: misty ink ridges, vertical Chinese or Japanese titles, a carved seal and an ensō around the key figure. Suits culture, history and craft.",
+    "zh": "无需图片：水墨远山、竖排标题、一方印章，用圆相圈住关键数字。适合文化、历史、器物。"
+   },
+   "best_for": {
+    "en": [
+     "culture",
+     "history",
+     "craft"
+    ],
+    "zh": [
+     "文化",
+     "历史",
+     "器物"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "xuan paper",
+      "zh": "宣纸版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "F0E6CE",
+      "ink": "1D1C1A",
+      "mute": "645C51",
+      "panel": "E8E1D2",
+      "accents": [
+       "BE2E1A"
+      ],
+      "text_accents": [
+       "A3322A"
+      ],
+      "series": [
+       "B0362A",
+       "2C4A6E",
+       "4E6B3A",
+       "8A6A2A"
+      ]
+     },
+     "sample": "media/ink/sample-light.jpg",
+     "pages": {
+      "cover": "media/ink/light/cover.jpg",
+      "section": "media/ink/light/section.jpg",
+      "image_text": "media/ink/light/image_text.jpg",
+      "points": "media/ink/light/points.jpg",
+      "quote": "media/ink/light/quote.jpg",
+      "data": "media/ink/light/data.jpg",
+      "closing": "media/ink/light/closing.jpg"
+     },
+     "render_fp": "a14515a68149fb4f8fad780daf59fcc035ab79a8b0fe10a7ca8ebf61756453f7",
+     "python": "k = vl.use(\"ink\", prs)",
+     "prompt": {
+      "en": "Use the ink (Ink wash) visual language for this deck.",
+      "zh": "用 ink（水墨）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "night",
+     "label": {
+      "en": "ink night",
+      "zh": "墨夜版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "1C1B19",
+      "ink": "E9E2D2",
+      "mute": "A99F8F",
+      "panel": "262421",
+      "accents": [
+       "E8452A"
+      ],
+      "text_accents": [
+       "E07A63"
+      ],
+      "series": [
+       "E07A63",
+       "8FB3D9",
+       "8FC49A",
+       "D9B36C"
+      ]
+     },
+     "sample": "media/ink/sample-night.jpg",
+     "pages": {
+      "cover": "media/ink/night/cover.jpg",
+      "section": "media/ink/night/section.jpg",
+      "image_text": "media/ink/night/image_text.jpg",
+      "points": "media/ink/night/points.jpg",
+      "quote": "media/ink/night/quote.jpg",
+      "data": "media/ink/night/data.jpg",
+      "closing": "media/ink/night/closing.jpg"
+     },
+     "render_fp": "f177703f4d561b50b6f0c33c6387eea2c137fcc1862e579aab083ac1ac85e3cf",
+     "python": "k = vl.use(\"ink\", prs, ground=\"night\")",
+     "prompt": {
+      "en": "Use the ink (Ink wash) visual language, on its ink night ground, for this deck.",
+      "zh": "用 ink（水墨）视觉语言的墨夜版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Georgia",
+     "body": "Georgia",
+     "numeral": "Times New Roman"
+    },
+    "mac": {
+     "display": "Baskerville",
+     "body": "Georgia",
+     "numeral": "Times New Roman"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     },
+     "body": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [
+    {
+     "name": "seal",
+     "pages": "any",
+     "takes": "1-4 characters for the seal"
+    }
+   ],
+   "derived": [
+    {
+     "id": "point_numbers",
+     "what": "一 二 三 on points when the title is Chinese or Japanese, else 1 2 3"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the ink (Ink wash) visual language for this deck.",
+     "zh": "用 ink（水墨）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"ink\", prs)"
+   }
+  },
+  {
+   "id": "poster",
+   "order": 6,
+   "kind": "drawn",
+   "added_at": "2026-10-17",
+   "name": {
+    "en": "Type poster",
+    "zh": "海报大字"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: the headline is the picture, with one saturated colour field per page. Suits launches, manifestos and opinion.",
+    "zh": "无需图片：标题本身就是画面，每页一整块饱和色。适合发布会、宣言、观点。"
+   },
+   "best_for": {
+    "en": [
+     "launch",
+     "manifesto",
+     "opinion"
+    ],
+    "zh": [
+     "发布会",
+     "宣言",
+     "观点"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "colour fields",
+      "zh": "色场版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "1F3BFF",
+      "ink": "F3F0E8",
+      "mute": "F3F0E8",
+      "panel": "141414",
+      "accents": [
+       "D7FF3B",
+       "FF4B1F",
+       "141414"
+      ],
+      "text_accents": [
+       "D7FF3B",
+       "F3F0E8"
+      ],
+      "series": [
+       "D7FF3B",
+       "F3F0E8",
+       "FFB3D1",
+       "7FF0D0"
+      ]
+     },
+     "sample": "media/poster/sample-light.jpg",
+     "pages": {
+      "cover": "media/poster/light/cover.jpg",
+      "section": "media/poster/light/section.jpg",
+      "image_text": "media/poster/light/image_text.jpg",
+      "points": "media/poster/light/points.jpg",
+      "quote": "media/poster/light/quote.jpg",
+      "data": "media/poster/light/data.jpg",
+      "closing": "media/poster/light/closing.jpg"
+     },
+     "render_fp": "7b3009a1c5b2b7e638567ab206504da6bbcf757fb32191f1e2b76b35f53558f3",
+     "python": "k = vl.use(\"poster\", prs)",
+     "prompt": {
+      "en": "Use the poster (Type poster) visual language for this deck.",
+      "zh": "用 poster（海报大字）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "paper",
+     "label": {
+      "en": "paper",
+      "zh": "白纸版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "F3F0E8",
+      "ink": "141414",
+      "mute": "141414",
+      "panel": "E4DFD3",
+      "accents": [
+       "1F3BFF",
+       "FF4B1F"
+      ],
+      "text_accents": [
+       "1F3BFF",
+       "141414"
+      ],
+      "series": [
+       "1F3BFF",
+       "141414",
+       "D9400F",
+       "5F7A00"
+      ]
+     },
+     "sample": "media/poster/sample-paper.jpg",
+     "pages": {
+      "cover": "media/poster/paper/cover.jpg",
+      "section": "media/poster/paper/section.jpg",
+      "image_text": "media/poster/paper/image_text.jpg",
+      "points": "media/poster/paper/points.jpg",
+      "quote": "media/poster/paper/quote.jpg",
+      "data": "media/poster/paper/data.jpg",
+      "closing": "media/poster/paper/closing.jpg"
+     },
+     "render_fp": "c4b756304794e48b2b0f6d28d70c7d85f185e024a305a78f31cdfd3d2d8482aa",
+     "python": "k = vl.use(\"poster\", prs, ground=\"paper\")",
+     "prompt": {
+      "en": "Use the poster (Type poster) visual language, on its paper ground, for this deck.",
+      "zh": "用 poster（海报大字）视觉语言的白纸版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Impact",
+     "body": "Arial",
+     "numeral": "Impact",
+     "mono": "Courier New"
+    },
+    "mac": {
+     "display": "Impact",
+     "body": "Helvetica Neue",
+     "numeral": "Impact",
+     "mono": "Courier New"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [
+    {
+     "name": "highlight",
+     "pages": [
+      "cover",
+      "section",
+      "quote",
+      "closing"
+     ],
+     "takes": "one word of the title to highlight"
+    }
+   ],
+   "derived": [
+    {
+     "id": "page_numbers",
+     "what": "a two-digit number on every page"
+    },
+    {
+     "id": "point_numbers",
+     "what": "01 02 03 on points"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the poster (Type poster) visual language for this deck.",
+     "zh": "用 poster（海报大字）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"poster\", prs)"
+   }
+  },
+  {
+   "id": "cutpaper",
+   "order": 7,
+   "kind": "drawn",
+   "added_at": "2026-10-17",
+   "name": {
+    "en": "Cut paper",
+    "zh": "剪纸层叠"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: a layered paper diorama with soft paper shadows. Suits children, storytelling and community decks.",
+    "zh": "无需图片：层层叠叠的剪纸场景，带柔和的纸影。适合儿童、讲故事、社区主题。"
+   },
+   "best_for": {
+    "en": [
+     "children",
+     "storytelling",
+     "community"
+    ],
+    "zh": [
+     "儿童",
+     "讲故事",
+     "社区"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "day",
+      "zh": "白天版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "FBF2E3",
+      "ink": "2A2733",
+      "mute": "4A4656",
+      "panel": "FFFFFF",
+      "accents": [
+       "EE8A6B",
+       "4E8FC7",
+       "5B3F6E",
+       "5AA38A"
+      ],
+      "text_accents": [
+       "A8442D",
+       "2F6F62"
+      ],
+      "series": [
+       "4E8FC7",
+       "5B3F6E",
+       "A8442D",
+       "2F6F62"
+      ]
+     },
+     "sample": "media/cutpaper/sample-light.jpg",
+     "pages": {
+      "cover": "media/cutpaper/light/cover.jpg",
+      "section": "media/cutpaper/light/section.jpg",
+      "image_text": "media/cutpaper/light/image_text.jpg",
+      "points": "media/cutpaper/light/points.jpg",
+      "quote": "media/cutpaper/light/quote.jpg",
+      "data": "media/cutpaper/light/data.jpg",
+      "closing": "media/cutpaper/light/closing.jpg"
+     },
+     "render_fp": "ce733e0c53d8998fce41904a9c233998d7a8260246000d7b15ce092fdaea94dc",
+     "python": "k = vl.use(\"cutpaper\", prs)",
+     "prompt": {
+      "en": "Use the cutpaper (Cut paper) visual language for this deck.",
+      "zh": "用 cutpaper（剪纸层叠）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "night",
+     "label": {
+      "en": "paper night",
+      "zh": "纸夜版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "1D2742",
+      "ink": "F2EEE4",
+      "mute": "C6C9D6",
+      "panel": "30406A",
+      "accents": [
+       "EE8A6B",
+       "4E8FC7",
+       "5B3F6E",
+       "467E7A"
+      ],
+      "text_accents": [
+       "F2A285",
+       "A8D5C4"
+      ],
+      "series": [
+       "EE8A6B",
+       "A8D5C4",
+       "8AA8E6",
+       "C9A6E0"
+      ]
+     },
+     "sample": "media/cutpaper/sample-night.jpg",
+     "pages": {
+      "cover": "media/cutpaper/night/cover.jpg",
+      "section": "media/cutpaper/night/section.jpg",
+      "image_text": "media/cutpaper/night/image_text.jpg",
+      "points": "media/cutpaper/night/points.jpg",
+      "quote": "media/cutpaper/night/quote.jpg",
+      "data": "media/cutpaper/night/data.jpg",
+      "closing": "media/cutpaper/night/closing.jpg"
+     },
+     "render_fp": "50f6ea0eea00f48a7993247ae4e0a02f4b168eaa8d5ac8d1b917cf5278578a46",
+     "python": "k = vl.use(\"cutpaper\", prs, ground=\"night\")",
+     "prompt": {
+      "en": "Use the cutpaper (Cut paper) visual language, on its paper night ground, for this deck.",
+      "zh": "用 cutpaper（剪纸层叠）视觉语言的纸夜版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Trebuchet MS",
+     "body": "Trebuchet MS",
+     "numeral": "Trebuchet MS"
+    },
+    "mac": {
+     "display": "Avenir Next",
+     "body": "Avenir Next",
+     "numeral": "Avenir Next"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [
+    {
+     "name": "icons",
+     "pages": [
+      "points"
+     ],
+     "takes": "one library:name icon spec per point"
+    }
+   ],
+   "derived": [
+    {
+     "id": "point_numbers",
+     "what": "1 2 3 on points"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the cutpaper (Cut paper) visual language for this deck.",
+     "zh": "用 cutpaper（剪纸层叠）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"cutpaper\", prs)"
+   }
+  },
+  {
+   "id": "drafting",
+   "order": 8,
+   "kind": "drawn",
+   "added_at": "2026-10-17",
+   "name": {
+    "en": "Drafting sheet",
+    "zh": "蓝图技术线稿"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: a drawing sheet with a grid, a title block, dimensions and leader lines. Suits engineering, architecture and systems design.",
+    "zh": "无需图片：带网格、标题栏、尺寸线和引线的技术图纸。适合工程、建筑、系统设计。"
+   },
+   "best_for": {
+    "en": [
+     "engineering",
+     "architecture",
+     "systems design"
+    ],
+    "zh": [
+     "工程",
+     "建筑",
+     "系统设计"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "vellum",
+      "zh": "硫酸纸版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "F1EFE8",
+      "ink": "1E3A5F",
+      "mute": "3E5674",
+      "panel": "F1EFE8",
+      "accents": [
+       "E2552C"
+      ],
+      "text_accents": [
+       "B8401A"
+      ],
+      "series": [
+       "E2552C",
+       "1F5FA8",
+       "2E7D4F",
+       "7A4FA8"
+      ]
+     },
+     "sample": "media/drafting/sample-light.jpg",
+     "pages": {
+      "cover": "media/drafting/light/cover.jpg",
+      "section": "media/drafting/light/section.jpg",
+      "image_text": "media/drafting/light/image_text.jpg",
+      "points": "media/drafting/light/points.jpg",
+      "quote": "media/drafting/light/quote.jpg",
+      "data": "media/drafting/light/data.jpg",
+      "closing": "media/drafting/light/closing.jpg"
+     },
+     "render_fp": "e0de07d31edf4edc9b69f8e986f3a42b8dc308c2155cebca9c35a4d28419272b",
+     "python": "k = vl.use(\"drafting\", prs)",
+     "prompt": {
+      "en": "Use the drafting (Drafting sheet) visual language for this deck.",
+      "zh": "用 drafting（蓝图技术线稿）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "cyanotype",
+     "label": {
+      "en": "cyanotype",
+      "zh": "晒图蓝版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "123254",
+      "ink": "E4ECF5",
+      "mute": "B7C5D6",
+      "panel": "123254",
+      "accents": [
+       "F27D4E"
+      ],
+      "text_accents": [
+       "F59A72"
+      ],
+      "series": [
+       "F27D4E",
+       "7FD3F0",
+       "F2D16B",
+       "B6E388"
+      ]
+     },
+     "sample": "media/drafting/sample-cyanotype.jpg",
+     "pages": {
+      "cover": "media/drafting/cyanotype/cover.jpg",
+      "section": "media/drafting/cyanotype/section.jpg",
+      "image_text": "media/drafting/cyanotype/image_text.jpg",
+      "points": "media/drafting/cyanotype/points.jpg",
+      "quote": "media/drafting/cyanotype/quote.jpg",
+      "data": "media/drafting/cyanotype/data.jpg",
+      "closing": "media/drafting/cyanotype/closing.jpg"
+     },
+     "render_fp": "4beafd51aeef7b4379cdcf54b2337e52f3c1b94544aa139ed64982a87469efe0",
+     "python": "k = vl.use(\"drafting\", prs, ground=\"cyanotype\")",
+     "prompt": {
+      "en": "Use the drafting (Drafting sheet) visual language, on its cyanotype ground, for this deck.",
+      "zh": "用 drafting（蓝图技术线稿）视觉语言的晒图蓝版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Georgia",
+     "body": "Georgia",
+     "numeral": "Times New Roman",
+     "mono": "Courier New"
+    },
+    "mac": {
+     "display": "Georgia",
+     "body": "Georgia",
+     "numeral": "Times New Roman",
+     "mono": "Courier New"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text",
+    "quote"
+   ],
+   "extras": [
+    {
+     "name": "project",
+     "pages": "any",
+     "takes": "the project name for the title block"
+    }
+   ],
+   "derived": [
+    {
+     "id": "sheet_border",
+     "what": "the sheet border 1-6 and A-D"
+    },
+    {
+     "id": "title_block",
+     "what": "SHEET with the sheet's two-digit number, and PROJECT"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the drafting (Drafting sheet) visual language for this deck.",
+     "zh": "用 drafting（蓝图技术线稿）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"drafting\", prs)"
+   }
+  },
+  {
+   "id": "starlit",
+   "order": 9,
+   "kind": "drawn",
+   "added_at": "2026-10-17",
+   "name": {
+    "en": "Starlit night",
+    "zh": "星夜"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: a night sky with a crescent moon, points joined as a constellation and the key figure in a glow. Suits a year in review, a letter, thanks or a commemoration.",
+    "zh": "无需图片：夜空和一弯新月，要点连成星座，关键数字带一圈光晕。适合年度回顾、书信、致谢、纪念。"
+   },
+   "best_for": {
+    "en": [
+     "year in review",
+     "letter",
+     "thanks",
+     "commemoration"
+    ],
+    "zh": [
+     "年度回顾",
+     "书信",
+     "致谢",
+     "纪念"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "midnight",
+      "zh": "午夜版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "0B1430",
+      "ink": "F3EBD8",
+      "mute": "AEB6CC",
+      "panel": "16204A",
+      "accents": [
+       "D9B36C"
+      ],
+      "text_accents": [
+       "D9B36C"
+      ],
+      "series": [
+       "D9B36C",
+       "9DB8E8",
+       "E8A0B4",
+       "8FD4C1"
+      ]
+     },
+     "sample": "media/starlit/sample-light.jpg",
+     "pages": {
+      "cover": "media/starlit/light/cover.jpg",
+      "section": "media/starlit/light/section.jpg",
+      "image_text": "media/starlit/light/image_text.jpg",
+      "points": "media/starlit/light/points.jpg",
+      "quote": "media/starlit/light/quote.jpg",
+      "data": "media/starlit/light/data.jpg",
+      "closing": "media/starlit/light/closing.jpg"
+     },
+     "render_fp": "632a524b2de7a3ed7b722a9ec213cb1c81b6b518c212f92c0f77d54c3caac68a",
+     "python": "k = vl.use(\"starlit\", prs)",
+     "prompt": {
+      "en": "Use the starlit (Starlit night) visual language for this deck.",
+      "zh": "用 starlit（星夜）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "dawn",
+     "label": {
+      "en": "dawn",
+      "zh": "黎明版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "22163A",
+      "ink": "F6E9E4",
+      "mute": "C9B7C9",
+      "panel": "2D1F4A",
+      "accents": [
+       "EDB3A0"
+      ],
+      "text_accents": [
+       "EDB3A0"
+      ],
+      "series": [
+       "EDB3A0",
+       "F2D88F",
+       "A9C8F0",
+       "C9A6E8"
+      ]
+     },
+     "sample": "media/starlit/sample-dawn.jpg",
+     "pages": {
+      "cover": "media/starlit/dawn/cover.jpg",
+      "section": "media/starlit/dawn/section.jpg",
+      "image_text": "media/starlit/dawn/image_text.jpg",
+      "points": "media/starlit/dawn/points.jpg",
+      "quote": "media/starlit/dawn/quote.jpg",
+      "data": "media/starlit/dawn/data.jpg",
+      "closing": "media/starlit/dawn/closing.jpg"
+     },
+     "render_fp": "63d98067ad4ac14a125a960c73caae833f41d87ee1715e3a2d78180f170c494e",
+     "python": "k = vl.use(\"starlit\", prs, ground=\"dawn\")",
+     "prompt": {
+      "en": "Use the starlit (Starlit night) visual language, on its dawn ground, for this deck.",
+      "zh": "用 starlit（星夜）视觉语言的黎明版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Georgia",
+     "body": "Georgia",
+     "numeral": "Times New Roman"
+    },
+    "mac": {
+     "display": "Georgia",
+     "body": "Georgia",
+     "numeral": "Times New Roman"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     },
+     "body": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [],
+   "derived": [],
+   "usage": {
+    "prompt": {
+     "en": "Use the starlit (Starlit night) visual language for this deck.",
+     "zh": "用 starlit（星夜）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"starlit\", prs)"
+   }
+  },
+  {
+   "id": "broadsheet",
+   "order": 10,
+   "kind": "drawn",
+   "added_at": "2026-10-17",
+   "name": {
+    "en": "Broadsheet front page",
+    "zh": "报纸头版"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: a newspaper front page with a masthead strip, a headline and standfirst, columns and a pull quote between rules. Suits newsletters and periodic reports.",
+    "zh": "无需图片：报纸头版——报头条、标题和导语、分栏正文、夹在两条线之间的引语。适合通讯、定期报告、社区动态。"
+   },
+   "best_for": {
+    "en": [
+     "newsletter",
+     "periodic report",
+     "community update"
+    ],
+    "zh": [
+     "通讯",
+     "定期报告",
+     "社区动态"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "newsprint",
+      "zh": "报纸版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "F2EEE5",
+      "ink": "141414",
+      "mute": "4A4744",
+      "panel": "E6E0D3",
+      "accents": [
+       "A32018"
+      ],
+      "text_accents": [
+       "A32018"
+      ],
+      "series": [
+       "A32018",
+       "1F4E79",
+       "2F6B3A",
+       "8A6516"
+      ]
+     },
+     "sample": "media/broadsheet/sample-light.jpg",
+     "pages": {
+      "cover": "media/broadsheet/light/cover.jpg",
+      "section": "media/broadsheet/light/section.jpg",
+      "image_text": "media/broadsheet/light/image_text.jpg",
+      "points": "media/broadsheet/light/points.jpg",
+      "quote": "media/broadsheet/light/quote.jpg",
+      "data": "media/broadsheet/light/data.jpg",
+      "closing": "media/broadsheet/light/closing.jpg"
+     },
+     "render_fp": "5ce1449ffa1258e5ad3cb53e3c9a31cfd7ed6e4690d62701599deca81fde5b54",
+     "python": "k = vl.use(\"broadsheet\", prs)",
+     "prompt": {
+      "en": "Use the broadsheet (Broadsheet front page) visual language for this deck.",
+      "zh": "用 broadsheet（报纸头版）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "salmon",
+     "label": {
+      "en": "pink paper",
+      "zh": "粉报版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "FBE8D8",
+      "ink": "1A1714",
+      "mute": "54493F",
+      "panel": "F3DAC6",
+      "accents": [
+       "0F4C81"
+      ],
+      "text_accents": [
+       "0F4C81"
+      ],
+      "series": [
+       "0F4C81",
+       "9E2A2B",
+       "3A6B35",
+       "7A4A00"
+      ]
+     },
+     "sample": "media/broadsheet/sample-salmon.jpg",
+     "pages": {
+      "cover": "media/broadsheet/salmon/cover.jpg",
+      "section": "media/broadsheet/salmon/section.jpg",
+      "image_text": "media/broadsheet/salmon/image_text.jpg",
+      "points": "media/broadsheet/salmon/points.jpg",
+      "quote": "media/broadsheet/salmon/quote.jpg",
+      "data": "media/broadsheet/salmon/data.jpg",
+      "closing": "media/broadsheet/salmon/closing.jpg"
+     },
+     "render_fp": "feae5ec8dcb23524d99fab07ecdb2069001f3f480964ecea0ea3e49f74b9904f",
+     "python": "k = vl.use(\"broadsheet\", prs, ground=\"salmon\")",
+     "prompt": {
+      "en": "Use the broadsheet (Broadsheet front page) visual language, on its pink paper ground, for this deck.",
+      "zh": "用 broadsheet（报纸头版）视觉语言的粉报版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Times New Roman",
+     "body": "Georgia",
+     "numeral": "Times New Roman",
+     "meta": "Arial"
+    },
+    "mac": {
+     "display": "Times New Roman",
+     "body": "Georgia",
+     "numeral": "Times New Roman",
+     "meta": "Arial"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     },
+     "body": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [
+    {
+     "name": "masthead",
+     "pages": "any",
+     "takes": "the masthead's words"
+    },
+    {
+     "name": "edition",
+     "pages": "any",
+     "takes": "the edition line"
+    },
+    {
+     "name": "inside",
+     "pages": [
+      "cover"
+     ],
+     "takes": "1-4 Inside entries"
+    },
+    {
+     "name": "tags",
+     "pages": [
+      "points"
+     ],
+     "takes": "one label per point"
+    }
+   ],
+   "derived": [
+    {
+     "id": "page_label",
+     "what": "PAGE n on every page"
+    },
+    {
+     "id": "inside_label",
+     "what": "the Inside list's label"
+    },
+    {
+     "id": "end_mark",
+     "what": "the end mark on the closing page"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the broadsheet (Broadsheet front page) visual language for this deck.",
+     "zh": "用 broadsheet（报纸头版）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"broadsheet\", prs)"
+   }
+  },
+  {
+   "id": "journal",
+   "order": 11,
+   "kind": "drawn",
+   "added_at": "2026-10-17",
+   "name": {
+    "en": "Journal article",
+    "zh": "学术期刊"
+   },
+   "blurb": {
+    "en": "Drawn around your figures: a journal article with a running head, an abstract, numbered figures with captions and margin notes. Suits research talks, lab meetings and defences.",
+    "zh": "围绕你的图表：期刊论文版式——页眉、摘要、带编号和图注的插图、页边注。适合学术报告、组会、答辩。"
+   },
+   "best_for": {
+    "en": [
+     "research talk",
+     "lab meeting",
+     "paper",
+     "defence"
+    ],
+    "zh": [
+     "学术报告",
+     "组会",
+     "论文",
+     "答辩"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "paper",
+      "zh": "论文白版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "FBFAF6",
+      "ink": "1B1B1B",
+      "mute": "5A5A55",
+      "panel": "F1EFE7",
+      "accents": [
+       "1F5C46"
+      ],
+      "text_accents": [
+       "1F5C46"
+      ],
+      "series": [
+       "1F5C46",
+       "2C4F8A",
+       "9C3D2E",
+       "7A5A00"
+      ]
+     },
+     "sample": "media/journal/sample-light.jpg",
+     "pages": {
+      "cover": "media/journal/light/cover.jpg",
+      "section": "media/journal/light/section.jpg",
+      "image_text": "media/journal/light/image_text.jpg",
+      "points": "media/journal/light/points.jpg",
+      "quote": "media/journal/light/quote.jpg",
+      "data": "media/journal/light/data.jpg",
+      "closing": "media/journal/light/closing.jpg"
+     },
+     "render_fp": "ec7f4187c008635add7213b79885bfca6b648198d945a8469fda826d62a8d89f",
+     "python": "k = vl.use(\"journal\", prs)",
+     "prompt": {
+      "en": "Use the journal (Journal article) visual language for this deck.",
+      "zh": "用 journal（学术期刊）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "green",
+     "label": {
+      "en": "title green",
+      "zh": "期刊绿版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "163A2E",
+      "ink": "F1EEE4",
+      "mute": "BFC8BF",
+      "panel": "1E4A3B",
+      "accents": [
+       "D9C27A"
+      ],
+      "text_accents": [
+       "D9C27A"
+      ],
+      "series": [
+       "D9C27A",
+       "9EC2E8",
+       "E8A08F",
+       "D9A0C8"
+      ]
+     },
+     "sample": "media/journal/sample-green.jpg",
+     "pages": {
+      "cover": "media/journal/green/cover.jpg",
+      "section": "media/journal/green/section.jpg",
+      "image_text": "media/journal/green/image_text.jpg",
+      "points": "media/journal/green/points.jpg",
+      "quote": "media/journal/green/quote.jpg",
+      "data": "media/journal/green/data.jpg",
+      "closing": "media/journal/green/closing.jpg"
+     },
+     "render_fp": "c11ef2fb7a40772b2cdd60b5504782328525eafb502389783542c50b5327b1d1",
+     "python": "k = vl.use(\"journal\", prs, ground=\"green\")",
+     "prompt": {
+      "en": "Use the journal (Journal article) visual language, on its title green ground, for this deck.",
+      "zh": "用 journal（学术期刊）视觉语言的期刊绿版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Georgia",
+     "body": "Georgia",
+     "numeral": "Times New Roman",
+     "meta": "Arial"
+    },
+    "mac": {
+     "display": "Georgia",
+     "body": "Georgia",
+     "numeral": "Times New Roman",
+     "meta": "Arial"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     },
+     "body": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [
+    {
+     "name": "running",
+     "pages": "any",
+     "takes": "the running head"
+    },
+    {
+     "name": "authors",
+     "pages": [
+      "cover"
+     ],
+     "takes": "the author line"
+    },
+    {
+     "name": "abstract",
+     "pages": [
+      "cover"
+     ],
+     "takes": "the abstract text"
+    },
+    {
+     "name": "margin",
+     "pages": [
+      "points"
+     ],
+     "takes": "one margin note"
+    }
+   ],
+   "derived": [
+    {
+     "id": "page_numbers",
+     "what": "a plain number on every page but the cover"
+    },
+    {
+     "id": "section_mark",
+     "what": "§ before a section's number"
+    },
+    {
+     "id": "point_numbers",
+     "what": "1 2 3 on points"
+    },
+    {
+     "id": "figure_label",
+     "what": "FIGURE n over image pages"
+    },
+    {
+     "id": "abstract_label",
+     "what": "the abstract's label"
+    },
+    {
+     "id": "note_label",
+     "what": "the margin note's label"
+    },
+    {
+     "id": "attribution_dash",
+     "what": "the dash before an attribution"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the journal (Journal article) visual language for this deck.",
+     "zh": "用 journal（学术期刊）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"journal\", prs)"
+   }
+  },
+  {
+   "id": "tally",
+   "order": 12,
+   "kind": "drawn",
+   "added_at": "2026-10-17",
+   "name": {
+    "en": "Data tally",
+    "zh": "数据账本"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: a fine grid, heavy type, pill tags and one giant number with its share bar. Suits metrics, quarterly reviews and operations.",
+    "zh": "无需图片：细网格、粗重字体、胶囊标签，一个巨大的数字配上占比条。适合指标、季度复盘、运营。"
+   },
+   "best_for": {
+    "en": [
+     "metrics",
+     "quarterly review",
+     "operations",
+     "growth"
+    ],
+    "zh": [
+     "指标",
+     "季度复盘",
+     "运营",
+     "增长"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "white grid",
+      "zh": "白网格版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "FFFFFF",
+      "ink": "0E0E10",
+      "mute": "5A5F6B",
+      "panel": "F4F6FA",
+      "accents": [
+       "2438F0",
+       "C6F432"
+      ],
+      "text_accents": [
+       "2438F0"
+      ],
+      "series": [
+       "2438F0",
+       "E5484D",
+       "0F9D58",
+       "8B5CF6"
+      ]
+     },
+     "sample": "media/tally/sample-light.jpg",
+     "pages": {
+      "cover": "media/tally/light/cover.jpg",
+      "section": "media/tally/light/section.jpg",
+      "image_text": "media/tally/light/image_text.jpg",
+      "points": "media/tally/light/points.jpg",
+      "quote": "media/tally/light/quote.jpg",
+      "data": "media/tally/light/data.jpg",
+      "closing": "media/tally/light/closing.jpg"
+     },
+     "render_fp": "aeda6c8473d9d4cec25c6f6a28273741dc0af0485d44c074daa51bda6c6858b3",
+     "python": "k = vl.use(\"tally\", prs)",
+     "prompt": {
+      "en": "Use the tally (Data tally) visual language for this deck.",
+      "zh": "用 tally（数据账本）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "night",
+     "label": {
+      "en": "night ledger",
+      "zh": "夜间账本版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "0F1222",
+      "ink": "F2F4FA",
+      "mute": "A5ACC4",
+      "panel": "1A1F38",
+      "accents": [
+       "7C89FF",
+       "C6F432"
+      ],
+      "text_accents": [
+       "7C89FF"
+      ],
+      "series": [
+       "7C89FF",
+       "C6F432",
+       "FF7A8A",
+       "4FD1C5"
+      ]
+     },
+     "sample": "media/tally/sample-night.jpg",
+     "pages": {
+      "cover": "media/tally/night/cover.jpg",
+      "section": "media/tally/night/section.jpg",
+      "image_text": "media/tally/night/image_text.jpg",
+      "points": "media/tally/night/points.jpg",
+      "quote": "media/tally/night/quote.jpg",
+      "data": "media/tally/night/data.jpg",
+      "closing": "media/tally/night/closing.jpg"
+     },
+     "render_fp": "f5148602afeb31e33949f34d3058af3769bdac605566978a725be208113e699a",
+     "python": "k = vl.use(\"tally\", prs, ground=\"night\")",
+     "prompt": {
+      "en": "Use the tally (Data tally) visual language, on its night ledger ground, for this deck.",
+      "zh": "用 tally（数据账本）视觉语言的夜间账本版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Arial Black",
+     "body": "Arial",
+     "numeral": "Arial Black"
+    },
+    "mac": {
+     "display": "Arial Black",
+     "body": "Helvetica Neue",
+     "numeral": "Arial Black"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [
+    {
+     "name": "tags",
+     "pages": [
+      "points"
+     ],
+     "takes": "one label per point"
+    },
+    {
+     "name": "total",
+     "pages": [
+      "data"
+     ],
+     "takes": "the total the number is a share of"
+    }
+   ],
+   "derived": [
+    {
+     "id": "point_numbers",
+     "what": "01 02 03 on points"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the tally (Data tally) visual language for this deck.",
+     "zh": "用 tally（数据账本）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"tally\", prs)"
+   }
+  },
+  {
+   "id": "chalkboard",
+   "order": 13,
+   "kind": "drawn",
+   "added_at": "2026-10-17",
+   "name": {
+    "en": "Chalkboard",
+    "zh": "黑板报"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: a framed board with coloured chalk strokes, boxed steps and a circled figure. Suits lessons, classes and training.",
+    "zh": "无需图片：带边框的黑板、彩色粉笔笔触、方框步骤、圈出的数字。适合课程、课堂、培训。"
+   },
+   "best_for": {
+    "en": [
+     "lesson",
+     "class",
+     "training",
+     "explainer"
+    ],
+    "zh": [
+     "课程",
+     "课堂",
+     "培训",
+     "讲解"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "green board",
+      "zh": "绿黑板版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "22392B",
+      "ink": "F3F1EA",
+      "mute": "C9D3C9",
+      "panel": "2B4436",
+      "accents": [
+       "F2D16B",
+       "F2A9B8",
+       "A4CDE6"
+      ],
+      "text_accents": [
+       "F2D16B",
+       "F2A9B8"
+      ],
+      "series": [
+       "F2D16B",
+       "F2A9B8",
+       "A4CDE6",
+       "B6E388"
+      ]
+     },
+     "sample": "media/chalkboard/sample-light.jpg",
+     "pages": {
+      "cover": "media/chalkboard/light/cover.jpg",
+      "section": "media/chalkboard/light/section.jpg",
+      "image_text": "media/chalkboard/light/image_text.jpg",
+      "points": "media/chalkboard/light/points.jpg",
+      "quote": "media/chalkboard/light/quote.jpg",
+      "data": "media/chalkboard/light/data.jpg",
+      "closing": "media/chalkboard/light/closing.jpg"
+     },
+     "render_fp": "3779442e672f119c4215ec773527b7976b7d2793b313852c090c143ab259676c",
+     "python": "k = vl.use(\"chalkboard\", prs)",
+     "prompt": {
+      "en": "Use the chalkboard (Chalkboard) visual language for this deck.",
+      "zh": "用 chalkboard（黑板报）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "slate",
+     "label": {
+      "en": "slate",
+      "zh": "石板版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "25282C",
+      "ink": "F2F1EC",
+      "mute": "C7C9CC",
+      "panel": "30343A",
+      "accents": [
+       "F2D16B",
+       "F2A9B8",
+       "A4CDE6"
+      ],
+      "text_accents": [
+       "F2D16B",
+       "F2A9B8"
+      ],
+      "series": [
+       "F2D16B",
+       "F2A9B8",
+       "A4CDE6",
+       "B6E388"
+      ]
+     },
+     "sample": "media/chalkboard/sample-slate.jpg",
+     "pages": {
+      "cover": "media/chalkboard/slate/cover.jpg",
+      "section": "media/chalkboard/slate/section.jpg",
+      "image_text": "media/chalkboard/slate/image_text.jpg",
+      "points": "media/chalkboard/slate/points.jpg",
+      "quote": "media/chalkboard/slate/quote.jpg",
+      "data": "media/chalkboard/slate/data.jpg",
+      "closing": "media/chalkboard/slate/closing.jpg"
+     },
+     "render_fp": "638cf354037b24a41241503a191b1b5f22abe375c3688478d5cd3d54d354cddf",
+     "python": "k = vl.use(\"chalkboard\", prs, ground=\"slate\")",
+     "prompt": {
+      "en": "Use the chalkboard (Chalkboard) visual language, on its slate ground, for this deck.",
+      "zh": "用 chalkboard（黑板报）视觉语言的石板版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Trebuchet MS",
+     "body": "Trebuchet MS",
+     "numeral": "Trebuchet MS"
+    },
+    "mac": {
+     "display": "Chalkboard SE",
+     "body": "Chalkboard SE",
+     "numeral": "Chalkboard SE"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [
+    {
+     "name": "doodle",
+     "pages": [
+      "cover",
+      "closing"
+     ],
+     "takes": "one library:name icon spec"
+    },
+    {
+     "name": "ordered",
+     "pages": [
+      "points"
+     ],
+     "takes": "True when the points happen in order"
+    }
+   ],
+   "derived": [
+    {
+     "id": "point_numbers",
+     "what": "circled 1 2 3 on points"
+    },
+    {
+     "id": "attribution_dash",
+     "what": "the dash before an attribution"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the chalkboard (Chalkboard) visual language for this deck.",
+     "zh": "用 chalkboard（黑板报）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"chalkboard\", prs)"
+   }
+  },
+  {
+   "id": "interface",
+   "order": 14,
+   "kind": "drawn",
+   "added_at": "2026-10-17",
+   "name": {
+    "en": "Product interface",
+    "zh": "产品界面"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: every page an app screen, with windows, status chips, a settings list, a dashboard card and a dialog. Suits product launches, apps and feature tours.",
+    "zh": "无需图片：每页都是一屏应用界面——窗口、状态标签、设置列表、仪表盘卡片、对话框。适合产品发布、应用、功能导览。"
+   },
+   "best_for": {
+    "en": [
+     "product launch",
+     "app",
+     "SaaS",
+     "feature tour",
+     "internal tool"
+    ],
+    "zh": [
+     "产品发布",
+     "应用",
+     "SaaS",
+     "功能导览",
+     "内部工具"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "app light",
+      "zh": "浅色界面版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "F3F4F7",
+      "ink": "0F1115",
+      "mute": "5B6170",
+      "panel": "FFFFFF",
+      "accents": [
+       "2563EB",
+       "16A34A",
+       "D97706",
+       "DC2626"
+      ],
+      "text_accents": [
+       "1F55E0"
+      ],
+      "series": [
+       "2563EB",
+       "DC2626",
+       "15803D",
+       "B45309"
+      ]
+     },
+     "sample": "media/interface/sample-light.jpg",
+     "pages": {
+      "cover": "media/interface/light/cover.jpg",
+      "section": "media/interface/light/section.jpg",
+      "image_text": "media/interface/light/image_text.jpg",
+      "points": "media/interface/light/points.jpg",
+      "quote": "media/interface/light/quote.jpg",
+      "data": "media/interface/light/data.jpg",
+      "closing": "media/interface/light/closing.jpg"
+     },
+     "render_fp": "3e38a613adcc4305cf3e64dc4313decf8e9e8e80a4d5274da7a367767721e94f",
+     "python": "k = vl.use(\"interface\", prs)",
+     "prompt": {
+      "en": "Use the interface (Product interface) visual language for this deck.",
+      "zh": "用 interface（产品界面）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "dark",
+     "label": {
+      "en": "dark mode",
+      "zh": "深色模式版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "0E1014",
+      "ink": "F2F4F8",
+      "mute": "A3AAB8",
+      "panel": "171A21",
+      "accents": [
+       "5B8CFF",
+       "2DBE6C",
+       "F5B83D",
+       "FF6B70"
+      ],
+      "text_accents": [
+       "8FB0FF"
+      ],
+      "series": [
+       "5B8CFF",
+       "2DBE6C",
+       "F5B83D",
+       "FF6B70",
+       "8FB0FF"
+      ]
+     },
+     "sample": "media/interface/sample-dark.jpg",
+     "pages": {
+      "cover": "media/interface/dark/cover.jpg",
+      "section": "media/interface/dark/section.jpg",
+      "image_text": "media/interface/dark/image_text.jpg",
+      "points": "media/interface/dark/points.jpg",
+      "quote": "media/interface/dark/quote.jpg",
+      "data": "media/interface/dark/data.jpg",
+      "closing": "media/interface/dark/closing.jpg"
+     },
+     "render_fp": "bd72b5a5ceb1e8da2513345f6523bb6c9c57c4a966e899811f37e49746e1e2fa",
+     "python": "k = vl.use(\"interface\", prs, ground=\"dark\")",
+     "prompt": {
+      "en": "Use the interface (Product interface) visual language, on its dark mode ground, for this deck.",
+      "zh": "用 interface（产品界面）视觉语言的深色模式版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Arial",
+     "body": "Arial",
+     "numeral": "Arial"
+    },
+    "mac": {
+     "display": "Helvetica Neue",
+     "body": "Helvetica Neue",
+     "numeral": "Helvetica Neue"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [
+    {
+     "name": "crumb",
+     "pages": "any",
+     "takes": "the window's breadcrumb"
+    },
+    {
+     "name": "status",
+     "pages": "any",
+     "takes": "text or (text, state)"
+    },
+    {
+     "name": "actions",
+     "pages": [
+      "cover",
+      "closing"
+     ],
+     "takes": "1-2 button labels"
+    },
+    {
+     "name": "toggles",
+     "pages": [
+      "cover"
+     ],
+     "takes": "1-4 (label, on) rows"
+    },
+    {
+     "name": "tags",
+     "pages": [
+      "points"
+     ],
+     "takes": "one label per point"
+    },
+    {
+     "name": "total",
+     "pages": [
+      "data"
+     ],
+     "takes": "the total the number is a share of"
+    }
+   ],
+   "derived": [
+    {
+     "id": "point_numbers",
+     "what": "1 2 3 badges on points"
+    },
+    {
+     "id": "initials",
+     "what": "the avatar's initials, from a name only"
+    },
+    {
+     "id": "info_glyph",
+     "what": "the i beside a data note"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the interface (Product interface) visual language for this deck.",
+     "zh": "用 interface（产品界面）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"interface\", prs)"
+   }
+  },
+  {
+   "id": "wayfinding",
+   "order": 15,
+   "kind": "drawn",
+   "added_at": "2026-10-17",
+   "name": {
+    "en": "Wayfinding",
+    "zh": "导视线路"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: metro lines converging on an interchange, station signs, a strip map for ordered steps and a departure board. Suits roadmaps, processes and onboarding.",
+    "zh": "无需图片：地铁线路汇向换乘站，站牌、按顺序排列步骤的线路图、发车信息牌。适合路线图、流程、新人上手。"
+   },
+   "best_for": {
+    "en": [
+     "roadmap",
+     "process",
+     "onboarding",
+     "journey",
+     "strategy route",
+     "transport/city"
+    ],
+    "zh": [
+     "路线图",
+     "流程",
+     "新人上手",
+     "用户旅程",
+     "战略路径",
+     "交通与城市"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "enamel",
+      "zh": "珐琅白版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "F6F5F1",
+      "ink": "16191E",
+      "mute": "5A6070",
+      "panel": "ECEAE3",
+      "accents": [
+       "D7262E",
+       "0071BC",
+       "00954C",
+       "F2B705",
+       "8E4FA1"
+      ],
+      "text_accents": [
+       "1B2A41"
+      ],
+      "series": [
+       "D7262E",
+       "0071BC",
+       "00954C",
+       "8E4FA1",
+       "1B2A41"
+      ]
+     },
+     "sample": "media/wayfinding/sample-light.jpg",
+     "pages": {
+      "cover": "media/wayfinding/light/cover.jpg",
+      "section": "media/wayfinding/light/section.jpg",
+      "image_text": "media/wayfinding/light/image_text.jpg",
+      "points": "media/wayfinding/light/points.jpg",
+      "quote": "media/wayfinding/light/quote.jpg",
+      "data": "media/wayfinding/light/data.jpg",
+      "closing": "media/wayfinding/light/closing.jpg"
+     },
+     "render_fp": "5a0448147667c550bb598ed277cfa8a06cb4c5ae2badf72b9820b091b8a995e5",
+     "python": "k = vl.use(\"wayfinding\", prs)",
+     "prompt": {
+      "en": "Use the wayfinding (Wayfinding) visual language for this deck.",
+      "zh": "用 wayfinding（导视线路）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "night",
+     "label": {
+      "en": "navy",
+      "zh": "藏青夜间版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "1B2A41",
+      "ink": "F2F4F8",
+      "mute": "B9C3D4",
+      "panel": "22344F",
+      "accents": [
+       "E8454C",
+       "3D9BE0",
+       "1DB66A",
+       "F2B705",
+       "B07CC6"
+      ],
+      "text_accents": [
+       "F2B705"
+      ],
+      "series": [
+       "E8454C",
+       "3D9BE0",
+       "1DB66A",
+       "F2B705",
+       "B07CC6"
+      ]
+     },
+     "sample": "media/wayfinding/sample-night.jpg",
+     "pages": {
+      "cover": "media/wayfinding/night/cover.jpg",
+      "section": "media/wayfinding/night/section.jpg",
+      "image_text": "media/wayfinding/night/image_text.jpg",
+      "points": "media/wayfinding/night/points.jpg",
+      "quote": "media/wayfinding/night/quote.jpg",
+      "data": "media/wayfinding/night/data.jpg",
+      "closing": "media/wayfinding/night/closing.jpg"
+     },
+     "render_fp": "b72bf0a2b13a39d2ad5c63c5501d78ef3490c5c8e9401b2da2760c4aa652ada7",
+     "python": "k = vl.use(\"wayfinding\", prs, ground=\"night\")",
+     "prompt": {
+      "en": "Use the wayfinding (Wayfinding) visual language, on its navy ground, for this deck.",
+      "zh": "用 wayfinding（导视线路）视觉语言的藏青夜间版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Arial",
+     "body": "Arial",
+     "numeral": "Arial",
+     "board": "Courier New"
+    },
+    "mac": {
+     "display": "Helvetica Neue",
+     "body": "Helvetica Neue",
+     "numeral": "Helvetica Neue",
+     "board": "Menlo"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [
+    {
+     "name": "line",
+     "pages": "any",
+     "takes": "a 1-3 character line code, or (code, colour name)"
+    },
+    {
+     "name": "ordered",
+     "pages": [
+      "points"
+     ],
+     "takes": "True when the points happen in order"
+    },
+    {
+     "name": "interchange",
+     "pages": [
+      "points"
+     ],
+     "takes": "0-based point indexes drawn as interchanges"
+    },
+    {
+     "name": "board",
+     "pages": [
+      "data"
+     ],
+     "takes": "1-4 (label, value) rows"
+    }
+   ],
+   "derived": [
+    {
+     "id": "roundel_numbers",
+     "what": "numbered roundels on the directory sign and the board"
+    },
+    {
+     "id": "way_out",
+     "what": "the way-out label on the closing sign"
+    },
+    {
+     "id": "attribution_dash",
+     "what": "the dash before an attribution"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the wayfinding (Wayfinding) visual language for this deck.",
+     "zh": "用 wayfinding（导视线路）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"wayfinding\", prs)"
+   }
+  }
+ ]
+}
