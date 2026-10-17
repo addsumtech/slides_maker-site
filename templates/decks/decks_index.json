@@ -139,19 +139,20 @@
     ]
   },
   {
-    "id": "nl-job-market-2026",
+    "id": "ev-market-report",
     "lang": "zh",
-    "name": "荷兰就业市场 2026",
-    "path": "templates/decks/zh/nl-job-market-2026/template.pptx",
-    "profile": "templates/decks/zh/nl-job-market-2026/profile.md",
+    "name": "全球电动车市场报告",
+    "path": "templates/decks/zh/ev-market-report/template.pptx",
+    "profile": "templates/decks/zh/ev-market-report/profile.md",
     "kind": "deck",
     "format": "16:9",
-    "slides": 13,
+    "slides": 14,
     "best_for": [
-      "市场分析",
-      "职业建议",
-      "政策解读",
-      "商业讲解"
+      "market report",
+      "periodic report",
+      "newsletter",
+      "data briefing",
+      "world map"
     ]
   },
   {
@@ -346,19 +347,20 @@
     ]
   },
   {
-    "id": "nl-job-market-2026",
+    "id": "ev-market-report",
     "lang": "en",
-    "name": "Netherlands Job Market 2026",
-    "path": "templates/decks/en/nl-job-market-2026/template.pptx",
-    "profile": "templates/decks/en/nl-job-market-2026/profile.md",
+    "name": "Global EV Market Report",
+    "path": "templates/decks/en/ev-market-report/template.pptx",
+    "profile": "templates/decks/en/ev-market-report/profile.md",
     "kind": "deck",
     "format": "16:9",
-    "slides": 13,
+    "slides": 14,
     "best_for": [
-      "market analysis",
-      "career advice",
-      "policy explainer",
-      "business explainer"
+      "market report",
+      "periodic report",
+      "newsletter",
+      "data briefing",
+      "world map"
     ]
   },
   {

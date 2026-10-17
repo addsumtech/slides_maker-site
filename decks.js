@@ -57,11 +57,11 @@ window.DECKS = [
     "pages": 14
   },
   {
-    "id": "zh/nl-job-market-2026",
+    "id": "zh/ev-market-report",
     "lang": "zh",
-    "title": "荷兰就业市场 2026",
-    "use": "市场分析, 职业建议, 政策解读, 商业讲解",
-    "pages": 13
+    "title": "全球电动车市场报告",
+    "use": "行业报告, 定期简报, 数据解读, 世界地图, 报纸版式",
+    "pages": 14
   },
   {
     "id": "zh/corporate-training",
@@ -142,11 +142,11 @@ window.DECKS = [
     "pages": 14
   },
   {
-    "id": "en/nl-job-market-2026",
+    "id": "en/ev-market-report",
     "lang": "en",
-    "title": "Netherlands Job Market 2026",
-    "use": "market analysis, career advice, policy explainer, business explainer",
-    "pages": 13
+    "title": "Global EV Market Report",
+    "use": "market report, periodic briefing, newsletter, data with a world map, broadsheet look",
+    "pages": 14
   },
   {
     "id": "en/corporate-training",
