@@ -71,11 +71,11 @@ window.DECKS = [
     "pages": 16
   },
   {
-    "id": "zh/solo-company-talk",
+    "id": "zh/thesis-defense",
     "lang": "zh",
-    "title": "一人公司演讲",
-    "use": "主题演讲, 演讲, 路演开场, 观点分享, 公开构建, 独立开发者",
-    "pages": 12
+    "title": "毕业答辩示例",
+    "use": "毕业答辩, 开题报告, 学术汇报, 工程方案, 制图风格",
+    "pages": 16
   },
   {
     "id": "zh/kids-ai-explainer",
@@ -156,11 +156,11 @@ window.DECKS = [
     "pages": 16
   },
   {
-    "id": "en/solo-company-talk",
+    "id": "en/thesis-defense",
     "lang": "en",
-    "title": "Solo Company Talk",
-    "use": "keynote, talk, pitch opener, opinion piece, build in public, indie hacker",
-    "pages": 12
+    "title": "Thesis Defense",
+    "use": "thesis defense, research talk, academic presentation, engineering, drafting look",
+    "pages": 16
   },
   {
     "id": "en/kids-ai-explainer",

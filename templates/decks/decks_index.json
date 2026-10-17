@@ -173,21 +173,20 @@
     ]
   },
   {
-    "id": "solo-company-talk",
+    "id": "thesis-defense",
     "lang": "zh",
-    "name": "一人公司演讲",
-    "path": "templates/decks/zh/solo-company-talk/template.pptx",
-    "profile": "templates/decks/zh/solo-company-talk/profile.md",
+    "name": "毕业答辩示例",
+    "path": "templates/decks/zh/thesis-defense/template.pptx",
+    "profile": "templates/decks/zh/thesis-defense/profile.md",
     "kind": "deck",
     "format": "16:9",
-    "slides": 12,
+    "slides": 16,
     "best_for": [
-      "主题演讲",
-      "演讲",
-      "路演开场",
-      "观点分享",
-      "公开构建",
-      "独立开发者"
+      "thesis defense",
+      "research talk",
+      "academic presentation",
+      "engineering",
+      "viva"
     ]
   },
   {
@@ -381,21 +380,20 @@
     ]
   },
   {
-    "id": "solo-company-talk",
+    "id": "thesis-defense",
     "lang": "en",
-    "name": "Solo Company Talk",
-    "path": "templates/decks/en/solo-company-talk/template.pptx",
-    "profile": "templates/decks/en/solo-company-talk/profile.md",
+    "name": "Thesis Defense",
+    "path": "templates/decks/en/thesis-defense/template.pptx",
+    "profile": "templates/decks/en/thesis-defense/profile.md",
     "kind": "deck",
     "format": "16:9",
-    "slides": 12,
+    "slides": 16,
     "best_for": [
-      "keynote",
-      "talk",
-      "pitch opener",
-      "opinion piece",
-      "build in public",
-      "indie hacker"
+      "thesis defense",
+      "research talk",
+      "academic presentation",
+      "engineering",
+      "viva"
     ]
   },
   {
