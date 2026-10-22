@@ -83,6 +83,15 @@ body::before { content:""; position:fixed; inset:0 0 auto 0; height:4px;
   transition:border-color .15s, color .15s; }
 .brand .langpill:hover { border-color:var(--accent); color:var(--accent); }
 .brand .gh { margin-left:0; }
+.brand .vlib, .brand .gh { padding:9px 16px; font-size:13.5px; }
+.brand .langpill, .brand .btn, .brand .name { white-space:nowrap; }
+.brand .vlib .short { display:none; }
+.brand .gh { gap:0; } .brand .gh .star { margin-left:.35em; }
+@media (max-width:520px) { .brand .by { display:none; } .brand { gap:6px; }
+  .brand img { width:28px; height:28px; } .brand .name { font-size:15px; }
+  .brand .langpill { padding:5px 9px; font-size:12px; }
+  .brand .vlib, .brand .gh { padding:6px 9px; font-size:12px; border-radius:8px; }
+  .brand .vlib .full { display:none; } .brand .vlib .short { display:inline; } .brand .gh .star { display:none; } }
 .brand .flip { padding:9px 18px; font-size:13.5px; }
 @media (max-width:760px) { .brand .flip { display:none; } }
 h1 { position:relative; font-size:clamp(30px, 4.6vw, 46px); line-height:1.14; margin:0 0 18px; max-width:820px;
@@ -195,7 +204,8 @@ footer .sp { flex:1; }
       <span class="name">slide-maker</span>
       <span class="by" id="byline"></span>
       <button class="langpill" id="langBtn" aria-label="Switch language"></button>
-      <a class="btn ghost gh" id="ghBtn" href="https://github.com/addsumtech/slides_maker">GitHub ★</a>
+      <a class="btn ghost vlib" id="vlBtn" href="/languages/"><span class="full">Visual languages</span><span class="short">Library</span></a>
+      <a class="btn ghost gh" id="ghBtn" href="https://github.com/addsumtech/slides_maker">GitHub<span class="star">★</span></a>
       <a class="btn primary flip" id="ctaFlip" href="#gallery"></a>
     </div>
     <h1 id="headline"></h1>
@@ -239,7 +249,7 @@ const STR = {
     byline: 'by <a href="https://addsum.top/?lang=en">Addsum</a>',
     headline: 'Real decks. <span class="hl">Really editable.</span><br>Generated end-to-end by AI agents.',
     lede: 'A skill for Codex and Claude Code that turns papers, code, docs, or just a topic into a natively editable PPTX: real text boxes, native charts, editable math, speaker notes, click builds. Every deck below came out of it. Hover a card to flip through.',
-    ctaFlip: 'Browse the decks', ctaDl: '⬇ Grab the sample deck',
+    vlBtn: 'Visual languages', vlShort: 'Library', ctaFlip: 'Browse the decks', ctaDl: '⬇ Grab the sample deck',
     ctaNote: 'The sample is the 15-page paper-talk deck. Open it in PowerPoint and click anything: the chart, the math, the speaker notes.',
     st1: 'complete decks', st2: 'languages × styles', st3: 'native editable PPTX', st4: 'free & open source',
     vTitle: 'See it work · 3 min',
@@ -262,7 +272,7 @@ const STR = {
     byline: '<a href="https://addsum.top/cn/">增和科技 Addsum</a> 出品',
     headline: '真实的 deck，<span class="hl">真的能编辑</span>。<br>由 AI agent 团队端到端生成。',
     lede: '一个给 Codex 和 Claude Code 用的 skill：把论文、代码、文档，甚至只是一个主题，变成原生可编辑的 PPTX。真文本框、原生图表、可编辑公式、逐页讲稿、点击渐显。下面每一套都是它生成的，悬停封面即可翻页预览。',
-    ctaFlip: '浏览全部 deck', ctaDl: '⬇ 下载样例 .pptx',
+    vlBtn: '视觉语言库', vlShort: '语言库', ctaFlip: '浏览全部 deck', ctaDl: '⬇ 下载样例 .pptx',
     ctaNote: '样例是 15 页的论文精读 deck。在 PowerPoint 里打开随便点：图表、公式、讲稿备注，都是活的。',
     st1: '套完整 deck', st2: '两种语言 × 八种风格', st3: '原生可编辑 PPTX', st4: '免费开源',
     vTitle: '3 分钟，看它怎么干活',
@@ -349,6 +359,10 @@ function setLang(lang) {
     }
   }
   document.getElementById('ctaFlip').textContent = t.ctaFlip;
+  const vb = document.getElementById('vlBtn');
+  if (vb) { vb.querySelector('.full').textContent = t.vlBtn; vb.querySelector('.short').textContent = t.vlShort;
+    // the library page opens in the language chosen here
+    vb.onclick = () => { try { localStorage.setItem('addsum-lang', lang); } catch(e){} }; }
   document.title = t.title;
   document.documentElement.lang = (lang === 'zh') ? 'zh-CN' : 'en';
   document.getElementById('grid').innerHTML =
