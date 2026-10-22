@@ -10,7 +10,8 @@
     en: {
       crumb: 'Visual languages', gallery: 'Deck gallery', searchLabel: 'Search languages',
       search: 'Search by name or topic', all: 'All', imageLed: 'Image-led', drawn: 'Drawn',
-      headline: function (n) { return n + ' visual languages, <span class="hl">each a whole look</span>'; },
+      headline: function (n) { return [n + ' visual languages, ', 'each a whole look']; },
+      langLabel: 'Switch the page to Chinese',
       lede: 'A visual language is a complete, checked look for a deck: two designed grounds, a type pairing that ' +
         'works in Latin and CJK, seven page compositions, and every general component — charts, timelines, tables — ' +
         'wearing it. Ask for one by name, or let slide-maker offer the ones that fit your topic.',
@@ -18,6 +19,7 @@
       count: function (n, t) { return n === t ? t + ' languages' : n + ' of ' + t; },
       empty: function (q) { return q ? 'No language matches “' + q + '”.' : 'No language of this kind yet.'; },
       clear: 'Clear filters', copyPrompt: 'Copy prompt', details: 'See all pages', copied: 'Copied',
+      copyFailed: 'Copy failed — open the language and select the text',
       imageLedKind: 'image-led', drawnKind: 'drawn', isNew: 'NEW',
       pagesH: 'The seven page types', pagesNote: 'Every language is rendered on the same demo text, with no optional ' +
         'extras set, so the looks compare on identical words.',
@@ -37,13 +39,15 @@
     zh: {
       crumb: '视觉语言', gallery: '案例画廊', searchLabel: '搜索视觉语言',
       search: '按名称或主题搜索', all: '全部', imageLed: '以图为主', drawn: '纯绘制',
-      headline: function (n) { return n + ' 套视觉语言，<span class="hl">每套都是完整的外观</span>'; },
+      headline: function (n) { return [n + ' 套视觉语言，', '每套都是完整的外观']; },
+      langLabel: '切换为英文页面',
       lede: '视觉语言是一套完整、经过校验的 PPT 外观：两种设计好的底色、中西文都成立的字体搭配、七种页面构图，' +
         '图表、时间线、表格等通用组件也都穿上同一身风格。点名就能用，也可以让 slide-maker 按你的主题推荐合适的几套。',
       stats: ['套视觉语言', '种底色', '种页面', '个组件适配每种底色'],
       count: function (n, t) { return n === t ? '共 ' + t + ' 套' : n + ' / ' + t + ' 套'; },
       empty: function (q) { return q ? '没有匹配“' + q + '”的视觉语言。' : '这一类暂时还没有。'; },
       clear: '清除筛选', copyPrompt: '复制提示词', details: '看全部页面', copied: '已复制',
+      copyFailed: '复制失败，请打开这套语言手动选中文字',
       imageLedKind: '以图为主', drawnKind: '纯绘制', isNew: '新',
       pagesH: '七种页面', pagesNote: '每套语言都用同一份演示文字渲染，可选的附加字段都不填，方便在同样的内容上比较外观。',
       notRendered: '这种底色的页面渲染还没有导出；下方的样张展示了它的外观。',
@@ -61,7 +65,7 @@
     }
   };
 
-  var state = { lang: 'en', q: '', kind: 'all', ground: {}, lib: null, opener: null };
+  var state = { lang: 'en', q: '', kind: 'all', ground: {}, lib: null, opener: null, pushed: false };
   var $ = function (id) { return document.getElementById(id); };
 
   function el(tag, attrs, kids) {
@@ -70,7 +74,6 @@
       var v = attrs[k];
       if (v === null || v === undefined || v === false) return;
       if (k === 'text') n.textContent = v;
-      else if (k === 'html') n.innerHTML = v;
       else if (k === 'on') Object.keys(v).forEach(function (e) { n.addEventListener(e, v[e]); });
       else if (k === 'style') n.setAttribute('style', v);
       else n.setAttribute(k, v === true ? '' : v);
@@ -89,11 +92,16 @@
     return /^zh\b/i.test(navigator.language || '') ? 'zh' : 'en';
   }
 
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  /* NEW = not among the languages the page launched with (library.json baseline_ids), and added within NEW_DAYS.
+     Dates compare as local YYYY-MM-DD strings: parsing them as UTC hid a just-added language for hours east of UTC. */
   function isNew(x) {
-    var lib = state.lib;
-    if (!x.added_at || !lib.baseline || x.added_at <= lib.baseline) return false;
-    var days = (Date.now() - Date.parse(x.added_at + 'T00:00:00Z')) / 864e5;
-    return days >= 0 && days <= NEW_DAYS;
+    var lib = state.lib, ids = lib.baseline_ids;
+    if (!x.added_at) return false;
+    var launched = Array.isArray(ids) ? ids.indexOf(x.id) !== -1 : (!!lib.baseline && x.added_at <= lib.baseline);
+    if (launched) return false;
+    var c = new Date(Date.now() - NEW_DAYS * 864e5);
+    return x.added_at >= c.getFullYear() + '-' + pad(c.getMonth() + 1) + '-' + pad(c.getDate());
   }
 
   function groundOf(x) {
@@ -103,22 +111,27 @@
   }
 
   function copy(text, btn) {
-    function done() {
-      var old = btn.textContent;
-      btn.textContent = t('copied');
-      setTimeout(function () { btn.textContent = old; }, 1400);
+    var old = btn.textContent, settled = false;
+    function report(ok) {               // drawn on the button AND announced; never "Copied" for a copy that failed
+      var live = $('live'), msg = ok ? t('copied') : t('copyFailed');
+      btn.textContent = ok ? t('copied') : '✕';
+      if (live) live.textContent = ok ? msg + ': ' + text : msg;
+      setTimeout(function () { btn.textContent = old; }, ok ? 1400 : 2600);
     }
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(text).then(done, function () { fallback(); });
-    } else fallback();
     function fallback() {
-      var ta = el('textarea', { style: 'position:fixed;opacity:0;top:0;left:0' });
+      var ta = el('textarea', { style: 'position:fixed;opacity:0;top:0;left:0' }), ok = false;
       ta.value = text;
       document.body.appendChild(ta);
       ta.select();
-      try { document.execCommand('copy'); done(); } catch (e) { /* nothing more to try */ }
+      try { ok = document.execCommand('copy') === true; } catch (e) { ok = false; }
       ta.remove();
+      report(ok);
     }
+    function once(fn) { return function () { if (!settled) { settled = true; fn(); } }; }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(once(function () { report(true); }), once(fallback));
+      setTimeout(once(fallback), 1000);   // a write that never settles (a permission prompt nobody answers) still ends
+    } else fallback();
   }
 
   /* ---------- url state ---------- */
@@ -142,10 +155,14 @@
     document.documentElement.lang = state.lang === 'zh' ? 'zh-CN' : 'en';
     document.querySelectorAll('[data-i18n]').forEach(function (n) { n.textContent = t(n.getAttribute('data-i18n')); });
     $('langBtn').textContent = state.lang === 'zh' ? 'EN' : '中文';
+    $('langBtn').setAttribute('aria-label', t('langLabel'));
     $('q').placeholder = t('search');
     $('closeBtn').setAttribute('aria-label', t('close'));
     if (!lib) return;
-    $('headline').innerHTML = t('headline')(lib.stats.languages);
+    var hp = t('headline')(lib.stats.languages), hd = $('headline');
+    hd.textContent = '';
+    hd.appendChild(document.createTextNode(hp[0]));
+    hd.appendChild(el('span', { 'class': 'hl', text: hp[1] }));
     $('lede').textContent = t('lede');
     var s = lib.stats, labels = t('stats');
     $('stats').innerHTML = '';
@@ -171,8 +188,9 @@
     if (state.kind !== 'all' && x.kind !== state.kind) return false;
     var q = state.q.trim().toLowerCase();
     if (!q) return true;
-    var hay = [x.id, x.name.en, x.name.zh, L(x.blurb), (x.best_for[state.lang] || []).join(' '),
-      (x.best_for.en || []).join(' ')].join(' ').toLowerCase();
+    // both languages' words: a tag clicked in 中文 must still find its languages after switching to EN
+    var hay = [x.id, x.name.en, x.name.zh, x.blurb.en, x.blurb.zh, (x.best_for.en || []).join(' '),
+      (x.best_for.zh || []).join(' ')].join(' ').toLowerCase();
     return q.split(/\s+/).every(function (w) { return hay.indexOf(w) !== -1; });
   }
 
@@ -253,7 +271,10 @@
 
   function openDetail(id, opener) {
     state.opener = opener || null;
-    if (location.hash !== '#' + id) history.pushState(null, '', location.pathname + location.search + '#' + id);
+    if (location.hash !== '#' + id) {
+      history.pushState(null, '', location.pathname + location.search + '#' + id);
+      state.pushed = true;        // closing pops this entry, so Back never reopens the dialog
+    }
     showDetail();
   }
 
@@ -360,7 +381,7 @@
     var raw = location.hash.replace(/^#/, ''), id;
     try { id = decodeURIComponent(raw); } catch (e) { id = ''; }   // a malformed escape (#%) names no language
     var x = id ? find(id) : null;
-    if (!x) { if (d.open) d.close(); return; }
+    if (!x) { state.pushed = false; if (d.open) d.close(); return; }
     renderDetail(x);
     d.setAttribute('data-last', x.id);
     if (!d.open) {
@@ -371,8 +392,14 @@
   }
 
   function closeDetail() {
-    if (location.hash) history.pushState(null, '', location.pathname + location.search);
     var d = $('detail');
+    if (state.pushed && location.hash) {   // we added the #id entry: step back over it (popstate closes the dialog)
+      state.pushed = false;
+      history.back();
+      return;
+    }
+    state.pushed = false;                   // a deep link: drop the hash without adding an entry
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
     if (d.open) d.close();
   }
 

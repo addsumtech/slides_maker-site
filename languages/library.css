@@ -99,7 +99,8 @@ h1 .hl { color:var(--accent); }
 .tags { display:flex; flex-wrap:wrap; gap:6px; }
 .tags button { border:0; background:var(--tint); color:var(--accent-deep); font:inherit; font-size:12px; font-weight:600;
   padding:3px 9px; border-radius:7px; cursor:pointer; }
-.tags button:hover, .tags button:focus-visible { background:#ead2c6; outline:none; }
+.tags button:hover { background:#ead2c6; }
+.tags button:focus-visible { background:#ead2c6; outline:2px solid var(--accent); outline-offset:1px; }
 .swatches { display:flex; gap:5px; align-items:center; }
 .swatches i { width:18px; height:18px; border-radius:5px; border:1px solid rgba(0,0,0,.14); }
 .cfoot { display:flex; gap:8px; margin-top:auto; padding-top:4px; flex-wrap:wrap; }

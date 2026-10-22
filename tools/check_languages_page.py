@@ -57,6 +57,14 @@ HARNESS = r"""<!doctype html><html><head><meta charset="utf-8"><style>body{margi
     }
     return pending.map(im => im.getAttribute('src'));
   }
+  if (mode === 'new') {       // the NEW fixture: one language outside the launch set, one launch language, both dated today
+    const nw = d.querySelector('#card-%(new)s .new'), sd = d.querySelector('#card-%(same)s .new');
+    if (!nw) fail('a language outside the launch set, added today, wears no NEW badge');
+    if (sd) fail('a language the page launched with wears NEW');
+    const n = d.querySelectorAll('.card .new').length;
+    if (n !== 1) fail(n + ' NEW badges on the fixture (expected exactly 1)');
+    document.getElementById('out').textContent = JSON.stringify(out); return;
+  }
   if (mode === 'shot') {      // a screenshot must show decoded pictures, not the frame they will paint into
     await settled(d);
     await Promise.all([...d.querySelectorAll('img')].filter(im => im.complete && im.naturalWidth).map(im => im.decode().catch(() => 0)));
@@ -152,6 +160,56 @@ HARNESS = r"""<!doctype html><html><head><meta charset="utf-8"><style>body{margi
     if (blurb !== first.blurb.en && blurb !== first.blurb.zh) fail('the first blurb is not the manifest\'s');
     if (d.documentElement.scrollWidth > w.innerWidth + 1) fail('horizontal scroll after the toggle: ' + d.documentElement.scrollWidth);
     d.getElementById('langBtn').click(); await sleep(50);
+    // the language button's label follows the page's language
+    const lbl0 = d.getElementById('langBtn').getAttribute('aria-label');
+    d.getElementById('langBtn').click(); await sleep(60);
+    const lbl1 = d.getElementById('langBtn').getAttribute('aria-label');
+    if (!lbl0 || lbl0 === lbl1) fail('the language button keeps one aria-label in both languages ("' + lbl0 + '")');
+    // a tag search made in one language still finds its languages after the toggle
+    const zt = d.querySelector('.tags button');
+    if (zt) {
+      const tt = zt.textContent; zt.click(); await sleep(80);
+      const n1 = cards().length;
+      d.getElementById('langBtn').click(); await sleep(80);
+      if (!cards().length) fail('the tag search "' + tt + '" matches nothing after the language toggle (it found ' + n1 + ')');
+      d.getElementById('clearBtn').click(); await sleep(50);
+    } else { d.getElementById('langBtn').click(); await sleep(60); }
+    // "Copied" is announced to a screen reader, not only drawn on the button
+    // the clipboard is stubbed: resolves / never settles / refused with execCommand failing too
+    const live = d.getElementById('live'), copyBtn = d.querySelector('.cfoot .btn.primary');
+    const setClip = (fn) => Object.defineProperty(w.navigator, 'clipboard', {value: {writeText: fn}, configurable: true});
+    const copiedWord = d.documentElement.lang.startsWith('zh') ? '已复制' : 'Copied';
+    async function announced(ms) { for (let i = 0; i < ms; i += 50) { if (live && live.textContent.trim()) return true; await sleep(50); } return false; }
+    setClip(() => Promise.resolve()); live.textContent = ''; copyBtn.click();
+    if (!(await announced(400)) || !live.textContent.includes(copiedWord)) fail('a successful copy is not announced as copied ("' + live.textContent + '")');
+    await sleep(1500);
+    const exec0 = d.execCommand;
+    setClip(() => new Promise(() => {})); d.execCommand = () => true; live.textContent = ''; copyBtn.click();
+    if (!(await announced(2000)) || !live.textContent.includes(copiedWord)) fail('a clipboard write that never settles leaves the visitor with nothing ("' + live.textContent + '")');
+    await sleep(1500);
+    setClip(() => Promise.reject(new Error('denied'))); d.execCommand = () => false; live.textContent = ''; copyBtn.click();
+    if (!(await announced(800))) fail('a failed copy announces nothing');
+    else if (live.textContent.includes(copiedWord)) fail('a failed copy is announced as copied ("' + live.textContent + '")');
+    d.execCommand = exec0; await sleep(2700);
+    // a focused tag shows a visible ring
+    let ring = false;
+    for (const sh of d.styleSheets) {
+      let rules; try { rules = sh.cssRules; } catch (e) { continue; }
+      for (const r of rules) if (r.selectorText && r.selectorText.includes('.tags button:focus-visible') &&
+                                 /outline:\s*\d/.test(r.cssText)) ring = true;
+    }
+    if (!ring) fail('a focused tag has no visible focus ring');
+    // a dialog opened from a card closes without leaving a history entry that Back would reopen; Esc closes it
+    const h0 = w.history.length;
+    d.querySelector('.card .sheet').click(); await sleep(150);
+    if (!dlg.open) fail('a card click did not open the dialog');
+    d.getElementById('closeBtn').click(); await sleep(250);
+    if (dlg.open) fail('the close button left a card-opened dialog open');
+    if (w.history.length > h0 + 1) fail('closing added a history entry (' + h0 + ' -> ' + w.history.length + '): Back reopens the dialog');
+    if (w.location.hash) fail('closing a card-opened dialog left the hash ' + w.location.hash);
+    d.querySelector('.card .sheet').click(); await sleep(150);
+    dlg.dispatchEvent(new Event('cancel', {cancelable: true})); await sleep(250);
+    if (dlg.open) fail('Esc (the dialog cancel event) left the dialog open');
   } catch (e) { fail('the harness threw: ' + e + ' ' + (e.stack || '')); }
   document.getElementById('out').textContent = JSON.stringify(out);
 })();
@@ -177,10 +235,11 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         pass
 
     def do_GET(self):
-        m = re.match(r"^/__probe__\.html\?w=(\d+)&h=(\d+)&mode=(\w+)&hash=(\w*)$", self.path)
+        m = re.match(r"^/__probe__\.html\?w=(\d+)&h=(\d+)&mode=(\w+)&hash=(\w*)(?:&new=(\w+)&same=(\w+))?$", self.path)
         if m:
             w, h, mode, hsh = int(m.group(1)), int(m.group(2)), m.group(3), m.group(4)
-            body = (HARNESS % {"w": w, "h": h, "mode": json.dumps(mode), "hash": ("#" + hsh) if hsh else ""}).encode()
+            body = (HARNESS % {"w": w, "h": h, "mode": json.dumps(mode), "hash": ("#" + hsh) if hsh else "",
+                               "new": m.group(5) or "none", "same": m.group(6) or "none"}).encode()
             self.send_response(200)
             self.send_header("Content-Type", "text/html; charset=utf-8")
             self.send_header("Content-Length", str(len(body)))
@@ -204,6 +263,43 @@ def console_errors(stderr):
             and "favicon" not in ln]
 
 
+def new_badge_run(binary, lib, prof):
+    """NEW on a fixture library: the last language is outside the launch set and the first is inside it, both dated
+    today (the launch day) — exactly one badge, on the last. The real library.json cannot show this on launch day."""
+    import datetime
+    ids = [x["id"] for x in lib.get("languages", [])]
+    if len(ids) < 2:
+        return ["the NEW fixture needs two languages"]
+    newer, same, today = ids[-1], ids[0], datetime.date.today().isoformat()
+    fx = json.loads(json.dumps(lib))
+    fx["baseline"], fx["baseline_ids"] = today, [i for i in ids if i != newer]
+    for x in fx["languages"]:
+        if x["id"] in (newer, same):
+            x["added_at"] = today
+    with tempfile.TemporaryDirectory() as td:
+        root = Path(td)
+        (root / "languages").mkdir()
+        for f in ("index.html", "library.css", "library.js"):
+            shutil.copy(SITE / "languages" / f, root / "languages" / f)
+        for f in ("logo-160.png", "favicon.png"):
+            if (SITE / f).exists():
+                shutil.copy(SITE / f, root / f)
+        os.symlink(SITE / "languages" / "media", root / "languages" / "media")
+        (root / "languages" / "library.json").write_text(json.dumps(fx), encoding="utf-8")
+        srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(Handler, directory=str(root)))
+        threading.Thread(target=srv.serve_forever, daemon=True).start()
+        try:
+            r = chrome(binary, "http://127.0.0.1:{}/__probe__.html?w=1400&h=1000&mode=new&hash=&new={}&same={}".format(
+                srv.server_address[1], newer, same), 1440, 1100, dump=True, profile=prof)
+        finally:
+            srv.shutdown()
+    m = re.search(r'<pre id="out">(.*?)</pre>', r.stdout, re.S)
+    if not m:
+        return ["NEW fixture: the harness never reported (Chrome exit {})".format(r.returncode)]
+    res = json.loads(m.group(1).replace("&quot;", '"').replace("&lt;", "<").replace("&gt;", ">").replace("&amp;", "&"))
+    return ["NEW fixture: " + f for f in res["fails"]]
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--shots", metavar="DIR", help="also write screenshots here")
@@ -219,6 +315,11 @@ def main(argv=None):
             for rel in [g.get("sample")] + list((g.get("pages") or {}).values()):
                 if not rel or not (SITE / "languages" / rel).is_file():
                     fails.append("{}/{}: library.json names {} and it is not on disk".format(x.get("id"), g.get("id"), rel))
+    js = (SITE / "languages" / "library.js").read_text(encoding="utf-8")
+    markup = [m.group(0) for m in re.finditer(r"\.innerHTML\s*=(?!\s*''\s*;)[^;\n]*", js)]
+    if markup or "k === 'html'" in js:
+        fails.append("library.js writes markup through innerHTML ({}) — build nodes; only clearing with '' is allowed".format(
+            markup or "el()'s html attribute"))
     binary = find_chrome()
     if not binary:
         print("FAIL no Chrome/Chromium found (set CHROME=/path) — the page was not checked")
@@ -241,6 +342,7 @@ def main(argv=None):
                 for n in res.get("notes", []):
                     print("note {}px: {}".format(w, n))
                 fails += ["{}px: console: {}".format(w, e) for e in console_errors(r.stderr)]
+            fails += new_badge_run(binary, lib, prof)
             if a.shots:
                 out = Path(a.shots).expanduser()
                 out.mkdir(parents=True, exist_ok=True)
