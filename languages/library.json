@@ -2779,7 +2779,7 @@
       "data": "media/herbarium/light/data.jpg",
       "closing": "media/herbarium/light/closing.jpg"
      },
-     "render_fp": "593c0fb07b73ab8fbebd8ebf8c090ddb83ada3f4897e1b7c9bda850515ee3a2f",
+     "render_fp": "068ff72072b1bc583f15e6ca39df51a1ba54ccd4eea4e9628c4b0179195c7a6c",
      "python": "k = vl.use(\"herbarium\", prs)",
      "prompt": {
       "en": "Use the herbarium (Herbarium plate) visual language for this deck.",
@@ -2822,7 +2822,7 @@
       "data": "media/herbarium/cabinet/data.jpg",
       "closing": "media/herbarium/cabinet/closing.jpg"
      },
-     "render_fp": "ba03a58d74501024534cde1b2b5eb9f8c55a99908f5f13f275ec1e97facd200a",
+     "render_fp": "3fcd65da2618b3a74d4a415b84c0fd83be3554544d61059cfdd195581711e28a",
      "python": "k = vl.use(\"herbarium\", prs, ground=\"cabinet\")",
      "prompt": {
       "en": "Use the herbarium (Herbarium plate) visual language, on its specimen cabinet ground, for this deck.",
@@ -3131,7 +3131,7 @@
        "2F6F68"
       ],
       "text_accents": [
-       "B2401E"
+       "9E3618"
       ],
       "series": [
        "B8441F",
@@ -3150,7 +3150,7 @@
       "data": "media/vinyl/cream/data.jpg",
       "closing": "media/vinyl/cream/closing.jpg"
      },
-     "render_fp": "e2b3c331d4be2cc9f90f0fd560393aec9452a83b4106ca90ea479df89a11c3db",
+     "render_fp": "892b13eb130ad5d02fd85ed97c348f370cbc65870557b6ebbe688c61b5e91aaa",
      "python": "k = vl.use(\"vinyl\", prs, ground=\"cream\")",
      "prompt": {
       "en": "Use the vinyl (Vinyl record) visual language, on its cream sleeve ground, for this deck.",
