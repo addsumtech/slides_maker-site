@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-10-22",
+ "generated": "2026-10-23",
  "baseline": "2026-10-17",
  "baseline_ids": [
   "editorial",
@@ -19,7 +19,7 @@
   "interface",
   "wayfinding"
  ],
- "skill_version": "5.9.0",
+ "skill_version": "6.0.0",
  "stats": {
   "languages": 30,
   "grounds": 60,
@@ -3587,7 +3587,7 @@
       "data": "media/pixel/light/data.jpg",
       "closing": "media/pixel/light/closing.jpg"
      },
-     "render_fp": "40c1bda44c44290fb8648a763909676eac96cb3cce0186ceaa09c4e858a1c1d4",
+     "render_fp": "d21169fbecba33917101827226a39786d046e54ec5ea9fa9c5a2f7e3ca24115b",
      "python": "k = vl.use(\"pixel\", prs)",
      "prompt": {
       "en": "Use the pixel (Pixel game) visual language for this deck.",
@@ -3630,7 +3630,7 @@
       "data": "media/pixel/arcade/data.jpg",
       "closing": "media/pixel/arcade/closing.jpg"
      },
-     "render_fp": "0d504b295453137178a3b7c65369284613ab9b499b7c1d36ba04cbfd436f0333",
+     "render_fp": "f5aaaf424731c03da076b2a2fa2f878b67fc9fb6fe4ee36033c5af9926acefb2",
      "python": "k = vl.use(\"pixel\", prs, ground=\"arcade\")",
      "prompt": {
       "en": "Use the pixel (Pixel game) visual language, on its arcade night ground, for this deck.",
