@@ -3923,7 +3923,7 @@
       "data": "media/boardgame/light/data.jpg",
       "closing": "media/boardgame/light/closing.jpg"
      },
-     "render_fp": "8015ee56276e94c1d048b48390e4c524ab927822d0e5cfc51223efb0a8ad5b18",
+     "render_fp": "b97a2ef33f83d2b563602d56a7e87342c6a1b416fb2c453bca5e13762ee0026b",
      "python": "k = vl.use(\"boardgame\", prs)",
      "prompt": {
       "en": "Use the boardgame (Board game) visual language for this deck.",
@@ -3966,7 +3966,7 @@
       "data": "media/boardgame/felt/data.jpg",
       "closing": "media/boardgame/felt/closing.jpg"
      },
-     "render_fp": "ff7d69c4b0a93669d53059b44b861bf8aa4f67a05a6166678e52ce11d7ad2b0a",
+     "render_fp": "d5e88a9cef3402cf9b899728c4b84038930e03a8fd26c25fc67ba04c918261eb",
      "python": "k = vl.use(\"boardgame\", prs, ground=\"felt\")",
      "prompt": {
       "en": "Use the boardgame (Board game) visual language, on its deluxe felt table ground, for this deck.",
