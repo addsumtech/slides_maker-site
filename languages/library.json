@@ -21,8 +21,8 @@
  ],
  "skill_version": "5.9.0",
  "stats": {
-  "languages": 15,
-  "grounds": 30,
+  "languages": 19,
+  "grounds": 38,
   "page_types": 7,
   "components": 38
  },
@@ -2711,6 +2711,656 @@
      "zh": "用 wayfinding（导视线路）视觉语言做这份 PPT。"
     },
     "python": "k = vl.use(\"wayfinding\", prs)"
+   }
+  },
+  {
+   "id": "herbarium",
+   "order": 16,
+   "kind": "drawn",
+   "added_at": "2026-10-22",
+   "name": {
+    "en": "Herbarium plate",
+    "zh": "标本图鉴"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: an archival specimen sheet with pressed sprigs held by paper tape, typewritten label cards and a numbered plate. Suits nature, ecology and field research.",
+    "zh": "无需图片：档案纸上的标本页——纸胶带固定的压制枝叶、打字机字体的标签卡、编号图版。适合自然、生态、野外调研。"
+   },
+   "best_for": {
+    "en": [
+     "nature",
+     "ecology",
+     "sustainability",
+     "field research",
+     "biology"
+    ],
+    "zh": [
+     "自然",
+     "生态",
+     "可持续",
+     "野外调研",
+     "生物"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "archival paper",
+      "zh": "档案纸版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "F2ECDC",
+      "ink": "2A2620",
+      "mute": "665E4D",
+      "panel": "E8E0CA",
+      "accents": [
+       "56703F",
+       "A4532F"
+      ],
+      "text_accents": [
+       "8A3F22"
+      ],
+      "series": [
+       "56703F",
+       "A4532F",
+       "2F5D7C",
+       "8C6A1E"
+      ]
+     },
+     "sample": "media/herbarium/sample-light.jpg",
+     "pages": {
+      "cover": "media/herbarium/light/cover.jpg",
+      "section": "media/herbarium/light/section.jpg",
+      "image_text": "media/herbarium/light/image_text.jpg",
+      "points": "media/herbarium/light/points.jpg",
+      "quote": "media/herbarium/light/quote.jpg",
+      "data": "media/herbarium/light/data.jpg",
+      "closing": "media/herbarium/light/closing.jpg"
+     },
+     "render_fp": "593c0fb07b73ab8fbebd8ebf8c090ddb83ada3f4897e1b7c9bda850515ee3a2f",
+     "python": "k = vl.use(\"herbarium\", prs)",
+     "prompt": {
+      "en": "Use the herbarium (Herbarium plate) visual language for this deck.",
+      "zh": "用 herbarium（标本图鉴）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "cabinet",
+     "label": {
+      "en": "specimen cabinet",
+      "zh": "标本柜版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "1D2520",
+      "ink": "EFE8D6",
+      "mute": "B3AC96",
+      "panel": "28322B",
+      "accents": [
+       "9DB57A",
+       "D98B5F"
+      ],
+      "text_accents": [
+       "E3A27C"
+      ],
+      "series": [
+       "9DB57A",
+       "E3A27C",
+       "8FB8D6",
+       "D8C27A"
+      ]
+     },
+     "sample": "media/herbarium/sample-cabinet.jpg",
+     "pages": {
+      "cover": "media/herbarium/cabinet/cover.jpg",
+      "section": "media/herbarium/cabinet/section.jpg",
+      "image_text": "media/herbarium/cabinet/image_text.jpg",
+      "points": "media/herbarium/cabinet/points.jpg",
+      "quote": "media/herbarium/cabinet/quote.jpg",
+      "data": "media/herbarium/cabinet/data.jpg",
+      "closing": "media/herbarium/cabinet/closing.jpg"
+     },
+     "render_fp": "ba03a58d74501024534cde1b2b5eb9f8c55a99908f5f13f275ec1e97facd200a",
+     "python": "k = vl.use(\"herbarium\", prs, ground=\"cabinet\")",
+     "prompt": {
+      "en": "Use the herbarium (Herbarium plate) visual language, on its specimen cabinet ground, for this deck.",
+      "zh": "用 herbarium（标本图鉴）视觉语言的标本柜版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Georgia",
+     "body": "Georgia",
+     "numeral": "Times New Roman",
+     "type": "Courier New"
+    },
+    "mac": {
+     "display": "Baskerville",
+     "body": "Georgia",
+     "numeral": "Times New Roman",
+     "type": "American Typewriter"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     },
+     "body": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [],
+   "derived": [
+    {
+     "id": "plate_numbers",
+     "what": "PL. 1, PL. 2 … at the top right of every page — the page number as a plate number (图版 1 in Chinese, 図版 1 in Japanese)"
+    },
+    {
+     "id": "point_numbers",
+     "what": "No. 1, No. 2 … on the points page labels (第 1 号 … in Chinese)"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the herbarium (Herbarium plate) visual language for this deck.",
+     "zh": "用 herbarium（标本图鉴）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"herbarium\", prs)"
+   }
+  },
+  {
+   "id": "airmail",
+   "order": 17,
+   "kind": "drawn",
+   "added_at": "2026-10-22",
+   "name": {
+    "en": "Air mail",
+    "zh": "航空邮件"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: an air-mail envelope with its red and blue striped border, a perforated stamp carrying the key number and a postmark. Suits travel, international work and logistics.",
+    "zh": "无需图片：一封航空信——红蓝斜纹边框、印着关键数字的齿孔邮票、圆形邮戳。适合旅行、国际化、跨境与物流。"
+   },
+   "best_for": {
+    "en": [
+     "travel",
+     "international",
+     "cross-border",
+     "logistics",
+     "global teams",
+     "exchange programme"
+    ],
+    "zh": [
+     "旅行",
+     "国际化",
+     "跨境",
+     "物流",
+     "海外团队",
+     "交流项目"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "envelope",
+      "zh": "信封版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "F4EFE4",
+      "ink": "1B2238",
+      "mute": "5A6173",
+      "panel": "EAE3D2",
+      "accents": [
+       "C8202F",
+       "1F3A8A"
+      ],
+      "text_accents": [
+       "B01E2C"
+      ],
+      "series": [
+       "C8202F",
+       "1F3A8A",
+       "2E7D5B",
+       "9A6108"
+      ]
+     },
+     "sample": "media/airmail/sample-light.jpg",
+     "pages": {
+      "cover": "media/airmail/light/cover.jpg",
+      "section": "media/airmail/light/section.jpg",
+      "image_text": "media/airmail/light/image_text.jpg",
+      "points": "media/airmail/light/points.jpg",
+      "quote": "media/airmail/light/quote.jpg",
+      "data": "media/airmail/light/data.jpg",
+      "closing": "media/airmail/light/closing.jpg"
+     },
+     "render_fp": "dc89a335adb5682657f67f31d7d506c5be6ea105bbc0d473766b387f3011c757",
+     "python": "k = vl.use(\"airmail\", prs)",
+     "prompt": {
+      "en": "Use the airmail (Air mail) visual language for this deck.",
+      "zh": "用 airmail（航空邮件）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "night",
+     "label": {
+      "en": "night mail",
+      "zh": "夜航版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "17223D",
+      "ink": "F2ECDF",
+      "mute": "B4BBCB",
+      "panel": "22304F",
+      "accents": [
+       "E5484D",
+       "E9E1CF"
+      ],
+      "text_accents": [
+       "F27B7F"
+      ],
+      "series": [
+       "F27B7F",
+       "8DB3F2",
+       "7FD1AE",
+       "F2C46D"
+      ]
+     },
+     "sample": "media/airmail/sample-night.jpg",
+     "pages": {
+      "cover": "media/airmail/night/cover.jpg",
+      "section": "media/airmail/night/section.jpg",
+      "image_text": "media/airmail/night/image_text.jpg",
+      "points": "media/airmail/night/points.jpg",
+      "quote": "media/airmail/night/quote.jpg",
+      "data": "media/airmail/night/data.jpg",
+      "closing": "media/airmail/night/closing.jpg"
+     },
+     "render_fp": "4a07e5d8b13e20818b343a489fbd8b72c1454e6973f4820951be59e12b0ce469",
+     "python": "k = vl.use(\"airmail\", prs, ground=\"night\")",
+     "prompt": {
+      "en": "Use the airmail (Air mail) visual language, on its night mail ground, for this deck.",
+      "zh": "用 airmail（航空邮件）视觉语言的夜航版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Trebuchet MS",
+     "body": "Trebuchet MS",
+     "numeral": "Times New Roman",
+     "letter": "Georgia"
+    },
+    "mac": {
+     "display": "Futura",
+     "body": "Avenir Next",
+     "numeral": "Didot",
+     "letter": "Baskerville"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [],
+   "derived": [
+    {
+     "id": "point_numbers",
+     "what": "1 2 3 on the small stamps of the points page"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the airmail (Air mail) visual language for this deck.",
+     "zh": "用 airmail（航空邮件）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"airmail\", prs)"
+   }
+  },
+  {
+   "id": "vinyl",
+   "order": 18,
+   "kind": "drawn",
+   "added_at": "2026-10-22",
+   "name": {
+    "en": "Vinyl record",
+    "zh": "黑胶唱片"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: a vinyl record and its sleeve, with grooved discs, a coloured centre label and the points set as a track list. Suits music, podcasts, culture and creative work.",
+    "zh": "无需图片：一张黑胶唱片和它的封套——带纹路的唱片、彩色中心标签，要点排成 A 面 / B 面曲目单。适合音乐、播客、文化活动与创意作品。"
+   },
+   "best_for": {
+    "en": [
+     "music",
+     "podcast",
+     "culture",
+     "creative work",
+     "anniversary"
+    ],
+    "zh": [
+     "音乐",
+     "播客",
+     "文化活动",
+     "创意作品",
+     "周年回顾"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "black sleeve",
+      "zh": "黑色封套版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "151517",
+      "ink": "F1ECE2",
+      "mute": "A8A296",
+      "panel": "1F1F23",
+      "accents": [
+       "E8622C",
+       "E6B33D"
+      ],
+      "text_accents": [
+       "F08A5D"
+      ],
+      "series": [
+       "F08A5D",
+       "E6B33D",
+       "6FB7A8",
+       "B9A3E3"
+      ]
+     },
+     "sample": "media/vinyl/sample-light.jpg",
+     "pages": {
+      "cover": "media/vinyl/light/cover.jpg",
+      "section": "media/vinyl/light/section.jpg",
+      "image_text": "media/vinyl/light/image_text.jpg",
+      "points": "media/vinyl/light/points.jpg",
+      "quote": "media/vinyl/light/quote.jpg",
+      "data": "media/vinyl/light/data.jpg",
+      "closing": "media/vinyl/light/closing.jpg"
+     },
+     "render_fp": "59eec1538d982ca0fc58bf89e5a7f47377cfb4af8e48b62209c63b44505fda41",
+     "python": "k = vl.use(\"vinyl\", prs)",
+     "prompt": {
+      "en": "Use the vinyl (Vinyl record) visual language for this deck.",
+      "zh": "用 vinyl（黑胶唱片）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "cream",
+     "label": {
+      "en": "cream sleeve",
+      "zh": "奶油封套版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "EEE6D3",
+      "ink": "1A1918",
+      "mute": "5E584C",
+      "panel": "E2D8C2",
+      "accents": [
+       "D9532B",
+       "2F6F68"
+      ],
+      "text_accents": [
+       "B2401E"
+      ],
+      "series": [
+       "B8441F",
+       "2F6F68",
+       "6B4E9B",
+       "8C6A00"
+      ]
+     },
+     "sample": "media/vinyl/sample-cream.jpg",
+     "pages": {
+      "cover": "media/vinyl/cream/cover.jpg",
+      "section": "media/vinyl/cream/section.jpg",
+      "image_text": "media/vinyl/cream/image_text.jpg",
+      "points": "media/vinyl/cream/points.jpg",
+      "quote": "media/vinyl/cream/quote.jpg",
+      "data": "media/vinyl/cream/data.jpg",
+      "closing": "media/vinyl/cream/closing.jpg"
+     },
+     "render_fp": "e2b3c331d4be2cc9f90f0fd560393aec9452a83b4106ca90ea479df89a11c3db",
+     "python": "k = vl.use(\"vinyl\", prs, ground=\"cream\")",
+     "prompt": {
+      "en": "Use the vinyl (Vinyl record) visual language, on its cream sleeve ground, for this deck.",
+      "zh": "用 vinyl（黑胶唱片）视觉语言的奶油封套版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Impact",
+     "body": "Arial",
+     "numeral": "Impact",
+     "liner": "Georgia"
+    },
+    "mac": {
+     "display": "DIN Condensed",
+     "body": "Avenir Next",
+     "numeral": "DIN Condensed",
+     "liner": "Didot"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [],
+   "derived": [
+    {
+     "id": "track_numbers",
+     "what": "A1 A2 … B1 B2 before the points: the first half on side A, the rest on side B"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the vinyl (Vinyl record) visual language for this deck.",
+     "zh": "用 vinyl（黑胶唱片）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"vinyl\", prs)"
+   }
+  },
+  {
+   "id": "receipt",
+   "order": 19,
+   "kind": "drawn",
+   "added_at": "2026-10-22",
+   "name": {
+    "en": "Shop receipt",
+    "zh": "购物小票"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: a thermal till slip with torn edges, monospaced type, dashed separators and a barcode; the points read as line items and the key figure as the total. Suits pricing, budgets and retail.",
+    "zh": "无需图片：一张热敏小票——锯齿撕边、等宽字体、虚线分隔和条形码；要点像逐行商品，关键数字像合计。适合定价、预算、零售与电商。"
+   },
+   "best_for": {
+    "en": [
+     "pricing",
+     "budget",
+     "cost breakdown",
+     "retail",
+     "e-commerce",
+     "expenses"
+    ],
+    "zh": [
+     "定价",
+     "预算",
+     "成本拆解",
+     "零售",
+     "电商",
+     "费用复盘"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "till slip",
+      "zh": "热敏小票版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "D8D3C8",
+      "ink": "1F1F1F",
+      "mute": "4D4A44",
+      "panel": "FBFAF6",
+      "accents": [
+       "B3261E",
+       "1F1F1F"
+      ],
+      "text_accents": [
+       "A3221B"
+      ],
+      "series": [
+       "B3261E",
+       "1F4E79",
+       "2E7D32",
+       "8C6A00"
+      ]
+     },
+     "sample": "media/receipt/sample-light.jpg",
+     "pages": {
+      "cover": "media/receipt/light/cover.jpg",
+      "section": "media/receipt/light/section.jpg",
+      "image_text": "media/receipt/light/image_text.jpg",
+      "points": "media/receipt/light/points.jpg",
+      "quote": "media/receipt/light/quote.jpg",
+      "data": "media/receipt/light/data.jpg",
+      "closing": "media/receipt/light/closing.jpg"
+     },
+     "render_fp": "fdc7703e5b4e7b7af72364c7d479acd77232f19919427897802ee7c27d0b68e2",
+     "python": "k = vl.use(\"receipt\", prs)",
+     "prompt": {
+      "en": "Use the receipt (Shop receipt) visual language for this deck.",
+      "zh": "用 receipt（购物小票）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "carbon",
+     "label": {
+      "en": "carbon copy",
+      "zh": "复写联版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "E6D98A",
+      "ink": "2C2466",
+      "mute": "4A4378",
+      "panel": "F5EDBF",
+      "accents": [
+       "2C2466",
+       "B1352A"
+      ],
+      "text_accents": [
+       "8E2A20"
+      ],
+      "series": [
+       "2C2466",
+       "A33027",
+       "2E6B3A",
+       "7A5600"
+      ]
+     },
+     "sample": "media/receipt/sample-carbon.jpg",
+     "pages": {
+      "cover": "media/receipt/carbon/cover.jpg",
+      "section": "media/receipt/carbon/section.jpg",
+      "image_text": "media/receipt/carbon/image_text.jpg",
+      "points": "media/receipt/carbon/points.jpg",
+      "quote": "media/receipt/carbon/quote.jpg",
+      "data": "media/receipt/carbon/data.jpg",
+      "closing": "media/receipt/carbon/closing.jpg"
+     },
+     "render_fp": "0221ca151b8e421d887bab0398aca8db5e8f0ba5cae472ee6c727b6e49dbb617",
+     "python": "k = vl.use(\"receipt\", prs, ground=\"carbon\")",
+     "prompt": {
+      "en": "Use the receipt (Shop receipt) visual language, on its carbon copy ground, for this deck.",
+      "zh": "用 receipt（购物小票）视觉语言的复写联版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Courier New",
+     "body": "Courier New",
+     "numeral": "Courier New"
+    },
+    "mac": {
+     "display": "Menlo",
+     "body": "Menlo",
+     "numeral": "Menlo"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [],
+   "derived": [
+    {
+     "id": "point_numbers",
+     "what": "01 02 03 before the line items on the points page"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the receipt (Shop receipt) visual language for this deck.",
+     "zh": "用 receipt（购物小票）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"receipt\", prs)"
    }
   }
  ]
