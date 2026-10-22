@@ -21,8 +21,8 @@
  ],
  "skill_version": "5.9.0",
  "stats": {
-  "languages": 19,
-  "grounds": 38,
+  "languages": 30,
+  "grounds": 60,
   "page_types": 7,
   "components": 38
  },
@@ -3361,6 +3361,1822 @@
      "zh": "用 receipt（购物小票）视觉语言做这份 PPT。"
     },
     "python": "k = vl.use(\"receipt\", prs)"
+   }
+  },
+  {
+   "id": "comic",
+   "order": 20,
+   "kind": "drawn",
+   "added_at": "2026-10-22",
+   "name": {
+    "en": "Comic panels",
+    "zh": "漫画分镜"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: a comic-book page with heavy panel borders, Ben-Day halftone dots, yellow caption boxes, speech balloons and a jagged burst for the key number. Suits storytelling, user journeys, explainers and launches.",
+    "zh": "无需图片：一页印刷漫画——粗黑分镜框、网点、黄色旁白框、带尾巴的对话气泡，关键数字放进爆炸框。适合讲故事、用户旅程、科普讲解与产品发布。"
+   },
+   "best_for": {
+    "en": [
+     "storytelling",
+     "user journey",
+     "explainer",
+     "product launch",
+     "team story"
+    ],
+    "zh": [
+     "讲故事",
+     "用户旅程",
+     "科普讲解",
+     "产品发布",
+     "团队故事"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "newsprint",
+      "zh": "新闻纸版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "F3ECD8",
+      "ink": "16130F",
+      "mute": "4E473D",
+      "panel": "FFFCF3",
+      "accents": [
+       "D9251D",
+       "1E5FC0"
+      ],
+      "text_accents": [
+       "B0181A"
+      ],
+      "series": [
+       "D9251D",
+       "1E5FC0",
+       "17804A",
+       "9A6400"
+      ]
+     },
+     "sample": "media/comic/sample-light.jpg",
+     "pages": {
+      "cover": "media/comic/light/cover.jpg",
+      "section": "media/comic/light/section.jpg",
+      "image_text": "media/comic/light/image_text.jpg",
+      "points": "media/comic/light/points.jpg",
+      "quote": "media/comic/light/quote.jpg",
+      "data": "media/comic/light/data.jpg",
+      "closing": "media/comic/light/closing.jpg"
+     },
+     "render_fp": "7070eedd5387180d22e7d394a1c251ac484569332b801098b33a0934dcc03c76",
+     "python": "k = vl.use(\"comic\", prs)",
+     "prompt": {
+      "en": "Use the comic (Comic panels) visual language for this deck.",
+      "zh": "用 comic（漫画分镜）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "noir",
+     "label": {
+      "en": "noir",
+      "zh": "黑色电影版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "0E0E10",
+      "ink": "F3EEE3",
+      "mute": "B6B0A5",
+      "panel": "17171A",
+      "accents": [
+       "FF3B2F",
+       "F3EEE3"
+      ],
+      "text_accents": [
+       "FF5A4A"
+      ],
+      "series": [
+       "FF5A4A",
+       "F3EEE3",
+       "6FA8F0",
+       "E8B931"
+      ]
+     },
+     "sample": "media/comic/sample-noir.jpg",
+     "pages": {
+      "cover": "media/comic/noir/cover.jpg",
+      "section": "media/comic/noir/section.jpg",
+      "image_text": "media/comic/noir/image_text.jpg",
+      "points": "media/comic/noir/points.jpg",
+      "quote": "media/comic/noir/quote.jpg",
+      "data": "media/comic/noir/data.jpg",
+      "closing": "media/comic/noir/closing.jpg"
+     },
+     "render_fp": "d742c144d381c46db57bfb6eec2182b1707e7b6a5b32471f8877f917cc197656",
+     "python": "k = vl.use(\"comic\", prs, ground=\"noir\")",
+     "prompt": {
+      "en": "Use the comic (Comic panels) visual language, on its noir ground, for this deck.",
+      "zh": "用 comic（漫画分镜）视觉语言的黑色电影版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Impact",
+     "body": "Trebuchet MS",
+     "letter": "Trebuchet MS",
+     "numeral": "Impact"
+    },
+    "mac": {
+     "display": "Impact",
+     "body": "Avenir Next",
+     "letter": "Trebuchet MS",
+     "numeral": "Impact"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [],
+   "derived": [],
+   "usage": {
+    "prompt": {
+     "en": "Use the comic (Comic panels) visual language for this deck.",
+     "zh": "用 comic（漫画分镜）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"comic\", prs)"
+   }
+  },
+  {
+   "id": "pixel",
+   "order": 21,
+   "kind": "drawn",
+   "added_at": "2026-10-22",
+   "name": {
+    "en": "Pixel game",
+    "zh": "像素游戏"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: an 8-bit game screen where hearts, coins, blocks and a little hero are built square by square; the points become a level map, the quote a dialogue box and the key figure a score. Suits games, hackathons, gamified training and youth events.",
+    "zh": "无需图片：一块 8 位游戏屏幕——爱心、金币、砖块和小勇者都由一个个方块拼成；要点变成关卡地图，引语变成对话框，关键数字变成计分板。适合游戏、黑客松、游戏化培训与青少年活动。"
+   },
+   "best_for": {
+    "en": [
+     "games",
+     "gamification",
+     "hackathon",
+     "youth event",
+     "onboarding challenge",
+     "game jam"
+    ],
+    "zh": [
+     "游戏",
+     "游戏化",
+     "黑客松",
+     "青少年活动",
+     "入职挑战",
+     "游戏开发"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "handheld green",
+      "zh": "掌机绿屏版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "B7C86A",
+      "ink": "0E2A10",
+      "mute": "2C5224",
+      "panel": "D6E09A",
+      "accents": [
+       "2C5224",
+       "0E2A10"
+      ],
+      "text_accents": [
+       "0E2A10"
+      ],
+      "series": [
+       "0E2A10",
+       "7A1F3D",
+       "1E3F8A",
+       "7A3A0A"
+      ]
+     },
+     "sample": "media/pixel/sample-light.jpg",
+     "pages": {
+      "cover": "media/pixel/light/cover.jpg",
+      "section": "media/pixel/light/section.jpg",
+      "image_text": "media/pixel/light/image_text.jpg",
+      "points": "media/pixel/light/points.jpg",
+      "quote": "media/pixel/light/quote.jpg",
+      "data": "media/pixel/light/data.jpg",
+      "closing": "media/pixel/light/closing.jpg"
+     },
+     "render_fp": "40c1bda44c44290fb8648a763909676eac96cb3cce0186ceaa09c4e858a1c1d4",
+     "python": "k = vl.use(\"pixel\", prs)",
+     "prompt": {
+      "en": "Use the pixel (Pixel game) visual language for this deck.",
+      "zh": "用 pixel（像素游戏）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "arcade",
+     "label": {
+      "en": "arcade night",
+      "zh": "街机夜屏版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "0F1230",
+      "ink": "F5F1E6",
+      "mute": "AEB6E0",
+      "panel": "1B2052",
+      "accents": [
+       "FF4F6D",
+       "FFC93C"
+      ],
+      "text_accents": [
+       "FFC93C"
+      ],
+      "series": [
+       "FF6B83",
+       "FFC93C",
+       "4CD97B",
+       "4FC3F7"
+      ]
+     },
+     "sample": "media/pixel/sample-arcade.jpg",
+     "pages": {
+      "cover": "media/pixel/arcade/cover.jpg",
+      "section": "media/pixel/arcade/section.jpg",
+      "image_text": "media/pixel/arcade/image_text.jpg",
+      "points": "media/pixel/arcade/points.jpg",
+      "quote": "media/pixel/arcade/quote.jpg",
+      "data": "media/pixel/arcade/data.jpg",
+      "closing": "media/pixel/arcade/closing.jpg"
+     },
+     "render_fp": "0d504b295453137178a3b7c65369284613ab9b499b7c1d36ba04cbfd436f0333",
+     "python": "k = vl.use(\"pixel\", prs, ground=\"arcade\")",
+     "prompt": {
+      "en": "Use the pixel (Pixel game) visual language, on its arcade night ground, for this deck.",
+      "zh": "用 pixel（像素游戏）视觉语言的街机夜屏版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Arial Black",
+     "body": "Courier New",
+     "numeral": "Arial Black"
+    },
+    "mac": {
+     "display": "Arial Black",
+     "body": "Menlo",
+     "numeral": "Arial Black"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [
+    {
+     "name": "ordered",
+     "pages": [
+      "points"
+     ],
+     "takes": "True when the points happen in order"
+    },
+    {
+     "name": "total",
+     "pages": [
+      "data"
+     ],
+     "takes": "the total the number is a share of"
+    }
+   ],
+   "derived": [
+    {
+     "id": "page_numbers",
+     "what": "01 02 … beside the coin in the top HUD: the page's own number"
+    },
+    {
+     "id": "level_numbers",
+     "what": "1-1 1-2 1-3 1-4 on the level tiles of the points page (a level map)"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the pixel (Pixel game) visual language for this deck.",
+     "zh": "用 pixel（像素游戏）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"pixel\", prs)"
+   }
+  },
+  {
+   "id": "bricks",
+   "order": 22,
+   "kind": "drawn",
+   "added_at": "2026-10-22",
+   "name": {
+    "en": "Toy bricks",
+    "zh": "积木"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: glossy toy building bricks on a studded baseplate, each point carried on its own brick and the build finished on the last page. Suits teaching children, modular products, system architecture and teamwork.",
+    "zh": "无需图片：带凸点底板上的亮面拼插积木——每个要点各占一块积木，最后一页把作品搭完。适合儿童教育、模块化产品、系统架构与团队协作。"
+   },
+   "best_for": {
+    "en": [
+     "children's education",
+     "modular product",
+     "system architecture",
+     "teamwork",
+     "building blocks",
+     "STEM workshop"
+    ],
+    "zh": [
+     "儿童教育",
+     "模块化产品",
+     "系统架构",
+     "团队协作",
+     "基础模块",
+     "科创课堂"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "grey baseplate",
+      "zh": "浅灰底板版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "EDEFF2",
+      "ink": "1A1F29",
+      "mute": "4A5261",
+      "panel": "F8F9FA",
+      "accents": [
+       "1E5BC6",
+       "C9312A"
+      ],
+      "text_accents": [
+       "B42A22"
+      ],
+      "series": [
+       "C9312A",
+       "1E5BC6",
+       "23793A",
+       "8A5A00"
+      ]
+     },
+     "sample": "media/bricks/sample-light.jpg",
+     "pages": {
+      "cover": "media/bricks/light/cover.jpg",
+      "section": "media/bricks/light/section.jpg",
+      "image_text": "media/bricks/light/image_text.jpg",
+      "points": "media/bricks/light/points.jpg",
+      "quote": "media/bricks/light/quote.jpg",
+      "data": "media/bricks/light/data.jpg",
+      "closing": "media/bricks/light/closing.jpg"
+     },
+     "render_fp": "8202751ff2aeaf8a57ccace114b90f8b4fce95d2b3050a629dd1cbe5f94e64fa",
+     "python": "k = vl.use(\"bricks\", prs)",
+     "prompt": {
+      "en": "Use the bricks (Toy bricks) visual language for this deck.",
+      "zh": "用 bricks（积木）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "blue",
+     "label": {
+      "en": "blue baseplate",
+      "zh": "蓝色底板版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "14305F",
+      "ink": "F6F4EE",
+      "mute": "BAC7DD",
+      "panel": "1B3B70",
+      "accents": [
+       "F5C21B",
+       "D23A31"
+      ],
+      "text_accents": [
+       "FFD23F"
+      ],
+      "series": [
+       "FFD23F",
+       "FF8A7A",
+       "7FD69A",
+       "8CC8FF"
+      ]
+     },
+     "sample": "media/bricks/sample-blue.jpg",
+     "pages": {
+      "cover": "media/bricks/blue/cover.jpg",
+      "section": "media/bricks/blue/section.jpg",
+      "image_text": "media/bricks/blue/image_text.jpg",
+      "points": "media/bricks/blue/points.jpg",
+      "quote": "media/bricks/blue/quote.jpg",
+      "data": "media/bricks/blue/data.jpg",
+      "closing": "media/bricks/blue/closing.jpg"
+     },
+     "render_fp": "415ee6bfd284e016aa2775e80eff258e1e136f52f4d0570b585667374ee6abed",
+     "python": "k = vl.use(\"bricks\", prs, ground=\"blue\")",
+     "prompt": {
+      "en": "Use the bricks (Toy bricks) visual language, on its blue baseplate ground, for this deck.",
+      "zh": "用 bricks（积木）视觉语言的蓝色底板版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Trebuchet MS",
+     "body": "Trebuchet MS",
+     "numeral": "Arial Black"
+    },
+    "mac": {
+     "display": "Avenir Next",
+     "body": "Avenir Next",
+     "numeral": "Arial Black"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [],
+   "derived": [],
+   "usage": {
+    "prompt": {
+     "en": "Use the bricks (Toy bricks) visual language for this deck.",
+     "zh": "用 bricks（积木）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"bricks\", prs)"
+   }
+  },
+  {
+   "id": "boardgame",
+   "order": 23,
+   "kind": "drawn",
+   "added_at": "2026-10-22",
+   "name": {
+    "en": "Board game",
+    "zh": "棋盘游戏"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: a classic property board with its ring of colour-banded squares, dice, a pawn and cards; ordered steps become squares on the track with the pawn on the first. Suits processes, onboarding, strategy and step-by-step plans.",
+    "zh": "无需图片：一张经典地产棋盘——一圈带色条的格子、骰子、棋子和卡片；有顺序的步骤落在棋盘的格子上，棋子站在第一格。适合流程、入职引导、策略与分步计划。"
+   },
+   "best_for": {
+    "en": [
+     "processes",
+     "onboarding",
+     "strategy",
+     "gamified training",
+     "step-by-step plans",
+     "game plan"
+    ],
+    "zh": [
+     "流程",
+     "入职引导",
+     "策略",
+     "游戏化培训",
+     "分步计划",
+     "行动路线"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "classic board",
+      "zh": "经典棋盘版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "DCEDDF",
+      "ink": "15241C",
+      "mute": "43544A",
+      "panel": "F7F3E6",
+      "accents": [
+       "C62828",
+       "24509E"
+      ],
+      "text_accents": [
+       "A8231C"
+      ],
+      "series": [
+       "C0392B",
+       "24509E",
+       "1B7A43",
+       "8A5A12"
+      ]
+     },
+     "sample": "media/boardgame/sample-light.jpg",
+     "pages": {
+      "cover": "media/boardgame/light/cover.jpg",
+      "section": "media/boardgame/light/section.jpg",
+      "image_text": "media/boardgame/light/image_text.jpg",
+      "points": "media/boardgame/light/points.jpg",
+      "quote": "media/boardgame/light/quote.jpg",
+      "data": "media/boardgame/light/data.jpg",
+      "closing": "media/boardgame/light/closing.jpg"
+     },
+     "render_fp": "8015ee56276e94c1d048b48390e4c524ab927822d0e5cfc51223efb0a8ad5b18",
+     "python": "k = vl.use(\"boardgame\", prs)",
+     "prompt": {
+      "en": "Use the boardgame (Board game) visual language for this deck.",
+      "zh": "用 boardgame（棋盘游戏）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "felt",
+     "label": {
+      "en": "deluxe felt table",
+      "zh": "绿呢牌桌版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "12372B",
+      "ink": "F3EEDD",
+      "mute": "B8C7BC",
+      "panel": "1B4636",
+      "accents": [
+       "F2C14E",
+       "E8574A"
+      ],
+      "text_accents": [
+       "F2C14E"
+      ],
+      "series": [
+       "F2C14E",
+       "F07A5E",
+       "7FC4EA",
+       "C9A0E8"
+      ]
+     },
+     "sample": "media/boardgame/sample-felt.jpg",
+     "pages": {
+      "cover": "media/boardgame/felt/cover.jpg",
+      "section": "media/boardgame/felt/section.jpg",
+      "image_text": "media/boardgame/felt/image_text.jpg",
+      "points": "media/boardgame/felt/points.jpg",
+      "quote": "media/boardgame/felt/quote.jpg",
+      "data": "media/boardgame/felt/data.jpg",
+      "closing": "media/boardgame/felt/closing.jpg"
+     },
+     "render_fp": "ff7d69c4b0a93669d53059b44b861bf8aa4f67a05a6166678e52ce11d7ad2b0a",
+     "python": "k = vl.use(\"boardgame\", prs, ground=\"felt\")",
+     "prompt": {
+      "en": "Use the boardgame (Board game) visual language, on its deluxe felt table ground, for this deck.",
+      "zh": "用 boardgame（棋盘游戏）视觉语言的绿呢牌桌版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Georgia",
+     "body": "Georgia",
+     "numeral": "Arial Black",
+     "sign": "Arial Black"
+    },
+    "mac": {
+     "display": "Futura",
+     "body": "Georgia",
+     "numeral": "Arial Black",
+     "sign": "Arial Black"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [
+    {
+     "name": "ordered",
+     "pages": [
+      "points"
+     ],
+     "takes": "True when the points happen in order"
+    }
+   ],
+   "derived": [
+    {
+     "id": "point_numbers",
+     "what": "1 2 3 4 on the squares of the points page, only when the caller says the points happen in order (ordered=True)"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the boardgame (Board game) visual language for this deck.",
+     "zh": "用 boardgame（棋盘游戏）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"boardgame\", prs)"
+   }
+  },
+  {
+   "id": "circuit",
+   "order": 24,
+   "kind": "drawn",
+   "added_at": "2026-10-22",
+   "name": {
+    "en": "Circuit board",
+    "zh": "电路板"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: a printed circuit board with copper traces routed round the words, gold vias, chips with rows of pins and white silkscreen; each point is a chip on a shared bus. Suits hardware, IoT, embedded systems and engineering reviews.",
+    "zh": "无需图片：一块印刷电路板——铜走线以 45° 和直角绕开文字，金色焊盘与过孔、带引脚的芯片、白色丝印；每个要点是挂在同一条总线上的芯片。适合硬件、物联网、嵌入式与工程评审。"
+   },
+   "best_for": {
+    "en": [
+     "hardware",
+     "IoT",
+     "embedded systems",
+     "AI infrastructure",
+     "engineering review",
+     "electronics"
+    ],
+    "zh": [
+     "硬件",
+     "物联网",
+     "嵌入式",
+     "AI 基础设施",
+     "工程评审",
+     "电子"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "green solder mask",
+      "zh": "绿油版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "14553A",
+      "ink": "F2F1E8",
+      "mute": "B4D6C0",
+      "panel": "0F4630",
+      "accents": [
+       "D6B05A",
+       "3E9064"
+      ],
+      "text_accents": [
+       "EBCB78"
+      ],
+      "series": [
+       "EBCB78",
+       "8FD0F2",
+       "F29A7E",
+       "D2EFA0"
+      ]
+     },
+     "sample": "media/circuit/sample-light.jpg",
+     "pages": {
+      "cover": "media/circuit/light/cover.jpg",
+      "section": "media/circuit/light/section.jpg",
+      "image_text": "media/circuit/light/image_text.jpg",
+      "points": "media/circuit/light/points.jpg",
+      "quote": "media/circuit/light/quote.jpg",
+      "data": "media/circuit/light/data.jpg",
+      "closing": "media/circuit/light/closing.jpg"
+     },
+     "render_fp": "dee6a8614ad82516a0377bf13fa90b0d4b50e02fd72471cb301b233d555d933b",
+     "python": "k = vl.use(\"circuit\", prs)",
+     "prompt": {
+      "en": "Use the circuit (Circuit board) visual language for this deck.",
+      "zh": "用 circuit（电路板）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "matte",
+     "label": {
+      "en": "matte black board",
+      "zh": "哑光黑版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "161817",
+      "ink": "EEECE4",
+      "mute": "A9ADA6",
+      "panel": "202322",
+      "accents": [
+       "D9B866",
+       "BE9B4E"
+      ],
+      "text_accents": [
+       "DDBA68"
+      ],
+      "series": [
+       "DDBA68",
+       "7FC3EC",
+       "EE8B70",
+       "B7DE8E"
+      ]
+     },
+     "sample": "media/circuit/sample-matte.jpg",
+     "pages": {
+      "cover": "media/circuit/matte/cover.jpg",
+      "section": "media/circuit/matte/section.jpg",
+      "image_text": "media/circuit/matte/image_text.jpg",
+      "points": "media/circuit/matte/points.jpg",
+      "quote": "media/circuit/matte/quote.jpg",
+      "data": "media/circuit/matte/data.jpg",
+      "closing": "media/circuit/matte/closing.jpg"
+     },
+     "render_fp": "0de85abeee02b8bdb0ec925ede6427e6e3a6ea3c58a36048287091146ef02688",
+     "python": "k = vl.use(\"circuit\", prs, ground=\"matte\")",
+     "prompt": {
+      "en": "Use the circuit (Circuit board) visual language, on its matte black board ground, for this deck.",
+      "zh": "用 circuit（电路板）视觉语言的哑光黑版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Arial",
+     "body": "Arial",
+     "numeral": "Arial",
+     "mono": "Courier New"
+    },
+    "mac": {
+     "display": "DIN Condensed",
+     "body": "Avenir Next",
+     "numeral": "DIN Condensed",
+     "mono": "Menlo"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [],
+   "derived": [
+    {
+     "id": "designators",
+     "what": "U1, U2 … beside the chips on the points page: the point numbers, silkscreened as a board numbers its chips (the same in every script)"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the circuit (Circuit board) visual language for this deck.",
+     "zh": "用 circuit（电路板）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"circuit\", prs)"
+   }
+  },
+  {
+   "id": "topo",
+   "order": 25,
+   "kind": "drawn",
+   "added_at": "2026-10-22",
+   "name": {
+    "en": "Topographic map",
+    "zh": "等高线地形图"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: a topographic survey sheet with smooth contour lines around summits, numbered waypoints, a trail to the top, a map legend and a north arrow. Suits geography, the outdoors, climate and field work.",
+    "zh": "无需图片：一张等高线测绘图——环绕山顶的等高线、编号路标、通向山顶的小径、图例框与指北针。适合地理、户外、气候与野外工作。"
+   },
+   "best_for": {
+    "en": [
+     "geography",
+     "outdoors",
+     "climate",
+     "field work",
+     "strategy landscape"
+    ],
+    "zh": [
+     "地理",
+     "户外",
+     "气候",
+     "野外工作",
+     "战略全景"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "survey paper",
+      "zh": "测绘图纸版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "EFEEE4",
+      "ink": "28261F",
+      "mute": "5A564B",
+      "panel": "F8F7F1",
+      "accents": [
+       "8F6534",
+       "B4462B",
+       "3B7BA5"
+      ],
+      "text_accents": [
+       "7C4F25"
+      ],
+      "series": [
+       "8F6534",
+       "B4462B",
+       "3B7BA5",
+       "5C7C3C"
+      ]
+     },
+     "sample": "media/topo/sample-light.jpg",
+     "pages": {
+      "cover": "media/topo/light/cover.jpg",
+      "section": "media/topo/light/section.jpg",
+      "image_text": "media/topo/light/image_text.jpg",
+      "points": "media/topo/light/points.jpg",
+      "quote": "media/topo/light/quote.jpg",
+      "data": "media/topo/light/data.jpg",
+      "closing": "media/topo/light/closing.jpg"
+     },
+     "render_fp": "7049fdfc27a23287f4252c545679f1376e0646af5e77454206a52097e57115bd",
+     "python": "k = vl.use(\"topo\", prs)",
+     "prompt": {
+      "en": "Use the topo (Topographic map) visual language for this deck.",
+      "zh": "用 topo（等高线地形图）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "night",
+     "label": {
+      "en": "night relief",
+      "zh": "夜间地形版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "1A2327",
+      "ink": "ECE9DF",
+      "mute": "AEB3AA",
+      "panel": "222D32",
+      "accents": [
+       "CBA47A",
+       "E39A6A",
+       "79B2D3"
+      ],
+      "text_accents": [
+       "DDB68C"
+      ],
+      "series": [
+       "CBA47A",
+       "E37F6A",
+       "79B2D3",
+       "A6C98A"
+      ]
+     },
+     "sample": "media/topo/sample-night.jpg",
+     "pages": {
+      "cover": "media/topo/night/cover.jpg",
+      "section": "media/topo/night/section.jpg",
+      "image_text": "media/topo/night/image_text.jpg",
+      "points": "media/topo/night/points.jpg",
+      "quote": "media/topo/night/quote.jpg",
+      "data": "media/topo/night/data.jpg",
+      "closing": "media/topo/night/closing.jpg"
+     },
+     "render_fp": "91f3d38fc5dac40c56d5ac30885e3b296b95c8ada74a24a4ec1da3e54bc0c520",
+     "python": "k = vl.use(\"topo\", prs, ground=\"night\")",
+     "prompt": {
+      "en": "Use the topo (Topographic map) visual language, on its night relief ground, for this deck.",
+      "zh": "用 topo（等高线地形图）视觉语言的夜间地形版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Georgia",
+     "body": "Trebuchet MS",
+     "numeral": "Trebuchet MS",
+     "label": "Trebuchet MS"
+    },
+    "mac": {
+     "display": "Baskerville",
+     "body": "Avenir Next",
+     "numeral": "Avenir Next",
+     "label": "Gill Sans"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [
+    {
+     "name": "ordered",
+     "pages": [
+      "points"
+     ],
+     "takes": "True when the points happen in order"
+    }
+   ],
+   "derived": [
+    {
+     "id": "point_numbers",
+     "what": "1 2 3 4 on the waypoint markers of the points page"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the topo (Topographic map) visual language for this deck.",
+     "zh": "用 topo（等高线地形图）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"topo\", prs)"
+   }
+  },
+  {
+   "id": "scoreboard",
+   "order": 26,
+   "kind": "drawn",
+   "added_at": "2026-10-22",
+   "name": {
+    "en": "Scoreboard",
+    "zh": "体育记分牌"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: a stadium under floodlights, with chalk pitch markings, the title on the scoreboard, numbers on jerseys and the key figure lit on an LED board. Suits sports, competitions, team results and leaderboards.",
+    "zh": "无需图片：灯光下的体育场——粉笔画的球场线、记分牌上的标题、印在球衣上的编号，关键数字亮在 LED 屏上。适合体育赛事、比赛、团队战绩与排行榜。"
+   },
+   "best_for": {
+    "en": [
+     "sports",
+     "competition",
+     "team results",
+     "sales push",
+     "leaderboard",
+     "tournament"
+    ],
+    "zh": [
+     "体育",
+     "比赛",
+     "团队战绩",
+     "销售冲刺",
+     "排行榜",
+     "赛事"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "night match",
+      "zh": "夜场版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "0C1322",
+      "ink": "F4F1E8",
+      "mute": "A7B0C0",
+      "panel": "131C2F",
+      "accents": [
+       "FFB51F",
+       "F2615E"
+      ],
+      "text_accents": [
+       "FFBE3B"
+      ],
+      "series": [
+       "FFB51F",
+       "F2615E",
+       "4FC3F7",
+       "8FD694"
+      ]
+     },
+     "sample": "media/scoreboard/sample-light.jpg",
+     "pages": {
+      "cover": "media/scoreboard/light/cover.jpg",
+      "section": "media/scoreboard/light/section.jpg",
+      "image_text": "media/scoreboard/light/image_text.jpg",
+      "points": "media/scoreboard/light/points.jpg",
+      "quote": "media/scoreboard/light/quote.jpg",
+      "data": "media/scoreboard/light/data.jpg",
+      "closing": "media/scoreboard/light/closing.jpg"
+     },
+     "render_fp": "60bbff7ca949b1d1b4c379f3bdfed30ecdfb6db3cde92e2bd62c2af3138029fe",
+     "python": "k = vl.use(\"scoreboard\", prs)",
+     "prompt": {
+      "en": "Use the scoreboard (Scoreboard) visual language for this deck.",
+      "zh": "用 scoreboard（体育记分牌）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "turf",
+     "label": {
+      "en": "turf",
+      "zh": "草坪版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "1C5230",
+      "ink": "F7F8F1",
+      "mute": "D4E4CE",
+      "panel": "0F2E1B",
+      "accents": [
+       "F4C430",
+       "F2615E"
+      ],
+      "text_accents": [
+       "F7D04E"
+      ],
+      "series": [
+       "F4C430",
+       "FFFFFF",
+       "8FD3FF",
+       "FFA391"
+      ]
+     },
+     "sample": "media/scoreboard/sample-turf.jpg",
+     "pages": {
+      "cover": "media/scoreboard/turf/cover.jpg",
+      "section": "media/scoreboard/turf/section.jpg",
+      "image_text": "media/scoreboard/turf/image_text.jpg",
+      "points": "media/scoreboard/turf/points.jpg",
+      "quote": "media/scoreboard/turf/quote.jpg",
+      "data": "media/scoreboard/turf/data.jpg",
+      "closing": "media/scoreboard/turf/closing.jpg"
+     },
+     "render_fp": "e47d839528c970c3d49299a2b6f6e67a63fc59fc70d339886ceffe84bf382074",
+     "python": "k = vl.use(\"scoreboard\", prs, ground=\"turf\")",
+     "prompt": {
+      "en": "Use the scoreboard (Scoreboard) visual language, on its turf ground, for this deck.",
+      "zh": "用 scoreboard（体育记分牌）视觉语言的草坪版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Impact",
+     "body": "Arial",
+     "numeral": "Impact"
+    },
+    "mac": {
+     "display": "DIN Condensed",
+     "body": "Avenir Next Condensed",
+     "numeral": "DIN Condensed"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [],
+   "derived": [
+    {
+     "id": "jersey_numbers",
+     "what": "1 2 3 4 on the lineup page: the shirt each point wears in the list and on the formation"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the scoreboard (Scoreboard) visual language for this deck.",
+     "zh": "用 scoreboard（体育记分牌）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"scoreboard\", prs)"
+   }
+  },
+  {
+   "id": "periodic",
+   "order": 27,
+   "kind": "drawn",
+   "added_at": "2026-10-22",
+   "name": {
+    "en": "Periodic table",
+    "zh": "元素周期表"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: the periodic table as a design system — square element tiles in family colours, each with its small number, a large central mark and a name line, on the staggered outline of the table. Suits science teaching, chemistry and the building blocks of a topic.",
+    "zh": "无需图片：把元素周期表当作设计系统——按族配色的方形元素格，左上角小序号、居中大字、底部名称行，背后是周期表错落的轮廓。适合科学教育、化学、讲清一个主题的基本构成。"
+   },
+   "best_for": {
+    "en": [
+     "science education",
+     "chemistry",
+     "building blocks of a topic",
+     "frameworks",
+     "taxonomies"
+    ],
+    "zh": [
+     "科学教育",
+     "化学",
+     "主题的基本构成",
+     "框架",
+     "分类体系"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "lab white",
+      "zh": "实验室白"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "F3F5F4",
+      "ink": "14181D",
+      "mute": "525A62",
+      "panel": "E5E9E7",
+      "accents": [
+       "0F7F7C",
+       "C8412A"
+      ],
+      "text_accents": [
+       "0B6B68"
+      ],
+      "series": [
+       "0F7F7C",
+       "C8412A",
+       "2D64B0",
+       "8A5A00"
+      ]
+     },
+     "sample": "media/periodic/sample-light.jpg",
+     "pages": {
+      "cover": "media/periodic/light/cover.jpg",
+      "section": "media/periodic/light/section.jpg",
+      "image_text": "media/periodic/light/image_text.jpg",
+      "points": "media/periodic/light/points.jpg",
+      "quote": "media/periodic/light/quote.jpg",
+      "data": "media/periodic/light/data.jpg",
+      "closing": "media/periodic/light/closing.jpg"
+     },
+     "render_fp": "a464b0a0bbcfd32efc130e0265bc2bd76b1ae22fd74f6ae411a72b50403cc7da",
+     "python": "k = vl.use(\"periodic\", prs)",
+     "prompt": {
+      "en": "Use the periodic (Periodic table) visual language for this deck.",
+      "zh": "用 periodic（元素周期表）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "dark",
+     "label": {
+      "en": "charcoal",
+      "zh": "炭黑"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "121519",
+      "ink": "EEF1F2",
+      "mute": "A5AEB6",
+      "panel": "1C2127",
+      "accents": [
+       "4FD6C4",
+       "FF7A66"
+      ],
+      "text_accents": [
+       "5FD8CC"
+      ],
+      "series": [
+       "4FD6C4",
+       "FF7A66",
+       "6FA8FF",
+       "F2C14E"
+      ]
+     },
+     "sample": "media/periodic/sample-dark.jpg",
+     "pages": {
+      "cover": "media/periodic/dark/cover.jpg",
+      "section": "media/periodic/dark/section.jpg",
+      "image_text": "media/periodic/dark/image_text.jpg",
+      "points": "media/periodic/dark/points.jpg",
+      "quote": "media/periodic/dark/quote.jpg",
+      "data": "media/periodic/dark/data.jpg",
+      "closing": "media/periodic/dark/closing.jpg"
+     },
+     "render_fp": "38b237871e7810b4fec30cf60874a9d1751cb6c579ffbea35eee372e5106a90d",
+     "python": "k = vl.use(\"periodic\", prs, ground=\"dark\")",
+     "prompt": {
+      "en": "Use the periodic (Periodic table) visual language, on its charcoal ground, for this deck.",
+      "zh": "用 periodic（元素周期表）视觉语言的炭黑做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Arial",
+     "body": "Arial",
+     "numeral": "Arial",
+     "serif": "Georgia"
+    },
+    "mac": {
+     "display": "Helvetica Neue",
+     "body": "Helvetica Neue",
+     "numeral": "Helvetica Neue",
+     "serif": "Georgia"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [],
+   "derived": [
+    {
+     "id": "point_numbers",
+     "what": "1, 2, 3 … at the top left of each point's element tile — the point's place in the list, set where a tile carries its atomic number"
+    },
+    {
+     "id": "quote_mark",
+     "what": "the opening “ hung in the top-left slot of the quote's legend tile"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the periodic (Periodic table) visual language for this deck.",
+     "zh": "用 periodic（元素周期表）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"periodic\", prs)"
+   }
+  },
+  {
+   "id": "recipe",
+   "order": 28,
+   "kind": "drawn",
+   "added_at": "2026-10-22",
+   "name": {
+    "en": "Recipe card",
+    "zh": "食谱卡"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: a cream index card on a gingham tablecloth, with a red header rule, blue ruled lines, washi tape and line-drawn utensils; points become a checklist or numbered steps and the key figure sits on a kitchen timer. Suits food, cooking and step-by-step guides.",
+    "zh": "无需图片：格子桌布上的一张奶油色食谱卡——红色标题线、蓝色横格、和纸胶带与线描厨具；要点写成勾选清单或编号步骤，关键数字落在厨房计时器上。适合美食、烹饪与分步教程。"
+   },
+   "best_for": {
+    "en": [
+     "food",
+     "cooking",
+     "recipes",
+     "how-to guide",
+     "step-by-step process",
+     "workshop"
+    ],
+    "zh": [
+     "美食",
+     "烹饪",
+     "食谱",
+     "操作指南",
+     "分步流程",
+     "工作坊"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "gingham tablecloth",
+      "zh": "红格桌布版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "FBF8F3",
+      "ink": "2B211C",
+      "mute": "65564B",
+      "panel": "FFFBF0",
+      "accents": [
+       "2F5DA8",
+       "C8372D"
+      ],
+      "text_accents": [
+       "B0281F"
+      ],
+      "series": [
+       "C8372D",
+       "2F5DA8",
+       "3D7A4E",
+       "A8660F"
+      ]
+     },
+     "sample": "media/recipe/sample-light.jpg",
+     "pages": {
+      "cover": "media/recipe/light/cover.jpg",
+      "section": "media/recipe/light/section.jpg",
+      "image_text": "media/recipe/light/image_text.jpg",
+      "points": "media/recipe/light/points.jpg",
+      "quote": "media/recipe/light/quote.jpg",
+      "data": "media/recipe/light/data.jpg",
+      "closing": "media/recipe/light/closing.jpg"
+     },
+     "render_fp": "bc43103b12ceb93c743eefe0007a4633867e405edcf6577f03b27719c6680c72",
+     "python": "k = vl.use(\"recipe\", prs)",
+     "prompt": {
+      "en": "Use the recipe (Recipe card) visual language for this deck.",
+      "zh": "用 recipe（食谱卡）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "kraft",
+     "label": {
+      "en": "butcher paper",
+      "zh": "牛皮纸版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "D9BD93",
+      "ink": "2A1F17",
+      "mute": "4F4036",
+      "panel": "FFFDF6",
+      "accents": [
+       "2D5A9E",
+       "C0392B"
+      ],
+      "text_accents": [
+       "1F4785"
+      ],
+      "series": [
+       "A52A1F",
+       "1F4B8F",
+       "2D6640",
+       "6B4A12"
+      ]
+     },
+     "sample": "media/recipe/sample-kraft.jpg",
+     "pages": {
+      "cover": "media/recipe/kraft/cover.jpg",
+      "section": "media/recipe/kraft/section.jpg",
+      "image_text": "media/recipe/kraft/image_text.jpg",
+      "points": "media/recipe/kraft/points.jpg",
+      "quote": "media/recipe/kraft/quote.jpg",
+      "data": "media/recipe/kraft/data.jpg",
+      "closing": "media/recipe/kraft/closing.jpg"
+     },
+     "render_fp": "0ab211eee1d5fbc4d3c4896a17e659879a3bcdeb70dc7d1920d539366f68a633",
+     "python": "k = vl.use(\"recipe\", prs, ground=\"kraft\")",
+     "prompt": {
+      "en": "Use the recipe (Recipe card) visual language, on its butcher paper ground, for this deck.",
+      "zh": "用 recipe（食谱卡）视觉语言的牛皮纸版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Georgia",
+     "body": "Georgia",
+     "numeral": "Trebuchet MS",
+     "type": "Courier New"
+    },
+    "mac": {
+     "display": "Hoefler Text",
+     "body": "Georgia",
+     "numeral": "Trebuchet MS",
+     "type": "Courier New"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [
+    {
+     "name": "ordered",
+     "pages": [
+      "points"
+     ],
+     "takes": "True when the points happen in order"
+    }
+   ],
+   "derived": [
+    {
+     "id": "point_numbers",
+     "what": "1 2 3 on the points page, only when the caller says ordered=True: the steps of a method"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the recipe (Recipe card) visual language for this deck.",
+     "zh": "用 recipe（食谱卡）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"recipe\", prs)"
+   }
+  },
+  {
+   "id": "stainedglass",
+   "order": 29,
+   "kind": "drawn",
+   "added_at": "2026-10-22",
+   "name": {
+    "en": "Stained glass",
+    "zh": "彩绘玻璃"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: stained-glass windows — jewel-tone glass held in dark lead, a rose window and pointed lancets set in pale stone, the key number on a clear centre pane. Suits heritage, culture, festivals and art history.",
+    "zh": "无需图片：彩绘玻璃窗——深色铅条嵌着宝石色玻璃，石墙上的玫瑰窗与尖拱长窗，关键数字落在窗心的透明玻璃上。适合文化遗产、节庆活动与艺术史。"
+   },
+   "best_for": {
+    "en": [
+     "heritage",
+     "culture",
+     "celebrations",
+     "festivals",
+     "art and design history"
+    ],
+    "zh": [
+     "文化遗产",
+     "文化活动",
+     "庆典",
+     "节日",
+     "艺术与设计史"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "limestone",
+      "zh": "石灰石版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "EFEADF",
+      "ink": "25222B",
+      "mute": "5B5563",
+      "panel": "E5DECF",
+      "accents": [
+       "A82835",
+       "22509E"
+      ],
+      "text_accents": [
+       "9B2230"
+      ],
+      "series": [
+       "A82835",
+       "22509E",
+       "1D7650",
+       "8A5A0E"
+      ]
+     },
+     "sample": "media/stainedglass/sample-light.jpg",
+     "pages": {
+      "cover": "media/stainedglass/light/cover.jpg",
+      "section": "media/stainedglass/light/section.jpg",
+      "image_text": "media/stainedglass/light/image_text.jpg",
+      "points": "media/stainedglass/light/points.jpg",
+      "quote": "media/stainedglass/light/quote.jpg",
+      "data": "media/stainedglass/light/data.jpg",
+      "closing": "media/stainedglass/light/closing.jpg"
+     },
+     "render_fp": "da8043d2fce6e5a6f43e0d34f89f043b9935aa12275b046490732438d99432b6",
+     "python": "k = vl.use(\"stainedglass\", prs)",
+     "prompt": {
+      "en": "Use the stainedglass (Stained glass) visual language for this deck.",
+      "zh": "用 stainedglass（彩绘玻璃）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "nave",
+     "label": {
+      "en": "night nave",
+      "zh": "夜晚中殿版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "15131C",
+      "ink": "F0EADC",
+      "mute": "B3ABBE",
+      "panel": "211E2A",
+      "accents": [
+       "E04A5A",
+       "4E8FE8"
+      ],
+      "text_accents": [
+       "E9B95A"
+      ],
+      "series": [
+       "E8606E",
+       "5C9BEE",
+       "3FBF8A",
+       "F2B84B"
+      ]
+     },
+     "sample": "media/stainedglass/sample-nave.jpg",
+     "pages": {
+      "cover": "media/stainedglass/nave/cover.jpg",
+      "section": "media/stainedglass/nave/section.jpg",
+      "image_text": "media/stainedglass/nave/image_text.jpg",
+      "points": "media/stainedglass/nave/points.jpg",
+      "quote": "media/stainedglass/nave/quote.jpg",
+      "data": "media/stainedglass/nave/data.jpg",
+      "closing": "media/stainedglass/nave/closing.jpg"
+     },
+     "render_fp": "9503d5b76c7bb23937daeaa073f998e8ef97626261af3a7175654b505bc515fa",
+     "python": "k = vl.use(\"stainedglass\", prs, ground=\"nave\")",
+     "prompt": {
+      "en": "Use the stainedglass (Stained glass) visual language, on its night nave ground, for this deck.",
+      "zh": "用 stainedglass（彩绘玻璃）视觉语言的夜晚中殿版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Georgia",
+     "body": "Georgia",
+     "numeral": "Times New Roman",
+     "inscription": "Georgia"
+    },
+    "mac": {
+     "display": "Baskerville",
+     "body": "Georgia",
+     "numeral": "Baskerville",
+     "inscription": "Optima"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     },
+     "body": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [],
+   "derived": [
+    {
+     "id": "point_numbers",
+     "what": "1 2 3 4 on the clear centre pane of each point's lancet window"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the stainedglass (Stained glass) visual language for this deck.",
+     "zh": "用 stainedglass（彩绘玻璃）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"stainedglass\", prs)"
+   }
+  },
+  {
+   "id": "calendar",
+   "order": 30,
+   "kind": "drawn",
+   "added_at": "2026-10-22",
+   "name": {
+    "en": "Tear-off calendar",
+    "zh": "撕页日历"
+   },
+   "blurb": {
+    "en": "Drawn, no pictures needed: a desk tear-off calendar, with a ringed header, torn stubs and a stack of pages that thins as the deck goes on; the key number is the giant red date. Suits timelines, events, anniversaries and countdowns.",
+    "zh": "无需图片：一本桌上的撕页日历——带金属环的页头、撕剩的纸根和随翻页变薄的纸叠，关键数字印成巨大的红色日期。适合时间线、活动、纪念日、日程与倒计时。"
+   },
+   "best_for": {
+    "en": [
+     "timeline",
+     "event",
+     "anniversary",
+     "schedule",
+     "countdown",
+     "daily habit"
+    ],
+    "zh": [
+     "时间线",
+     "活动",
+     "纪念日",
+     "日程",
+     "倒计时",
+     "日常习惯"
+    ]
+   },
+   "grounds": [
+    {
+     "id": "light",
+     "label": {
+      "en": "paper on oak",
+      "zh": "橡木桌白页版"
+     },
+     "dark": false,
+     "swatches": {
+      "ground": "D8BF98",
+      "ink": "1E1B18",
+      "mute": "4A4238",
+      "panel": "FBF8F1",
+      "accents": [
+       "C42A1E",
+       "1E1B18"
+      ],
+      "text_accents": [
+       "921C14"
+      ],
+      "series": [
+       "A82319",
+       "24497A",
+       "2F6B45",
+       "6B3A6E"
+      ]
+     },
+     "sample": "media/calendar/sample-light.jpg",
+     "pages": {
+      "cover": "media/calendar/light/cover.jpg",
+      "section": "media/calendar/light/section.jpg",
+      "image_text": "media/calendar/light/image_text.jpg",
+      "points": "media/calendar/light/points.jpg",
+      "quote": "media/calendar/light/quote.jpg",
+      "data": "media/calendar/light/data.jpg",
+      "closing": "media/calendar/light/closing.jpg"
+     },
+     "render_fp": "b77f1c42b2c2e0104bb0da96c387629d85cef6c1a621afe4260257fc62916105",
+     "python": "k = vl.use(\"calendar\", prs)",
+     "prompt": {
+      "en": "Use the calendar (Tear-off calendar) visual language for this deck.",
+      "zh": "用 calendar（撕页日历）视觉语言做这份 PPT。"
+     }
+    },
+    {
+     "id": "night",
+     "label": {
+      "en": "black stock at night",
+      "zh": "夜桌黑卡版"
+     },
+     "dark": true,
+     "swatches": {
+      "ground": "17140F",
+      "ink": "F2EBDD",
+      "mute": "B3A996",
+      "panel": "37322C",
+      "accents": [
+       "FF7A62",
+       "D9B76A"
+      ],
+      "text_accents": [
+       "FF7B64"
+      ],
+      "series": [
+       "FF7B64",
+       "7FB2E5",
+       "8CCB8E",
+       "E8C35A"
+      ]
+     },
+     "sample": "media/calendar/sample-night.jpg",
+     "pages": {
+      "cover": "media/calendar/night/cover.jpg",
+      "section": "media/calendar/night/section.jpg",
+      "image_text": "media/calendar/night/image_text.jpg",
+      "points": "media/calendar/night/points.jpg",
+      "quote": "media/calendar/night/quote.jpg",
+      "data": "media/calendar/night/data.jpg",
+      "closing": "media/calendar/night/closing.jpg"
+     },
+     "render_fp": "fd958185cb9dca24a55476182576a47f916eadd8b268b5e65128440719c0b53f",
+     "python": "k = vl.use(\"calendar\", prs, ground=\"night\")",
+     "prompt": {
+      "en": "Use the calendar (Tear-off calendar) visual language, on its black stock at night ground, for this deck.",
+      "zh": "用 calendar（撕页日历）视觉语言的夜桌黑卡版做这份 PPT。"
+     }
+    }
+   ],
+   "fonts": {
+    "both": {
+     "display": "Times New Roman",
+     "body": "Arial",
+     "numeral": "Times New Roman"
+    },
+    "mac": {
+     "display": "Didot",
+     "body": "Avenir Next",
+     "numeral": "Didot"
+    },
+    "cjk": {
+     "display": {
+      "mac": "Songti SC",
+      "win": "SimSun",
+      "kind": "serif"
+     },
+     "body": {
+      "mac": "Hiragino Sans GB",
+      "win": "Microsoft YaHei",
+      "kind": "sans"
+     }
+    }
+   },
+   "image_pages": [
+    "image_text"
+   ],
+   "extras": [],
+   "derived": [
+    {
+     "id": "point_numbers",
+     "what": "1 2 3 4 as the day numerals of the points page's cells, one cell per point in the order given"
+    }
+   ],
+   "usage": {
+    "prompt": {
+     "en": "Use the calendar (Tear-off calendar) visual language for this deck.",
+     "zh": "用 calendar（撕页日历）视觉语言做这份 PPT。"
+    },
+    "python": "k = vl.use(\"calendar\", prs)"
    }
   }
  ]
