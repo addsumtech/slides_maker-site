@@ -19,7 +19,7 @@
   "interface",
   "wayfinding"
  ],
- "skill_version": "6.0.0",
+ "skill_version": "6.0.1",
  "stats": {
   "languages": 30,
   "grounds": 60,
@@ -3490,7 +3490,7 @@
     "mac": {
      "display": "Impact",
      "body": "Avenir Next",
-     "letter": "Trebuchet MS",
+     "letter": "Chalkboard SE",
      "numeral": "Impact"
     },
     "cjk": {
@@ -3767,7 +3767,7 @@
       "data": "media/bricks/light/data.jpg",
       "closing": "media/bricks/light/closing.jpg"
      },
-     "render_fp": "8202751ff2aeaf8a57ccace114b90f8b4fce95d2b3050a629dd1cbe5f94e64fa",
+     "render_fp": "b8e98dd7c7d795b5a57cce08d9caf89b6999753532bb5cad302e9062b86ccf8f",
      "python": "k = vl.use(\"bricks\", prs)",
      "prompt": {
       "en": "Use the bricks (Toy bricks) visual language for this deck.",
@@ -3810,7 +3810,7 @@
       "data": "media/bricks/blue/data.jpg",
       "closing": "media/bricks/blue/closing.jpg"
      },
-     "render_fp": "415ee6bfd284e016aa2775e80eff258e1e136f52f4d0570b585667374ee6abed",
+     "render_fp": "791b43ca4dfd81d42d84057af84b38639e92bd3cd5855b7af05b114c967955a1",
      "python": "k = vl.use(\"bricks\", prs, ground=\"blue\")",
      "prompt": {
       "en": "Use the bricks (Toy bricks) visual language, on its blue baseplate ground, for this deck.",
@@ -4982,9 +4982,9 @@
      "inscription": "Georgia"
     },
     "mac": {
-     "display": "Baskerville",
+     "display": "Didot",
      "body": "Georgia",
-     "numeral": "Baskerville",
+     "numeral": "Didot",
      "inscription": "Optima"
     },
     "cjk": {
