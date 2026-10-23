@@ -1,10 +1,14 @@
-/* The visual-language library page. Renders whatever library.json lists — written by the skill's
-   scripts/vl_library_export.py, never by hand — so a new language needs no change here. */
+/* The visual-language library, a section of the home page (index.html, cn/index.html — #languages). Renders whatever
+   /languages/library.json lists — written by the skill's scripts/vl_library_export.py, never by hand — so a new
+   language needs no change here. Ids and classes carry a vl prefix: the deck gallery beside it has its own .grid and
+   .card. The home page owns the language: it calls window.slideMakerLibrary.setLang(lang) on every switch. */
 (function () {
   'use strict';
   var REPO = 'https://github.com/addsumtech/slides_maker';
   var REF = REPO + '/blob/main/skills/slide-maker/references/visual-languages.md';
   var NEW_DAYS = 30;
+  var BASE = '/languages/';           // library.json and its media stay where the exporter writes them
+  var HASH = 'vl-';                   // #vl-<id> opens a language (a bare #<id> could be any section of the page)
 
   var T = {
     en: {
@@ -84,13 +88,9 @@
   function t(key) { return T[state.lang][key]; }
   function L(obj) { return obj ? (obj[state.lang] || obj.en || '') : ''; }
   function hex(h) { return '#' + String(h || '').replace(/^#/, ''); }
+  function asset(p) { return /^(?:[a-z]+:|\/)/i.test(p || '') ? p : BASE + p; }   // library.json paths are relative to it
 
-  function pickLang() {
-    var saved = null;
-    try { saved = localStorage.getItem('addsum-lang'); } catch (e) { /* storage blocked: fall back */ }
-    if (saved === 'en' || saved === 'zh') return saved;
-    return /^zh\b/i.test(navigator.language || '') ? 'zh' : 'en';
-  }
+  function pickLang() { return /^zh\b/i.test(document.documentElement.lang || '') ? 'zh' : 'en'; }   // the home page's
 
   function pad(n) { return (n < 10 ? '0' : '') + n; }
   /* NEW = not among the languages the page launched with (library.json baseline_ids), and added within NEW_DAYS.
@@ -113,7 +113,7 @@
   function copy(text, btn) {
     var old = btn.textContent, settled = false;
     function report(ok) {               // drawn on the button AND announced; never "Copied" for a copy that failed
-      var live = $('live'), msg = ok ? t('copied') : t('copyFailed');
+      var live = $('vlLive'), msg = ok ? t('copied') : t('copyFailed');
       btn.textContent = ok ? t('copied') : '✕';
       if (live) live.textContent = ok ? msg + ': ' + text : msg;
       setTimeout(function () { btn.textContent = old; }, ok ? 1400 : 2600);
@@ -152,31 +152,28 @@
   /* ---------- static text ---------- */
   function paintChrome() {
     var lib = state.lib;
-    document.documentElement.lang = state.lang === 'zh' ? 'zh-CN' : 'en';
-    document.querySelectorAll('[data-i18n]').forEach(function (n) { n.textContent = t(n.getAttribute('data-i18n')); });
-    $('langBtn').textContent = state.lang === 'zh' ? 'EN' : '中文';
-    $('langBtn').setAttribute('aria-label', t('langLabel'));
-    $('q').placeholder = t('search');
-    $('closeBtn').setAttribute('aria-label', t('close'));
+    document.querySelectorAll('#languages [data-vl-i18n]').forEach(function (n) { n.textContent = t(n.getAttribute('data-vl-i18n')); });
+    $('vlQ').placeholder = t('search');
+    $('vlClose').setAttribute('aria-label', t('close'));
     if (!lib) return;
-    var hp = t('headline')(lib.stats.languages), hd = $('headline');
+    var hp = t('headline')(lib.stats.languages), hd = $('vlHeadline');
     hd.textContent = '';
     hd.appendChild(document.createTextNode(hp[0]));
     hd.appendChild(el('span', { 'class': 'hl', text: hp[1] }));
-    $('lede').textContent = t('lede');
+    $('vlLede').textContent = t('lede');
     var s = lib.stats, labels = t('stats');
-    $('stats').innerHTML = '';
+    $('vlStats').innerHTML = '';
     [s.languages, s.grounds, s.page_types, s.components].forEach(function (n, i) {
-      $('stats').appendChild(el('div', { 'class': 'stat' }, [el('div', { 'class': 'n', text: String(n) }),
+      $('vlStats').appendChild(el('div', { 'class': 'vl-stat' }, [el('div', { 'class': 'n', text: String(n) }),
         el('div', { 'class': 'l', text: labels[i] })]));
     });
-    var kinds = $('kinds');
+    var kinds = $('vlKinds');
     kinds.innerHTML = '';
     [['all', t('all')], ['image-led', t('imageLed')], ['drawn', t('drawn')]].forEach(function (k) {
       kinds.appendChild(el('button', { type: 'button', 'aria-pressed': String(state.kind === k[0]), 'data-kind': k[0],
         text: k[1], on: { click: function () { state.kind = k[0]; writeUrl(); paintChrome(); paintGrid(); } } }));
     });
-    var foot = $('foot');
+    var foot = $('vlFoot');
     foot.innerHTML = '';
     foot.appendChild(el('span', { text: t('footGen')(lib.skill_version || '?', lib.generated || '?') }));
     foot.appendChild(el('a', { href: REPO, text: t('footRepo') }));
@@ -203,62 +200,62 @@
 
   function card(x) {
     var g = groundOf(x);
-    var img = el('img', { src: g.sample, alt: L(x.name) + ' — ' + L(g.label), loading: 'lazy', decoding: 'async',
+    var img = el('img', { src: asset(g.sample), alt: L(x.name) + ' — ' + L(g.label), loading: 'lazy', decoding: 'async',
       width: '1400', height: '800' });
-    var sheet = el('button', { 'class': 'sheet', type: 'button', 'aria-label': t('details') + ': ' + L(x.name),
+    var sheet = el('button', { 'class': 'vl-sheet', type: 'button', 'aria-label': t('details') + ': ' + L(x.name),
       on: { click: function () { openDetail(x.id, sheet); } } }, [img]);
     var kids = [sheet];
-    if (isNew(x)) kids.push(el('span', { 'class': 'new', text: t('isNew') }));
-    var kind = el('span', { 'class': 'kind ' + x.kind, text: x.kind === 'image-led' ? t('imageLedKind') : t('drawnKind') });
-    kids.push(el('div', { 'class': 'crow' }, [x.grounds.length > 1 ?
-      el('div', { 'class': 'grounds', role: 'group', 'aria-label': t('ground') }, x.grounds.map(function (gg) {
+    if (isNew(x)) kids.push(el('span', { 'class': 'vl-new', text: t('isNew') }));
+    var kind = el('span', { 'class': 'vl-kind ' + x.kind, text: x.kind === 'image-led' ? t('imageLedKind') : t('drawnKind') });
+    kids.push(el('div', { 'class': 'vl-crow' }, [x.grounds.length > 1 ?
+      el('div', { 'class': 'vl-grounds', role: 'group', 'aria-label': t('ground') }, x.grounds.map(function (gg) {
         return el('button', { type: 'button', 'aria-pressed': String(gg.id === g.id), 'data-ground': gg.id,
           on: { click: function () { state.ground[x.id] = gg.id; paintGrid(); focusGround(x.id, gg.id); } } },
           [el('i', { style: 'background:' + hex(gg.swatches.ground) }), L(gg.label)]);
       })) : null, kind]));
     var name = el('h3', null, [el('button', { type: 'button', text: L(x.name),
       on: { click: function (e) { openDetail(x.id, e.currentTarget); } } })]);
-    kids.push(el('div', { 'class': 'cbody' }, [
-      el('div', { 'class': 'cname' }, [name, el('code', { text: x.id })]),
-      el('p', { 'class': 'blurb', text: L(x.blurb) }),
-      el('div', { 'class': 'tags' }, (x.best_for[state.lang] || []).map(function (tag) {
+    kids.push(el('div', { 'class': 'vl-cbody' }, [
+      el('div', { 'class': 'vl-cname' }, [name, el('code', { text: x.id })]),
+      el('p', { 'class': 'vl-blurb', text: L(x.blurb) }),
+      el('div', { 'class': 'vl-tags' }, (x.best_for[state.lang] || []).map(function (tag) {
         return el('button', { type: 'button', text: tag, on: { click: function () { setQuery(tag); } } });
       })),
-      el('div', { 'class': 'swatches', 'aria-hidden': 'true' }, swatchList(g).map(function (h) {
+      el('div', { 'class': 'vl-swatches', 'aria-hidden': 'true' }, swatchList(g).map(function (h) {
         return el('i', { style: 'background:' + hex(h), title: hex(h) });
       })),
-      el('div', { 'class': 'cfoot' }, [
+      el('div', { 'class': 'vl-cfoot' }, [
         el('button', { 'class': 'btn primary', type: 'button', text: t('copyPrompt'),
           on: { click: function (e) { copy(L(g.prompt), e.currentTarget); } } }),
         el('button', { 'class': 'btn ghost', type: 'button', text: t('details'),
           on: { click: function (e) { openDetail(x.id, e.currentTarget); } } })
       ])
     ]));
-    return el('article', { 'class': 'card', id: 'card-' + x.id, 'data-id': x.id }, kids);
+    return el('article', { 'class': 'vl-card', id: 'card-' + x.id, 'data-id': x.id }, kids);
   }
 
   function focusGround(id, gid) {
-    var b = document.querySelector('#card-' + id + ' .grounds button[data-ground="' + gid + '"]');
+    var b = document.querySelector('#card-' + id + ' .vl-grounds button[data-ground="' + gid + '"]');
     if (b) b.focus();
   }
 
   function paintGrid() {
-    var lib = state.lib, grid = $('grid');
+    var lib = state.lib, grid = $('vlGrid');
     grid.innerHTML = '';
     var shown = lib.languages.filter(matches);
     shown.forEach(function (x) { grid.appendChild(card(x)); });
-    $('count').textContent = t('count')(shown.length, lib.languages.length);
-    $('empty').hidden = shown.length > 0;
-    $('emptyText').textContent = t('empty')(state.q.trim());
-    if ($('q').value !== state.q) $('q').value = state.q;
+    $('vlCount').textContent = t('count')(shown.length, lib.languages.length);
+    $('vlEmpty').hidden = shown.length > 0;
+    $('vlEmptyText').textContent = t('empty')(state.q.trim());
+    if ($('vlQ').value !== state.q) $('vlQ').value = state.q;
   }
 
   function setQuery(q) {
     state.q = q;
     writeUrl();
     paintGrid();
-    $('q').focus();
-    window.scrollTo({ top: $('q').getBoundingClientRect().top + window.scrollY - 80,
+    $('vlQ').focus();
+    window.scrollTo({ top: $('vlQ').getBoundingClientRect().top + window.scrollY - 80,
       behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   }
 
@@ -271,8 +268,8 @@
 
   function openDetail(id, opener) {
     state.opener = opener || null;
-    if (location.hash !== '#' + id) {
-      history.pushState(null, '', location.pathname + location.search + '#' + id);
+    if (location.hash !== '#' + HASH + id) {
+      history.pushState(null, '', location.pathname + location.search + '#' + HASH + id);
       state.pushed = true;        // closing pops this entry, so Back never reopens the dialog
     }
     showDetail();
@@ -290,7 +287,7 @@
       var c = f.cjk && f.cjk[r];
       if (c) rows.push([t(r) + ' · ' + t('cjk'), c.mac + ' (macOS) · ' + c.win + ' (Windows)']);
     });
-    return el('table', { 'class': 'kv' }, [el('tbody', null, rows.map(function (r) {
+    return el('table', { 'class': 'vl-kv' }, [el('tbody', null, rows.map(function (r) {
       return el('tr', null, [el('th', { text: r[0] }), el('td', { text: r[1] })]);
     }))]);
   }
@@ -299,35 +296,35 @@
     var s = g.swatches, items = [[t('ground'), s.ground], [t('ink'), s.ink], [t('mute'), s.mute], [t('panel'), s.panel]];
     (s.accents || []).forEach(function (h) { items.push([t('accent'), h]); });
     (s.text_accents || []).forEach(function (h) { items.push([t('textAccent'), h]); });
-    var pal = el('div', { 'class': 'pal' }, items.map(function (it) {
+    var pal = el('div', { 'class': 'vl-pal' }, items.map(function (it) {
       return el('span', null, [el('i', { style: 'background:' + hex(it[1]) }), it[0], el('code', { text: hex(it[1]) })]);
     }));
-    var ser = el('div', { 'class': 'pal' }, (s.series || []).map(function (h) {
+    var ser = el('div', { 'class': 'vl-pal' }, (s.series || []).map(function (h) {
       return el('span', null, [el('i', { style: 'background:' + hex(h) }), el('code', { text: hex(h) })]);
     }));
-    return el('div', { 'class': 'panel' }, [el('h5', { text: L(g.label) }), pal,
-      (s.series || []).length ? el('p', { 'class': 'note', text: t('series') }) : null, ser]);
+    return el('div', { 'class': 'vl-panel' }, [el('h5', { text: L(g.label) }), pal,
+      (s.series || []).length ? el('p', { 'class': 'vl-note', text: t('series') }) : null, ser]);
   }
 
   function copyRow(text, isCode) {
-    return el('div', { 'class': 'copyrow' }, [el(isCode ? 'code' : 'span', { text: text }),
+    return el('div', { 'class': 'vl-copyrow' }, [el(isCode ? 'code' : 'span', { text: text }),
       el('button', { 'class': 'btn ghost', type: 'button', text: t('copyPrompt').replace(/ prompt|提示词/, ''),
         on: { click: function (e) { copy(text, e.currentTarget); } } })]);
   }
 
   function renderDetail(x) {
     var g = groundOf(x);
-    $('dTitle').textContent = L(x.name);
-    $('dMeta').textContent = x.id + ' · ' + T[state.lang].kindLong[x.kind] + (isNew(x) || (x.added_at && state.lib.baseline && x.added_at > state.lib.baseline) ? ' · ' + t('addedOn') + ' ' + x.added_at : '');
-    var body = $('dBody');
+    $('vlDTitle').textContent = L(x.name);
+    $('vlDMeta').textContent = x.id + ' · ' + T[state.lang].kindLong[x.kind] + (isNew(x) || (x.added_at && state.lib.baseline && x.added_at > state.lib.baseline) ? ' · ' + t('addedOn') + ' ' + x.added_at : '');
+    var body = $('vlDBody');
     body.innerHTML = '';
-    body.appendChild(el('p', { 'class': 'blurb', text: L(x.blurb) }));
+    body.appendChild(el('p', { 'class': 'vl-blurb', text: L(x.blurb) }));
     if (x.grounds.length > 1) {
-      body.appendChild(el('div', { 'class': 'grounds', role: 'group', 'aria-label': t('ground'), style: 'padding:12px 0 0' },
+      body.appendChild(el('div', { 'class': 'vl-grounds', role: 'group', 'aria-label': t('ground'), style: 'padding:12px 0 0' },
         x.grounds.map(function (gg) {
           return el('button', { type: 'button', 'aria-pressed': String(gg.id === g.id), 'data-ground': gg.id,
             on: { click: function () { state.ground[x.id] = gg.id; renderDetail(x); paintGrid();
-              var b = document.querySelector('#dBody .grounds button[data-ground="' + gg.id + '"]'); if (b) b.focus(); } } },
+              var b = document.querySelector('#vlDBody .vl-grounds button[data-ground="' + gg.id + '"]'); if (b) b.focus(); } } },
             [el('i', { style: 'background:' + hex(gg.swatches.ground) }), L(gg.label)]);
         })));
     }
@@ -335,51 +332,53 @@
     var pts = state.lib.page_types || [];
     var have = pts.filter(function (p) { return g.pages && g.pages[p.id]; });
     if (have.length) {
-      body.appendChild(el('div', { 'class': 'pages' }, have.map(function (p) {
-        return el('figure', null, [el('img', { src: g.pages[p.id], alt: L(x.name) + ' — ' + L(p.name) + ' — ' + L(g.label),
+      body.appendChild(el('div', { 'class': 'vl-pages' }, have.map(function (p) {
+        return el('figure', null, [el('img', { src: asset(g.pages[p.id]), alt: L(x.name) + ' — ' + L(p.name) + ' — ' + L(g.label),
           loading: 'lazy', decoding: 'async', width: '960', height: '540' }), el('figcaption', { text: L(p.name) })]);
       })));
-      body.appendChild(el('p', { 'class': 'note', text: t('pagesNote') }));
-    } else body.appendChild(el('p', { 'class': 'note', text: t('notRendered') }));
+      body.appendChild(el('p', { 'class': 'vl-note', text: t('pagesNote') }));
+    } else body.appendChild(el('p', { 'class': 'vl-note', text: t('notRendered') }));
     body.appendChild(el('h4', { text: t('sheetsH') }));
-    body.appendChild(el('div', { 'class': 'sheets' }, x.grounds.map(function (gg) {
-      return el('figure', null, [el('img', { src: gg.sample, alt: L(x.name) + ' — ' + L(gg.label), loading: 'lazy',
+    body.appendChild(el('div', { 'class': 'vl-sheets' }, x.grounds.map(function (gg) {
+      return el('figure', null, [el('img', { src: asset(gg.sample), alt: L(x.name) + ' — ' + L(gg.label), loading: 'lazy',
         decoding: 'async', width: '1400', height: '800' }), el('figcaption', { text: L(gg.label) })]);
     })));
-    body.appendChild(el('p', { 'class': 'note', text: t('sheetsNote') }));
+    body.appendChild(el('p', { 'class': 'vl-note', text: t('sheetsNote') }));
     body.appendChild(el('h4', { text: t('paletteH') }));
-    body.appendChild(el('div', { 'class': 'facts' }, x.grounds.map(palette)));
+    body.appendChild(el('div', { 'class': 'vl-facts' }, x.grounds.map(palette)));
     body.appendChild(el('h4', { text: t('fontsH') }));
-    body.appendChild(el('div', { 'class': 'panel' }, [fontRows(x.fonts)]));
+    body.appendChild(el('div', { 'class': 'vl-panel' }, [fontRows(x.fonts)]));
     var pic = (x.image_pages || []).map(function (id) {
       for (var i = 0; i < pts.length; i++) if (pts[i].id === id) return L(pts[i].name);
       return id;
     });
-    body.appendChild(el('div', { 'class': 'facts', style: 'margin-top:16px' }, [
-      el('div', { 'class': 'panel' }, [el('h5', { text: t('extrasH') }),
-        x.extras && x.extras.length ? el('table', { 'class': 'kv' }, [el('tbody', null, x.extras.map(function (e) {
+    body.appendChild(el('div', { 'class': 'vl-facts', style: 'margin-top:16px' }, [
+      el('div', { 'class': 'vl-panel' }, [el('h5', { text: t('extrasH') }),
+        x.extras && x.extras.length ? el('table', { 'class': 'vl-kv' }, [el('tbody', null, x.extras.map(function (e) {
           var where = e.pages === 'any' ? t('anyPage') : (e.pages || []).join(', ');
           return el('tr', null, [el('th', null, [el('code', { text: e.name + '=' })]),
             el('td', { text: e.takes + ' (' + t('on') + ' ' + where + ')' })]);
-        }))]) : el('p', { 'class': 'note', text: t('none') })]),
-      el('div', { 'class': 'panel' }, [el('h5', { text: t('derivedH') }),
-        x.derived && x.derived.length ? el('table', { 'class': 'kv' }, [el('tbody', null, x.derived.map(function (d) {
+        }))]) : el('p', { 'class': 'vl-note', text: t('none') })]),
+      el('div', { 'class': 'vl-panel' }, [el('h5', { text: t('derivedH') }),
+        x.derived && x.derived.length ? el('table', { 'class': 'vl-kv' }, [el('tbody', null, x.derived.map(function (d) {
           return el('tr', null, [el('th', null, [el('code', { text: d.id })]), el('td', { text: d.what })]);
-        }))]) : el('p', { 'class': 'note', text: t('none') }),
-        pic.length ? el('p', { 'class': 'note', text: t('pictures') + ': ' + pic.join(', ') }) : null])
+        }))]) : el('p', { 'class': 'vl-note', text: t('none') }),
+        pic.length ? el('p', { 'class': 'vl-note', text: t('pictures') + ': ' + pic.join(', ') }) : null])
     ]));
     body.appendChild(el('h4', { text: t('useH') }));
-    body.appendChild(el('p', { 'class': 'note', text: t('prompt'), style: 'margin:0 0 6px' }));
+    body.appendChild(el('p', { 'class': 'vl-note', text: t('prompt'), style: 'margin:0 0 6px' }));
     body.appendChild(copyRow(L(g.prompt), false));
-    body.appendChild(el('p', { 'class': 'note', text: t('python'), style: 'margin:4px 0 6px' }));
+    body.appendChild(el('p', { 'class': 'vl-note', text: t('python'), style: 'margin:4px 0 6px' }));
     body.appendChild(copyRow('import visual_languages as vl\n' + g.python, true));
     body.appendChild(el('p', null, [el('a', { href: REF, text: t('reference') + ' →' })]));
   }
 
   function showDetail() {
-    var d = $('detail');
-    var raw = location.hash.replace(/^#/, ''), id;
-    try { id = decodeURIComponent(raw); } catch (e) { id = ''; }   // a malformed escape (#%) names no language
+    var d = $('vlDetail');
+    var raw = location.hash.replace(/^#/, ''), id = '';
+    if (raw.indexOf(HASH) === 0) {
+      try { id = decodeURIComponent(raw.slice(HASH.length)); } catch (e) { id = ''; }   // a malformed escape names nothing
+    }
     var x = id ? find(id) : null;
     if (!x) { state.pushed = false; if (d.open) d.close(); return; }
     renderDetail(x);
@@ -388,38 +387,32 @@
       if (typeof d.showModal === 'function') d.showModal(); else d.setAttribute('open', '');
     }
     d.scrollTop = 0;
-    $('closeBtn').focus();
+    $('vlClose').focus();
   }
 
   function closeDetail() {
-    var d = $('detail');
-    if (state.pushed && location.hash) {   // we added the #id entry: step back over it (popstate closes the dialog)
+    var d = $('vlDetail');
+    if (state.pushed && location.hash) {   // we added the #vl-id entry: step back over it (popstate closes the dialog)
       state.pushed = false;
       history.back();
       return;
     }
     state.pushed = false;                   // a deep link: drop the hash without adding an entry
-    if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+    if (location.hash) history.replaceState(null, '', location.pathname + location.search + '#languages');
     if (d.open) d.close();
   }
 
   /* ---------- wiring ---------- */
   function wire() {
-    $('langBtn').addEventListener('click', function () {
-      state.lang = state.lang === 'zh' ? 'en' : 'zh';
-      try { localStorage.setItem('addsum-lang', state.lang); } catch (e) { /* not remembered: fine */ }
-      paintChrome();
-      if (state.lib) { paintGrid(); if ($('detail').open) showDetail(); }
-    });
     var timer = null;
-    $('q').addEventListener('input', function (e) {
+    $('vlQ').addEventListener('input', function (e) {
       clearTimeout(timer);
       var v = e.target.value.slice(0, 80);
       timer = setTimeout(function () { state.q = v; writeUrl(); paintGrid(); }, 120);
     });
-    $('clearBtn').addEventListener('click', function () { state.q = ''; state.kind = 'all'; writeUrl(); paintChrome(); paintGrid(); });
-    $('closeBtn').addEventListener('click', closeDetail);
-    var d = $('detail');
+    $('vlClear').addEventListener('click', function () { state.q = ''; state.kind = 'all'; writeUrl(); paintChrome(); paintGrid(); });
+    $('vlClose').addEventListener('click', closeDetail);
+    var d = $('vlDetail');
     d.addEventListener('cancel', function (e) { e.preventDefault(); closeDetail(); });
     d.addEventListener('click', function (e) { if (e.target === d) closeDetail(); });   // the backdrop
     d.addEventListener('close', function () {
@@ -428,22 +421,29 @@
       if (o && document.contains(o)) o.focus();
       else {
         var id = d.getAttribute('data-last');
-        var c = id && document.querySelector('#card-' + id + ' .sheet');
+        var c = id && document.querySelector('#card-' + id + ' .vl-sheet');
         if (c) c.focus();
       }
     });
     window.addEventListener('hashchange', showDetail);
     window.addEventListener('popstate', function () { readUrl(); paintChrome(); paintGrid(); showDetail(); });
     document.addEventListener('keydown', function (e) {
-      if (e.key === '/' && document.activeElement !== $('q') && !$('detail').open) { e.preventDefault(); $('q').focus(); }
+      if (e.key === '/' && document.activeElement !== $('vlQ') && !$('vlDetail').open) { e.preventDefault(); $('vlQ').focus(); }
     });
   }
 
+  window.slideMakerLibrary = {
+    setLang: function (lang) {
+      state.lang = lang === 'zh' ? 'zh' : 'en';
+      paintChrome();
+      if (state.lib) { paintGrid(); if ($('vlDetail').open) showDetail(); }
+    }
+  };
   state.lang = pickLang();
   readUrl();
   wire();
   paintChrome();
-  fetch('library.json', { cache: 'no-cache' }).then(function (r) {
+  fetch(BASE + 'library.json', { cache: 'no-cache' }).then(function (r) {
     if (!r.ok) throw new Error(r.status);
     return r.json();
   }).then(function (lib) {
@@ -454,6 +454,6 @@
     paintGrid();
     showDetail();
   }).catch(function (err) {
-    $('grid').appendChild(el('p', { 'class': 'status', text: t('loadFail') + ' (' + err.message + ')' }));
+    $('vlGrid').appendChild(el('p', { 'class': 'vl-status', text: t('loadFail') + ' (' + err.message + ')' }));
   });
 })();

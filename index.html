@@ -194,6 +194,7 @@ footer .sp { flex:1; }
   .bar .hint { display:none; }
 }
 </style>
+<link rel="stylesheet" href="/languages/library.css?v=20261023">
 </head>
 <body>
 <header class="hero">
@@ -204,7 +205,7 @@ footer .sp { flex:1; }
       <span class="name">slide-maker</span>
       <span class="by" id="byline"></span>
       <button class="langpill" id="langBtn" aria-label="Switch language"></button>
-      <a class="btn ghost vlib" id="vlBtn" href="/languages/"><span class="full">Visual languages</span><span class="short">Library</span></a>
+      <a class="btn ghost vlib" id="vlBtn" href="#languages"><span class="full">Visual languages</span><span class="short">Library</span></a>
       <a class="btn ghost gh" id="ghBtn" href="https://github.com/addsumtech/slides_maker">GitHub<span class="star">★</span></a>
       <a class="btn primary flip" id="ctaFlip" href="#gallery"></a>
     </div>
@@ -231,6 +232,42 @@ footer .sp { flex:1; }
   <div class="grid" id="grid"></div>
 
 </main>
+
+<section class="wrap" id="languages" aria-labelledby="vlHeadline">
+  <div class="vl-head">
+    <h2 id="vlHeadline"></h2>
+    <p class="vl-lede" id="vlLede"></p>
+    <div class="vl-stats" id="vlStats" aria-live="polite"></div>
+  </div>
+  <div class="vl-bar" role="search">
+    <label class="vl-search">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4.5 4.5"/></svg>
+      <span class="sr" data-vl-i18n="searchLabel">Search languages</span>
+      <input id="vlQ" type="search" autocomplete="off" spellcheck="false" placeholder="Search">
+    </label>
+    <div class="vl-toggle" id="vlKinds" role="group" aria-label="Kind"></div>
+    <span class="vl-count" id="vlCount" aria-live="polite"></span>
+  </div>
+  <div class="vl-grid" id="vlGrid"></div>
+  <div class="vl-empty" id="vlEmpty" hidden>
+    <p id="vlEmptyText"></p>
+    <button class="btn ghost" id="vlClear" type="button" data-vl-i18n="clear">Clear filters</button>
+  </div>
+  <noscript><p class="vl-empty">The visual languages are listed with JavaScript. The same samples are in the
+    <a href="https://github.com/addsumtech/slides_maker#visual-languages">README</a>.</p></noscript>
+  <p class="vl-foot" id="vlFoot"></p>
+  <dialog id="vlDetail" aria-labelledby="vlDTitle">
+    <div class="vl-dhead">
+      <div>
+        <h2 id="vlDTitle"></h2>
+        <p class="vl-dmeta" id="vlDMeta"></p>
+      </div>
+      <button class="vl-close" id="vlClose" type="button" aria-label="Close">×</button>
+    </div>
+    <div class="vl-dbody" id="vlDBody"></div>
+  </dialog>
+  <div id="vlLive" class="sr" aria-live="polite"></div>
+</section>
 
 <footer>
   <div class="wrap inner">
@@ -339,11 +376,15 @@ function armHoverPreview() {
 
 function setLang(lang) {
   const t = STR[lang];
-  if (history.replaceState) history.replaceState(null, '', lang === 'zh' ? '/cn/' : '/');
+  if (history.replaceState) {   // the page's own language markers go; a library search or #vl-<language> stays
+    var ps = new URLSearchParams(location.search); ps.delete('lang');
+    var qs = ps.toString(), hs = (location.hash === '#zh' || location.hash === '#en') ? '' : location.hash;
+    history.replaceState(null, '', (lang === 'zh' ? '/cn/' : '/') + (qs ? '?' + qs : '') + hs);
+  }
   var fh = document.getElementById('footHome');
   if (fh) fh.href = lang === 'zh' ? 'https://addsum.top/cn/' : 'https://addsum.top/?lang=en';
   const lb = document.getElementById('langBtn');
-  if (lb) { lb.textContent = lang === 'zh' ? 'EN' : '中文'; lb.onclick = () => { try { localStorage.setItem('addsum-lang', lang === 'zh' ? 'en' : 'zh'); } catch(e){} setLang(lang === 'zh' ? 'en' : 'zh'); }; }
+  if (lb) { lb.textContent = lang === 'zh' ? 'EN' : '中文'; lb.setAttribute('aria-label', lang === 'zh' ? 'Switch to English' : '切换为中文'); lb.onclick = () => { try { localStorage.setItem('addsum-lang', lang === 'zh' ? 'en' : 'zh'); } catch(e){} setLang(lang === 'zh' ? 'en' : 'zh'); }; }
   for (const k of ['byline','headline','lede','vTitle','vLede','st1','st2','st3','st4','galleryTitle','hoverHint','footText','footReadme','ctaNote']) {
     const el = document.getElementById(k);
     if (el) el.innerHTML = t[k];
@@ -360,14 +401,13 @@ function setLang(lang) {
   }
   document.getElementById('ctaFlip').textContent = t.ctaFlip;
   const vb = document.getElementById('vlBtn');
-  if (vb) { vb.querySelector('.full').textContent = t.vlBtn; vb.querySelector('.short').textContent = t.vlShort;
-    // the library page opens in the language chosen here
-    vb.onclick = () => { try { localStorage.setItem('addsum-lang', lang); } catch(e){} }; }
+  if (vb) { vb.querySelector('.full').textContent = t.vlBtn; vb.querySelector('.short').textContent = t.vlShort; }
   document.title = t.title;
   document.documentElement.lang = (lang === 'zh') ? 'zh-CN' : 'en';
   document.getElementById('grid').innerHTML =
     (window.DECKS || []).filter(d => d.lang === lang).map(d => card(d, t)).join('');
   armHoverPreview();
+  if (window.slideMakerLibrary) window.slideMakerLibrary.setLang(lang);   // the visual-language section follows
 }
 (function(){
   function mark(e){
@@ -400,5 +440,6 @@ function setLang(lang) {
   setLang(lang);
 })();
 </script>
+<script src="/languages/library.js?v=20261023"></script>
 </body>
 </html>

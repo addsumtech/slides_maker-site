@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
-"""Check the visual-language library page (languages/) in headless Chrome before it is committed.
+"""Check the visual-language library — the #languages section of the home page (/ and /cn/) — in headless Chrome
+before it is committed.
 
     python3 tools/check_languages_page.py                 # assert, at 1400px and at a true 390px
     python3 tools/check_languages_page.py --shots DIR     # also write screenshots there (look at them)
 
-It serves the site from 127.0.0.1, loads a harness that frames /languages/ at the width under test (headless Chrome's
+It serves the site from 127.0.0.1, loads a harness that frames / and /cn/ at the width under test (headless Chrome's
 window cannot be narrower than ~500px, so 390 is a 390px iframe, and the check asserts the frame really is 390 wide),
 then drives the page the way a visitor does and reads back what changed:
   - one card per language in library.json, and every image path it names exists on disk;
   - a ground switch swaps the card's sample sheet; search and the kind filter narrow the grid;
-  - #ink opens the dialog with one image per page type, and closing it clears the hash;
-  - the 中文 toggle swaps names and blurbs; #nosuch opens nothing;
+  - #vl-ink opens the dialog with one image per page type, and closing it leaves no #vl- hash;
+  - the page's 中文/EN toggle swaps names and blurbs; #vl-nosuch opens nothing;
   - no horizontal scroll; no console error or uncaught exception (Chrome's own log).
 Exit 1 on any failure, naming it. Needs Chrome or Chromium (CHROME=/path overrides discovery).
 """
@@ -30,7 +31,7 @@ from pathlib import Path
 SITE = Path(__file__).resolve().parent.parent
 
 HARNESS = r"""<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0}iframe{border:0;display:block}</style>
-</head><body><iframe id="f" width="%(w)d" height="%(h)d" src="/languages/%(hash)s"></iframe><pre id="out"></pre><script>
+</head><body><iframe id="f" width="%(w)d" height="%(h)d" src="%(page)s%(hash)s"></iframe><pre id="out"></pre><script>
 (async function () {
   const out = {fails: [], notes: []};
   const fail = (m) => out.fails.push(m);
@@ -38,9 +39,9 @@ HARNESS = r"""<!doctype html><html><head><meta charset="utf-8"><style>body{margi
   const f = document.getElementById('f');
   const lib = await (await fetch('/languages/library.json')).json();
   let w = f.contentWindow, d;
-  for (let i = 0; i < 200; i++) { d = f.contentDocument; if (d && d.querySelectorAll('.card').length) break; await sleep(50); }
+  for (let i = 0; i < 200; i++) { d = f.contentDocument; if (d && d.querySelectorAll('.vl-card').length) break; await sleep(50); }
   w = f.contentWindow; d = f.contentDocument;
-  const cards = () => [...d.querySelectorAll('.card')];
+  const cards = () => [...d.querySelectorAll('.vl-card')];
   const mode = %(mode)s;
   // every image inside the frame's viewport must actually load (lazy images included): a path that exists on disk
   // can still be an image the browser never shows
@@ -58,14 +59,15 @@ HARNESS = r"""<!doctype html><html><head><meta charset="utf-8"><style>body{margi
     return pending.map(im => im.getAttribute('src'));
   }
   if (mode === 'new') {       // the NEW fixture: one language outside the launch set, one launch language, both dated today
-    const nw = d.querySelector('#card-%(new)s .new'), sd = d.querySelector('#card-%(same)s .new');
+    const nw = d.querySelector('#card-%(new)s .vl-new'), sd = d.querySelector('#card-%(same)s .vl-new');
     if (!nw) fail('a language outside the launch set, added today, wears no NEW badge');
     if (sd) fail('a language the page launched with wears NEW');
-    const n = d.querySelectorAll('.card .new').length;
+    const n = d.querySelectorAll('.vl-card .vl-new').length;
     if (n !== 1) fail(n + ' NEW badges on the fixture (expected exactly 1)');
     document.getElementById('out').textContent = JSON.stringify(out); return;
   }
   if (mode === 'shot') {      // a screenshot must show decoded pictures, not the frame they will paint into
+    if (!w.location.hash) { w.scrollTo(0, d.getElementById('languages').offsetTop - 10); await sleep(200); }
     await settled(d);
     await Promise.all([...d.querySelectorAll('img')].filter(im => im.complete && im.naturalWidth).map(im => im.decode().catch(() => 0)));
     await sleep(300); document.getElementById('out').textContent = 'shot'; return;
@@ -79,35 +81,35 @@ HARNESS = r"""<!doctype html><html><head><meta charset="utf-8"><style>body{margi
     const ids = cards().map(c => c.dataset.id);
     if (JSON.stringify(ids) !== JSON.stringify(lib.languages.map(x => x.id))) fail('cards out of order: ' + ids.join(','));
     // stats are the exporter's numbers
-    const nums = [...d.querySelectorAll('.stat .n')].map(n => +n.textContent);
+    const nums = [...d.querySelectorAll('#languages .vl-stat .n')].map(n => +n.textContent);
     const s = lib.stats;
     if (JSON.stringify(nums) !== JSON.stringify([s.languages, s.grounds, s.page_types, s.components])) fail('stats ' + nums);
     // ground switch
     const x = lib.languages.find(l => l.grounds.length > 1);
     if (x) {
-      const b = d.querySelector('#card-' + x.id + ' .grounds button[data-ground="' + x.grounds[1].id + '"]');
+      const b = d.querySelector('#card-' + x.id + ' .vl-grounds button[data-ground="' + x.grounds[1].id + '"]');
       if (!b) fail(x.id + ': no ground button for ' + x.grounds[1].id);
       else {
         b.click(); await sleep(50);
-        const src = d.querySelector('#card-' + x.id + ' .sheet img').getAttribute('src');
-        if (src !== x.grounds[1].sample) fail(x.id + ': ground switch left the sheet at ' + src);
-        d.querySelector('#card-' + x.id + ' .grounds button[data-ground="' + x.grounds[0].id + '"]').click(); await sleep(50);
+        const src = d.querySelector('#card-' + x.id + ' .vl-sheet img').getAttribute('src');
+        if (src !== '/languages/' + x.grounds[1].sample) fail(x.id + ': ground switch left the sheet at ' + src);
+        d.querySelector('#card-' + x.id + ' .vl-grounds button[data-ground="' + x.grounds[0].id + '"]').click(); await sleep(50);
       }
     }
     // search
-    const q = d.getElementById('q');
+    const q = d.getElementById('vlQ');
     q.value = 'ink'; q.dispatchEvent(new Event('input', {bubbles: true})); await sleep(300);
     if (cards().length !== 1 || cards()[0].dataset.id !== 'ink') fail('search "ink" shows ' + cards().map(c => c.dataset.id));
     q.value = 'zzzz-no-such'; q.dispatchEvent(new Event('input', {bubbles: true})); await sleep(300);
-    if (cards().length !== 0 || d.getElementById('empty').hidden) fail('a search matching nothing shows no empty state');
-    d.getElementById('clearBtn').click(); await sleep(50);
+    if (cards().length !== 0 || d.getElementById('vlEmpty').hidden) fail('a search matching nothing shows no empty state');
+    d.getElementById('vlClear').click(); await sleep(50);
     if (cards().length !== lib.languages.length) fail('clear filters did not restore every card');
     // a best-for tag searches for itself
-    const tag = d.querySelector('.tags button');
+    const tag = d.querySelector('.vl-tags button');
     if (tag) { const tt = tag.textContent; tag.click(); await sleep(80);
       if (q.value !== tt || !cards().length || cards().length === lib.languages.length && lib.languages.some(l => !(l.best_for.en || []).includes(tt) && !(l.best_for.zh || []).includes(tt)))
         fail('the tag "' + tt + '" did not filter to its languages (' + cards().length + ')');
-      d.getElementById('clearBtn').click(); await sleep(50); }
+      d.getElementById('vlClear').click(); await sleep(50); }
     // kind filter
     d.querySelector('[data-kind="drawn"]').click(); await sleep(50);
     const nd = lib.languages.filter(l => l.kind === 'drawn').length;
@@ -115,48 +117,48 @@ HARNESS = r"""<!doctype html><html><head><meta charset="utf-8"><style>body{margi
     if (!/kind=drawn/.test(w.location.search)) fail('the kind filter is not in the URL (' + w.location.search + ')');
     d.querySelector('[data-kind="all"]').click(); await sleep(50);
     // the dialog
-    w.location.hash = 'ink'; await sleep(200);
-    const dlg = d.getElementById('detail');
+    w.location.hash = 'vl-ink'; await sleep(200);
+    const dlg = d.getElementById('vlDetail');
     const ink = lib.languages.find(l => l.id === 'ink');
-    if (!dlg.open) fail('#ink did not open the dialog');
+    if (!dlg.open) fail('#vl-ink did not open the dialog');
     else {
-      const imgs = [...dlg.querySelectorAll('.pages img')];
+      const imgs = [...dlg.querySelectorAll('.vl-pages img')];
       const want = lib.page_types.filter(p => ink.grounds[0].pages[p.id]).length;
       if (want !== lib.page_types.length) out.notes.push('ink has ' + want + ' rendered pages on ' + ink.grounds[0].id);
       if (imgs.length !== want) fail('the dialog shows ' + imgs.length + ' page images, expected ' + want);
       const dl = await settled(dlg);
       if (dl.length) fail('dialog images in view never loaded: ' + dl.slice(0, 4).join(', '));
-      const caps = [...dlg.querySelectorAll('.pages figcaption')].map(c => c.textContent);
+      const caps = [...dlg.querySelectorAll('.vl-pages figcaption')].map(c => c.textContent);
       if (want && caps[0] !== lib.page_types[0].name.en && caps[0] !== lib.page_types[0].name.zh) fail('page captions: ' + caps);
-      const gb = dlg.querySelector('.grounds button[data-ground="' + ink.grounds[1].id + '"]');
+      const gb = dlg.querySelector('.vl-grounds button[data-ground="' + ink.grounds[1].id + '"]');
       if (gb) { gb.click(); await sleep(80);
-        const src = (dlg.querySelector('.pages img') || {}).getAttribute ? dlg.querySelector('.pages img').getAttribute('src') : '';
-        if (want && src !== ink.grounds[1].pages.cover) fail('the dialog ground switch left the cover at ' + src); }
+        const src = (dlg.querySelector('.vl-pages img') || {}).getAttribute ? dlg.querySelector('.vl-pages img').getAttribute('src') : '';
+        if (want && src !== '/languages/' + ink.grounds[1].pages.cover) fail('the dialog ground switch left the cover at ' + src); }
       if (dlg.scrollWidth > dlg.clientWidth + 1) fail('the dialog scrolls sideways (' + dlg.scrollWidth + ' > ' + dlg.clientWidth + ')');
-      const code = dlg.querySelector('.copyrow code');
+      const code = dlg.querySelector('.vl-copyrow code');
       if (!code) fail('the dialog has no python usage line');
       else if (code.textContent.includes('\n') && !/^(pre|pre-wrap|pre-line|break-spaces)$/.test(w.getComputedStyle(code).whiteSpace))
         fail('the python usage shows its lines run together (white-space: ' + w.getComputedStyle(code).whiteSpace + ')');
-      d.getElementById('closeBtn').click(); await sleep(80);
+      d.getElementById('vlClose').click(); await sleep(80);
       if (dlg.open) fail('the close button left the dialog open');
-      if (w.location.hash) fail('closing left the hash ' + w.location.hash);
+      if (/^#vl-/.test(w.location.hash)) fail('closing left the hash ' + w.location.hash);
     }
-    w.location.hash = 'nosuch'; await sleep(150);
-    if (dlg.open) fail('#nosuch opened the dialog');
-    for (const bad of ['%%', '%%E0%%A4%%A']) {   // a malformed escape is ignored like any unknown id (doubled: Python fills this template)
+    w.location.hash = 'vl-nosuch'; await sleep(150);
+    if (dlg.open) fail('#vl-nosuch opened the dialog');
+    for (const bad of ['vl-%%', 'vl-%%E0%%A4%%A']) {   // a malformed escape is ignored like any unknown id (doubled: Python fills this template)
       w.location.hash = bad; await sleep(150);
       if (dlg.open) fail('#' + bad + ' opened the dialog');
-      if (d.querySelector('.status')) fail('#' + bad + ' put an error on the page: ' + d.querySelector('.status').textContent);
+      if (d.querySelector('.vl-status')) fail('#' + bad + ' put an error on the page: ' + d.querySelector('.vl-status').textContent);
     }
     w.location.hash = ''; await sleep(50);
     // 中文
     const first = lib.languages[0];
-    const before = d.querySelector('.card h3').textContent;
+    const before = d.querySelector('.vl-card h3').textContent;
     d.getElementById('langBtn').click(); await sleep(80);
-    const now = d.querySelector('.card h3').textContent;
+    const now = d.querySelector('.vl-card h3').textContent;
     const other = before === first.name.en ? first.name.zh : first.name.en;
     if (now !== other) fail('the language toggle left the first name at "' + now + '" (expected "' + other + '")');
-    const blurb = d.querySelector('.card .blurb').textContent;
+    const blurb = d.querySelector('.vl-card .vl-blurb').textContent;
     if (blurb !== first.blurb.en && blurb !== first.blurb.zh) fail('the first blurb is not the manifest\'s');
     if (d.documentElement.scrollWidth > w.innerWidth + 1) fail('horizontal scroll after the toggle: ' + d.documentElement.scrollWidth);
     d.getElementById('langBtn').click(); await sleep(50);
@@ -166,17 +168,17 @@ HARNESS = r"""<!doctype html><html><head><meta charset="utf-8"><style>body{margi
     const lbl1 = d.getElementById('langBtn').getAttribute('aria-label');
     if (!lbl0 || lbl0 === lbl1) fail('the language button keeps one aria-label in both languages ("' + lbl0 + '")');
     // a tag search made in one language still finds its languages after the toggle
-    const zt = d.querySelector('.tags button');
+    const zt = d.querySelector('.vl-tags button');
     if (zt) {
       const tt = zt.textContent; zt.click(); await sleep(80);
       const n1 = cards().length;
       d.getElementById('langBtn').click(); await sleep(80);
       if (!cards().length) fail('the tag search "' + tt + '" matches nothing after the language toggle (it found ' + n1 + ')');
-      d.getElementById('clearBtn').click(); await sleep(50);
+      d.getElementById('vlClear').click(); await sleep(50);
     } else { d.getElementById('langBtn').click(); await sleep(60); }
     // "Copied" is announced to a screen reader, not only drawn on the button
     // the clipboard is stubbed: resolves / never settles / refused with execCommand failing too
-    const live = d.getElementById('live'), copyBtn = d.querySelector('.cfoot .btn.primary');
+    const live = d.getElementById('vlLive'), copyBtn = d.querySelector('.vl-cfoot .btn.primary');
     const setClip = (fn) => Object.defineProperty(w.navigator, 'clipboard', {value: {writeText: fn}, configurable: true});
     const copiedWord = d.documentElement.lang.startsWith('zh') ? '已复制' : 'Copied';
     async function announced(ms) { for (let i = 0; i < ms; i += 50) { if (live && live.textContent.trim()) return true; await sleep(50); } return false; }
@@ -195,19 +197,19 @@ HARNESS = r"""<!doctype html><html><head><meta charset="utf-8"><style>body{margi
     let ring = false;
     for (const sh of d.styleSheets) {
       let rules; try { rules = sh.cssRules; } catch (e) { continue; }
-      for (const r of rules) if (r.selectorText && r.selectorText.includes('.tags button:focus-visible') &&
+      for (const r of rules) if (r.selectorText && r.selectorText.includes('.vl-tags button:focus-visible') &&
                                  /outline:\s*\d/.test(r.cssText)) ring = true;
     }
     if (!ring) fail('a focused tag has no visible focus ring');
     // a dialog opened from a card closes without leaving a history entry that Back would reopen; Esc closes it
     const h0 = w.history.length;
-    d.querySelector('.card .sheet').click(); await sleep(150);
+    d.querySelector('.vl-card .vl-sheet').click(); await sleep(150);
     if (!dlg.open) fail('a card click did not open the dialog');
-    d.getElementById('closeBtn').click(); await sleep(250);
+    d.getElementById('vlClose').click(); await sleep(250);
     if (dlg.open) fail('the close button left a card-opened dialog open');
     if (w.history.length > h0 + 1) fail('closing added a history entry (' + h0 + ' -> ' + w.history.length + '): Back reopens the dialog');
-    if (w.location.hash) fail('closing a card-opened dialog left the hash ' + w.location.hash);
-    d.querySelector('.card .sheet').click(); await sleep(150);
+    if (/^#vl-/.test(w.location.hash)) fail('closing a card-opened dialog left the hash ' + w.location.hash);
+    d.querySelector('.vl-card .vl-sheet').click(); await sleep(150);
     dlg.dispatchEvent(new Event('cancel', {cancelable: true})); await sleep(250);
     if (dlg.open) fail('Esc (the dialog cancel event) left the dialog open');
   } catch (e) { fail('the harness threw: ' + e + ' ' + (e.stack || '')); }
@@ -234,12 +236,20 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     def log_message(self, *a):
         pass
 
+    def copyfile(self, source, outputfile):
+        try:
+            super().copyfile(source, outputfile)
+        except (BrokenPipeError, ConnectionResetError):
+            pass        # the browser stopped reading (the home page's intro video): nothing the page did wrong
+
     def do_GET(self):
-        m = re.match(r"^/__probe__\.html\?w=(\d+)&h=(\d+)&mode=(\w+)&hash=(\w*)(?:&new=(\w+)&same=(\w+))?$", self.path)
+        m = re.match(r"^/__probe__\.html\?w=(\d+)&h=(\d+)&mode=(\w+)&hash=([\w-]*)&page=(en|cn)"
+                     r"(?:&new=(\w+)&same=(\w+))?$", self.path)
         if m:
             w, h, mode, hsh = int(m.group(1)), int(m.group(2)), m.group(3), m.group(4)
             body = (HARNESS % {"w": w, "h": h, "mode": json.dumps(mode), "hash": ("#" + hsh) if hsh else "",
-                               "new": m.group(5) or "none", "same": m.group(6) or "none"}).encode()
+                               "page": "/cn/" if m.group(5) == "cn" else "/",
+                               "new": m.group(6) or "none", "same": m.group(7) or "none"}).encode()
             self.send_response(200)
             self.send_header("Content-Type", "text/html; charset=utf-8")
             self.send_header("Content-Length", str(len(body)))
@@ -277,19 +287,19 @@ def new_badge_run(binary, lib, prof):
         if x["id"] in (newer, same):
             x["added_at"] = today
     with tempfile.TemporaryDirectory() as td:
-        root = Path(td)
+        root = Path(td)                     # the whole site by link, with its languages/library.json replaced
+        for e in SITE.iterdir():
+            if e.name not in ("languages", ".git"):
+                os.symlink(e, root / e.name)
         (root / "languages").mkdir()
-        for f in ("index.html", "library.css", "library.js"):
-            shutil.copy(SITE / "languages" / f, root / "languages" / f)
-        for f in ("logo-160.png", "favicon.png"):
-            if (SITE / f).exists():
-                shutil.copy(SITE / f, root / f)
-        os.symlink(SITE / "languages" / "media", root / "languages" / "media")
+        for e in (SITE / "languages").iterdir():
+            if e.name != "library.json":
+                os.symlink(e, root / "languages" / e.name)
         (root / "languages" / "library.json").write_text(json.dumps(fx), encoding="utf-8")
         srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(Handler, directory=str(root)))
         threading.Thread(target=srv.serve_forever, daemon=True).start()
         try:
-            r = chrome(binary, "http://127.0.0.1:{}/__probe__.html?w=1400&h=1000&mode=new&hash=&new={}&same={}".format(
+            r = chrome(binary, "http://127.0.0.1:{}/__probe__.html?w=1400&h=1000&mode=new&hash=&page=en&new={}&same={}".format(
                 srv.server_address[1], newer, same), 1440, 1100, dump=True, profile=prof)
         finally:
             srv.shutdown()
@@ -329,27 +339,29 @@ def main(argv=None):
     base = "http://127.0.0.1:{}".format(srv.server_address[1])
     try:
         with tempfile.TemporaryDirectory() as prof:
-            for w in (1400, 390):
-                r = chrome(binary, "{}/__probe__.html?w={}&h=1000&mode=check&hash=".format(base, w), max(w, 520) + 40,
-                           1100, dump=True, profile=prof)
+            for page, w in (("en", 1400), ("en", 390), ("cn", 1400), ("cn", 390)):
+                r = chrome(binary, "{}/__probe__.html?w={}&h=1000&mode=check&hash=&page={}".format(base, w, page),
+                           max(w, 520) + 40, 1100, dump=True, profile=prof)
                 m = re.search(r'<pre id="out">(.*?)</pre>', r.stdout, re.S)
                 raw = m.group(1).replace("&quot;", '"').replace("&lt;", "<").replace("&gt;", ">").replace("&amp;", "&") if m else ""
+                tag = "/{} {}px".format("cn/" if page == "cn" else "", w)
                 if not raw:
-                    fails.append("{}px: the harness never reported (Chrome exit {}): {}".format(w, r.returncode, r.stderr[-300:]))
+                    fails.append("{}: the harness never reported (Chrome exit {}): {}".format(tag, r.returncode, r.stderr[-300:]))
                     continue
                 res = json.loads(raw)
-                fails += ["{}px: {}".format(w, f) for f in res["fails"]]
+                fails += ["{}: {}".format(tag, f) for f in res["fails"]]
                 for n in res.get("notes", []):
-                    print("note {}px: {}".format(w, n))
-                fails += ["{}px: console: {}".format(w, e) for e in console_errors(r.stderr)]
+                    print("note {}: {}".format(tag, n))
+                fails += ["{}: console: {}".format(tag, e) for e in console_errors(r.stderr)]
             fails += new_badge_run(binary, lib, prof)
             if a.shots:
                 out = Path(a.shots).expanduser()
                 out.mkdir(parents=True, exist_ok=True)
-                for w, h, hsh, name in ((1400, 2600, "", "page-1400.png"), (390, 3200, "", "page-390.png"),
-                                        (1400, 1300, "ink", "dialog-1400.png"), (390, 1600, "ink", "dialog-390.png")):
+                for page, w, h, hsh, name in (("en", 1400, 2600, "", "section-1400.png"), ("cn", 1400, 2600, "", "section-cn-1400.png"),
+                                              ("en", 390, 3200, "", "section-390.png"), ("en", 1400, 1300, "vl-ink", "dialog-1400.png"),
+                                              ("cn", 390, 1600, "vl-ink", "dialog-cn-390.png")):
                     shot = out / name
-                    chrome(binary, "{}/__probe__.html?w={}&h={}&mode=shot&hash={}".format(base, w, h, hsh),
+                    chrome(binary, "{}/__probe__.html?w={}&h={}&mode=shot&hash={}&page={}".format(base, w, h, hsh, page),
                            max(w, 520), h, shot=shot, profile=prof)
                     print(("wrote " if shot.exists() else "FAILED to write ") + str(shot))
     finally:
@@ -357,7 +369,7 @@ def main(argv=None):
     for f in fails:
         print("FAIL " + f)
     print("[check_languages_page] {}".format("FAILED: {} problem(s)".format(len(fails)) if fails else
-                                              "ok — {} languages, 1400px and 390px".format(len(lib.get("languages", [])))))
+                                              "ok — {} languages, / and /cn/, 1400px and 390px".format(len(lib.get("languages", [])))))
     return 1 if fails else 0
 
 
